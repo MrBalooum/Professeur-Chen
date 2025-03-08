@@ -1,1 +1,3 @@
-web: config.yml
+discord
+psycopg2
+requests
