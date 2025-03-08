@@ -28,6 +28,13 @@ conn = psycopg2.connect(DATABASE_URL, sslmode="require", client_encoding="UTF8")
 cursor = conn.cursor()
 
 conn.commit()
+TOKEN = os.getenv("TOKEN")
+
+if not TOKEN:
+    print("❌ Erreur: La variable d'environnement TOKEN est introuvable ou vide.")
+    exit(1)
+
+print(f"✅ [DEBUG] TOKEN chargé correctement : {TOKEN[:5]}... (Masqué)")
 
 @bot.event
 async def on_ready():
