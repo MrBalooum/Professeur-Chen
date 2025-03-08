@@ -1,0 +1,7 @@
+discord
+sqlite3
+asyncio
+python-dotenv
+psycopg2-binary
+openai
+
