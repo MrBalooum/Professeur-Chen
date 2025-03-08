@@ -48,5 +48,7 @@ def save_database():
     conn.commit()
     print("📂 Base de données sauvegardée avec succès.")
 
+print(f"[DEBUG] Token récupéré : {TOKEN is not None}")
+
 if __name__ == "__main__":
     bot.run(TOKEN)
