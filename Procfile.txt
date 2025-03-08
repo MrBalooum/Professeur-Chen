@@ -1,3 +1,1 @@
-discord
-psycopg2
-requests
+worker: python bot.py
