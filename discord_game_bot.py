@@ -63,7 +63,7 @@ import json
 from discord import app_commands
 import asyncio  # Ajout pour la suppression après un délai
 
-TOKEN = "TON_TOKEN_ICI"
+TOKEN = os.getenv("TOKEN")
 CHANNEL_ID = 1347496375390048349  # ID du salon autorisé
 DELETE_DELAY = 60  # Temps en secondes avant suppression du message
 
