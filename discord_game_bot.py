@@ -77,17 +77,18 @@ async def pokemon(interaction: discord.Interaction, nom: str):
         height = data["height"] / 10  # mètres
         generation = species_data["generation"]["name"].replace("generation-", "").upper()
 
-        # 📌 Talents en français avec indication du type (Normal / Caché)
+        # 📌 Talents avec description et type (Normal / Caché)
         abilities = []
         for a in data["abilities"]:
             ability_url = a["ability"]["url"]
             ability_data = requests.get(ability_url).json()
             ability_fr = next((entry["name"] for entry in ability_data["names"] if entry["language"]["name"] == "fr"), a["ability"]["name"])
+            description_fr = next((entry["flavor_text"] for entry in ability_data["flavor_text_entries"] if entry["language"]["name"] == "fr"), "Aucune description.")
             is_hidden = "(Caché)" if a["is_hidden"] else "(Normal)"
-            abilities.append(f"▫️ {ability_fr} {is_hidden}")
+            abilities.append(f"▫️ **{ability_fr}** {is_hidden} : {description_fr}")
         abilities_text = "\n".join(abilities)
 
-        # 📌 Évolutions avec niveaux en français
+        # 📌 Évolutions avec niveaux format liste
         evolution_chain_url = species_data["evolution_chain"]["url"]
         evolution_response = requests.get(evolution_chain_url)
         evolution_data = evolution_response.json()
@@ -105,12 +106,12 @@ async def pokemon(interaction: discord.Interaction, nom: str):
                         if "min_level" in condition and condition["min_level"]:
                             level_up = f" ({condition['min_level']})"
                             break
-            evolution_chain.append(f"{name_fr}{level_up}")
+            evolution_chain.append(f"- {name_fr}{level_up}")
             evo_stage = evo_stage["evolves_to"][0] if evo_stage["evolves_to"] else None
 
-        evolution_text = " ➡️ ".join(evolution_chain)
+        evolution_text = "\n".join(evolution_chain)
 
-        # 📌 Attaques apprises par niveau
+        # 📌 Attaques apprises par niveau (triées par niveau)
         moves = []
         for move in data["moves"]:
             for version in move["version_group_details"]:
@@ -119,8 +120,9 @@ async def pokemon(interaction: discord.Interaction, nom: str):
                     move_data = requests.get(move_url).json()
                     move_name_fr = next((entry["name"] for entry in move_data["names"] if entry["language"]["name"] == "fr"), move["move"]["name"])
                     level_learned = version["level_learned_at"]
-                    moves.append(f"▫️ {move_name_fr} (Niveau {level_learned})")
-        moves_text = "\n".join(moves[:10]) if moves else "Aucune attaque trouvée."
+                    moves.append((level_learned, move_name_fr))
+        moves.sort()
+        moves_text = "\n".join([f"▫️ {name} (Niveau {lvl})" for lvl, name in moves[:10]]) if moves else "Aucune attaque trouvée."
 
         # 📌 Création de l'embed
         embed = discord.Embed(title=f"📜 {nom.capitalize()} (Génération {generation})", color=0xFFD700)
