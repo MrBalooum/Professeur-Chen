@@ -71,6 +71,20 @@ intents = discord.Intents.default()
 bot = discord.Client(intents=intents)
 tree = app_commands.CommandTree(bot)
 
+# 📌 Vérifier si le fichier existe, sinon le télécharger
+if not os.path.exists("pokemon_names.json"):
+    print("📥 Téléchargement de la liste des Pokémon...")
+    response = requests.get("https://pokeapi.co/api/v2/pokemon?limit=1000")
+    if response.status_code == 200:
+        data = response.json()
+        pokemon_list = [p["name"] for p in data["results"]]
+        with open("pokemon_names.json", "w", encoding="utf-8") as f:
+            json.dump(pokemon_list, f, ensure_ascii=False, indent=4)
+        print("✅ Liste des Pokémon téléchargée avec succès !")
+    else:
+        print("❌ Erreur : Impossible de récupérer la liste des Pokémon.")
+        pokemon_list = []
+
 # Charger la liste des Pokémon pour l'auto-complétion
 with open("pokemon_names.json", "r", encoding="utf-8") as f:
     POKEMON_LIST = json.load(f)
