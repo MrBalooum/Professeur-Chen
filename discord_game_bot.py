@@ -41,7 +41,7 @@ else:
     with open("pokemon_names.json", "r", encoding="utf-8") as f:
         POKEMON_LIST = json.load(f)
 
-# 📌 Commande slash /pokemon avec auto-suppression
+# 📌 Commande /pokemon améliorée
 @bot.tree.command(name="pokemon", description="Obtiens toutes les infos sur un Pokémon")
 async def pokemon(interaction: discord.Interaction, nom: str):
     if interaction.channel_id != CHANNEL_ID:
@@ -67,16 +67,64 @@ async def pokemon(interaction: discord.Interaction, nom: str):
         weight = data["weight"] / 10  # kg
         height = data["height"] / 10  # mètres
         description = next((entry["flavor_text"] for entry in species_data["flavor_text_entries"] if entry["language"]["name"] == "fr"), "Pas de description trouvée.")
+        generation = species_data["generation"]["name"].replace("generation-", "").upper()
+
+        # 📌 Statistiques de base
+        stats = "\n".join([f"**{s['stat']['name'].capitalize()}** : {s['base_stat']}" for s in data["stats"]])
+
+        # 📌 Talents spéciaux
+        abilities = ", ".join([a["ability"]["name"].replace("-", " ").capitalize() for a in data["abilities"]])
+
+        # 📌 Évolutions
+        evolution_chain_url = species_data["evolution_chain"]["url"]
+        evolution_response = requests.get(evolution_chain_url)
+        evolution_data = evolution_response.json()
+
+        evolution_chain = []
+        evo_stage = evolution_data["chain"]
+
+        while evo_stage:
+            evolution_chain.append(evo_stage["species"]["name"].capitalize())
+            evo_stage = evo_stage["evolves_to"][0] if evo_stage["evolves_to"] else None
+
+        evolution_text = " ➡️ ".join(evolution_chain)
+
+        # 📌 Attaques (triées par catégorie)
+        moves = {
+            "Physique": [],
+            "Spéciale": [],
+            "Statut": []
+        }
+        
+        for move in data["moves"]:
+            move_name = move["move"]["name"].replace("-", " ").capitalize()
+            move_url = move["move"]["url"]
+            move_response = requests.get(move_url)
+            
+            if move_response.status_code == 200:
+                move_data = move_response.json()
+                category = move_data["damage_class"]["name"]
+                if category == "physical":
+                    moves["Physique"].append(move_name)
+                elif category == "special":
+                    moves["Spéciale"].append(move_name)
+                else:
+                    moves["Statut"].append(move_name)
 
         # 📌 Création de l'embed
-        embed = discord.Embed(title=f"📜 {name}", color=0xFFD700)
+        embed = discord.Embed(title=f"📜 {name} (Génération {generation})", color=0xFFD700)
         embed.set_thumbnail(url=sprite)
         embed.set_image(url=official_art)
         embed.add_field(name="🌟 Type(s)", value=types, inline=True)
         embed.add_field(name="⚖️ Taille & Poids", value=f"{height}m / {weight}kg", inline=True)
         embed.add_field(name="📖 Pokédex", value=description, inline=False)
+        embed.add_field(name="⭐ Talents", value=abilities, inline=True)
+        embed.add_field(name="🌀 Évolutions", value=evolution_text, inline=False)
+        embed.add_field(name="📊 Statistiques", value=stats, inline=False)
+        embed.add_field(name="⚔️ Attaques Physiques", value="\n".join(moves["Physique"][:5]) + "\n...", inline=False)
+        embed.add_field(name="💥 Attaques Spéciales", value="\n".join(moves["Spéciale"][:5]) + "\n...", inline=False)
+        embed.add_field(name="🛡️ Attaques Statut", value="\n".join(moves["Statut"][:5]) + "\n...", inline=False)
 
-        # 📌 Envoi et suppression après 60s
         await interaction.response.send_message(embed=embed)
         await asyncio.sleep(DELETE_DELAY)
         await interaction.delete_original_response()
@@ -84,22 +132,10 @@ async def pokemon(interaction: discord.Interaction, nom: str):
     else:
         await interaction.response.send_message("❌ Pokémon non trouvé !", ephemeral=True)
 
-# 📌 Auto-complétion des noms de Pokémon
-@pokemon.autocomplete("nom")
-async def pokemon_autocomplete(interaction: discord.Interaction, current: str):
-    suggestions = [p for p in POKEMON_LIST if current.lower() in p.lower()]
-    return [discord.app_commands.Choice(name=p.capitalize(), value=p.lower()) for p in suggestions[:10]]
-
-# 📌 Événement de connexion du bot + Changer son statut
 @bot.event
 async def on_ready():
-    try:
-        await bot.tree.sync()
-        await bot.change_presence(activity=discord.Game(name="Pokémon Jaune"))  # 🔥 Le bot affiche "Joue à Pokémon Jaune"
-        print(f'✅ Connecté en tant que {bot.user} et commandes synchronisées !')
-    except Exception as e:
-        print(f"❌ Erreur de synchronisation des commandes : {e}")
+    await bot.change_presence(activity=discord.Game(name="Pokémon Jaune"))
+    await bot.tree.sync()
+    print(f'✅ Connecté en tant que {bot.user}')
 
-# 📌 Démarrer le bot
-if __name__ == "__main__":
-    bot.run(TOKEN)
+bot.run(TOKEN)
