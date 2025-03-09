@@ -44,6 +44,24 @@ TYPES_FR = {
     "rock": "Roche", "ghost": "Spectre", "dragon": "Dragon", "dark": "Ténèbres", "steel": "Acier", "fairy": "Fée"
 }
 
+# 📌 Déterminer les forces et faiblesses d’un type
+def get_type_relations(types):
+    damage_url = "https://pokeapi.co/api/v2/type/"
+
+    strong_against = set()
+    weak_against = set()
+
+    for t in types:
+        type_data = requests.get(f"{damage_url}{t}").json()
+        
+        for double_damage in type_data["damage_relations"]["double_damage_to"]:
+            strong_against.add(TYPES_FR.get(double_damage["name"], double_damage["name"]))
+        
+        for double_damage_from in type_data["damage_relations"]["double_damage_from"]:
+            weak_against.add(TYPES_FR.get(double_damage_from["name"], double_damage_from["name"]))
+
+    return ", ".join(strong_against) if strong_against else "Aucune", ", ".join(weak_against) if weak_against else "Aucune"
+
 # 📌 Commande /pokemon
 @bot.tree.command(name="pokemon", description="Obtiens toutes les infos sur un Pokémon")
 async def pokemon(interaction: discord.Interaction, nom: str):
@@ -72,7 +90,8 @@ async def pokemon(interaction: discord.Interaction, nom: str):
         # 📌 Infos générales
         sprite = data["sprites"]["front_default"]
         official_art = data["sprites"]["other"]["official-artwork"]["front_default"]
-        types = ", ".join([TYPES_FR.get(t["type"]["name"], t["type"]["name"]) for t in data["types"]])
+        types = [t["type"]["name"] for t in data["types"]]
+        translated_types = ", ".join([TYPES_FR.get(t, t) for t in types])
         weight = data["weight"] / 10  # kg
         height = data["height"] / 10  # mètres
         generation = species_data["generation"]["name"].replace("generation-", "").upper()
@@ -88,7 +107,10 @@ async def pokemon(interaction: discord.Interaction, nom: str):
             abilities.append(f"▫️ **{ability_fr}** {is_hidden} : {description_fr}")
         abilities_text = "\n".join(abilities)
 
-        # 📌 Évolutions avec niveaux format liste
+        # 📌 Forces et faiblesses
+        strong_against, weak_against = get_type_relations(types)
+
+        # 📌 Évolutions
         evolution_chain_url = species_data["evolution_chain"]["url"]
         evolution_response = requests.get(evolution_chain_url)
         evolution_data = evolution_response.json()
@@ -111,28 +133,16 @@ async def pokemon(interaction: discord.Interaction, nom: str):
 
         evolution_text = "\n".join(evolution_chain)
 
-        # 📌 Attaques apprises par niveau (triées par niveau)
-        moves = []
-        for move in data["moves"]:
-            for version in move["version_group_details"]:
-                if version["version_group"]["name"] == "scarlet-violet" and version["move_learn_method"]["name"] == "level-up":
-                    move_url = move["move"]["url"]
-                    move_data = requests.get(move_url).json()
-                    move_name_fr = next((entry["name"] for entry in move_data["names"] if entry["language"]["name"] == "fr"), move["move"]["name"])
-                    level_learned = version["level_learned_at"]
-                    moves.append((level_learned, move_name_fr))
-        moves.sort()
-        moves_text = "\n".join([f"▫️ {name} (Niveau {lvl})" for lvl, name in moves[:10]]) if moves else "Aucune attaque trouvée."
-
         # 📌 Création de l'embed
         embed = discord.Embed(title=f"📜 {nom.capitalize()} (Génération {generation})", color=0xFFD700)
         embed.set_thumbnail(url=sprite)
         embed.set_image(url=official_art)
-        embed.add_field(name="🌟 Type(s)", value=types, inline=True)
+        embed.add_field(name="🌟 Type(s)", value=translated_types, inline=True)
         embed.add_field(name="⚖️ Taille & Poids", value=f"{height}m / {weight}kg", inline=True)
+        embed.add_field(name="💪 Fort contre", value=strong_against, inline=True)
+        embed.add_field(name="⚠️ Faible contre", value=weak_against, inline=True)
         embed.add_field(name="⭐ Talents", value=abilities_text, inline=False)
         embed.add_field(name="🌀 Évolutions", value=evolution_text, inline=False)
-        embed.add_field(name="📜 Attaques apprises", value=moves_text, inline=False)
 
         await interaction.response.send_message(embed=embed)
         await asyncio.sleep(DELETE_DELAY)
