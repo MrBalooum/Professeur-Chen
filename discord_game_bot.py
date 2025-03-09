@@ -84,26 +84,10 @@ async def pokemon(interaction: discord.Interaction, nom: str):
             ability_url = a["ability"]["url"]
             ability_data = requests.get(ability_url).json()
             ability_fr = next((entry["name"] for entry in ability_data["names"] if entry["language"]["name"] == "fr"), a["ability"]["name"])
-            abilities.append(ability_fr)
-        abilities_text = ", ".join(abilities)
+            abilities.append(f"▫️ {ability_fr}")
+        abilities_text = "\n".join(abilities)
 
-        # 📌 Ratio de genre
-        gender_ratio = species_data["gender_rate"]
-        if gender_ratio == -1:
-            gender_text = "Asexué"
-        else:
-            male_chance = round((8 - gender_ratio) / 8 * 100)
-            female_chance = 100 - male_chance
-            gender_text = f"♂️ {male_chance}% / ♀️ {female_chance}%"
-
-        # 📌 Groupes d'œufs
-        egg_groups = ", ".join([egg["name"].capitalize() for egg in species_data["egg_groups"]])
-
-        # 📌 Taux de capture et bonheur
-        capture_rate = species_data["capture_rate"]
-        base_happiness = species_data["base_happiness"]
-
-        # 📌 Évolutions avec niveaux
+        # 📌 Évolutions avec niveaux en français
         evolution_chain_url = species_data["evolution_chain"]["url"]
         evolution_response = requests.get(evolution_chain_url)
         evolution_data = evolution_response.json()
@@ -111,17 +95,18 @@ async def pokemon(interaction: discord.Interaction, nom: str):
         evo_stage = evolution_data["chain"]
 
         while evo_stage:
-            species_name = evo_stage["species"]["name"].capitalize()
-            details = evo_stage["evolves_to"]
+            species_name = evo_stage["species"]["name"]
+            species_data = requests.get(f"https://pokeapi.co/api/v2/pokemon-species/{species_name}").json()
+            name_fr = next((entry["name"] for entry in species_data["names"] if entry["language"]["name"] == "fr"), species_name)
             level_up = ""
-            if details:
-                for evo in details:
+            if evo_stage["evolves_to"]:
+                for evo in evo_stage["evolves_to"]:
                     for condition in evo["evolution_details"]:
                         if "min_level" in condition and condition["min_level"]:
-                            level_up = f" (Niveau {condition['min_level']})"
+                            level_up = f" ({condition['min_level']})"
                             break
-            evolution_chain.append(f"{species_name}{level_up}")
-            evo_stage = details[0] if details else None
+            evolution_chain.append(f"{name_fr}{level_up}")
+            evo_stage = evo_stage["evolves_to"][0] if evo_stage["evolves_to"] else None
 
         evolution_text = " ➡️ ".join(evolution_chain)
 
@@ -132,20 +117,16 @@ async def pokemon(interaction: discord.Interaction, nom: str):
         embed.add_field(name="🌟 Type(s)", value=types, inline=True)
         embed.add_field(name="⚖️ Taille & Poids", value=f"{height}m / {weight}kg", inline=True)
         embed.add_field(name="📖 Pokédex", value=description, inline=False)
-        embed.add_field(name="⭐ Talents", value=abilities_text, inline=True)
-        embed.add_field(name="♂️♀️ Ratio de genre", value=gender_text, inline=True)
-        embed.add_field(name="🍃 Groupes d'œufs", value=egg_groups, inline=True)
-        embed.add_field(name="🎯 Taux de capture", value=f"{capture_rate}/255", inline=True)
-        embed.add_field(name="💖 Bonheur initial", value=f"{base_happiness}", inline=True)
+        embed.add_field(name="⭐ Talents", value=abilities_text, inline=False)
         embed.add_field(name="🌀 Évolutions", value=evolution_text, inline=False)
 
         await interaction.response.send_message(embed=embed)
         await asyncio.sleep(DELETE_DELAY)
         await interaction.delete_original_response()
 
-    except requests.exceptions.HTTPError as http_err:
+    except requests.exceptions.HTTPError:
         await interaction.response.send_message("❌ Erreur lors de la récupération des données.", ephemeral=True)
-    except Exception as e:
+    except Exception:
         await interaction.response.send_message("❌ Une erreur est survenue.", ephemeral=True)
 
 # 📌 Auto-complétion
