@@ -62,6 +62,31 @@ def get_type_relations(types):
 
     return ", ".join(strong_against) if strong_against else "Aucune", ", ".join(weak_against) if weak_against else "Aucune"
 
+# 📌 Récupérer la chaîne d'évolution avec niveaux
+def get_evolution_chain(evolution_url):
+    evolution_response = requests.get(evolution_url)
+    evolution_data = evolution_response.json()
+    evolution_chain = []
+    evo_stage = evolution_data["chain"]
+
+    while evo_stage:
+        species_name = evo_stage["species"]["name"]
+        species_data = requests.get(f"https://pokeapi.co/api/v2/pokemon-species/{species_name}").json()
+        name_fr = next((entry["name"] for entry in species_data["names"] if entry["language"]["name"] == "fr"), species_name)
+
+        level_up = ""
+        if evo_stage["evolves_to"]:
+            for evo in evo_stage["evolves_to"]:
+                for condition in evo["evolution_details"]:
+                    if "min_level" in condition and condition["min_level"]:
+                        level_up = f" ({condition['min_level']})"
+                        break
+
+        evolution_chain.append(f"- {name_fr}{level_up}")
+        evo_stage = evo_stage["evolves_to"][0] if evo_stage["evolves_to"] else None
+
+    return "\n".join(evolution_chain)
+
 # 📌 Commande /pokemon
 @bot.tree.command(name="pokemon", description="Obtiens toutes les infos sur un Pokémon")
 async def pokemon(interaction: discord.Interaction, nom: str):
@@ -110,28 +135,8 @@ async def pokemon(interaction: discord.Interaction, nom: str):
         # 📌 Forces et faiblesses
         strong_against, weak_against = get_type_relations(types)
 
-        # 📌 Évolutions
-        evolution_chain_url = species_data["evolution_chain"]["url"]
-        evolution_response = requests.get(evolution_chain_url)
-        evolution_data = evolution_response.json()
-        evolution_chain = []
-        evo_stage = evolution_data["chain"]
-
-        while evo_stage:
-            species_name = evo_stage["species"]["name"]
-            species_data = requests.get(f"https://pokeapi.co/api/v2/pokemon-species/{species_name}").json()
-            name_fr = next((entry["name"] for entry in species_data["names"] if entry["language"]["name"] == "fr"), species_name)
-            level_up = ""
-            if evo_stage["evolves_to"]:
-                for evo in evo_stage["evolves_to"]:
-                    for condition in evo["evolution_details"]:
-                        if "min_level" in condition and condition["min_level"]:
-                            level_up = f" ({condition['min_level']})"
-                            break
-            evolution_chain.append(f"- {name_fr}{level_up}")
-            evo_stage = evo_stage["evolves_to"][0] if evo_stage["evolves_to"] else None
-
-        evolution_text = "\n".join(evolution_chain)
+        # 📌 Évolutions avec niveaux
+        evolution_text = get_evolution_chain(species_data["evolution_chain"]["url"])
 
         # 📌 Création de l'embed avec mise en page demandée
         embed = discord.Embed(title=f"📜 {nom.capitalize()} (Génération {generation})", color=0xFFD700)
