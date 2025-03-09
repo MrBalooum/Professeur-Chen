@@ -76,15 +76,15 @@ async def pokemon(interaction: discord.Interaction, nom: str):
         weight = data["weight"] / 10  # kg
         height = data["height"] / 10  # mètres
         generation = species_data["generation"]["name"].replace("generation-", "").upper()
-        description = next((entry["flavor_text"] for entry in species_data["flavor_text_entries"] if entry["language"]["name"] == "fr"), "Pas de description trouvée.")
 
-        # 📌 Talents en français
+        # 📌 Talents en français avec indication du type (Normal / Caché)
         abilities = []
         for a in data["abilities"]:
             ability_url = a["ability"]["url"]
             ability_data = requests.get(ability_url).json()
             ability_fr = next((entry["name"] for entry in ability_data["names"] if entry["language"]["name"] == "fr"), a["ability"]["name"])
-            abilities.append(f"▫️ {ability_fr}")
+            is_hidden = "(Caché)" if a["is_hidden"] else "(Normal)"
+            abilities.append(f"▫️ {ability_fr} {is_hidden}")
         abilities_text = "\n".join(abilities)
 
         # 📌 Évolutions avec niveaux en français
@@ -110,15 +110,27 @@ async def pokemon(interaction: discord.Interaction, nom: str):
 
         evolution_text = " ➡️ ".join(evolution_chain)
 
+        # 📌 Attaques apprises par niveau
+        moves = []
+        for move in data["moves"]:
+            for version in move["version_group_details"]:
+                if version["version_group"]["name"] == "scarlet-violet" and version["move_learn_method"]["name"] == "level-up":
+                    move_url = move["move"]["url"]
+                    move_data = requests.get(move_url).json()
+                    move_name_fr = next((entry["name"] for entry in move_data["names"] if entry["language"]["name"] == "fr"), move["move"]["name"])
+                    level_learned = version["level_learned_at"]
+                    moves.append(f"▫️ {move_name_fr} (Niveau {level_learned})")
+        moves_text = "\n".join(moves[:10]) if moves else "Aucune attaque trouvée."
+
         # 📌 Création de l'embed
         embed = discord.Embed(title=f"📜 {nom.capitalize()} (Génération {generation})", color=0xFFD700)
         embed.set_thumbnail(url=sprite)
         embed.set_image(url=official_art)
         embed.add_field(name="🌟 Type(s)", value=types, inline=True)
         embed.add_field(name="⚖️ Taille & Poids", value=f"{height}m / {weight}kg", inline=True)
-        embed.add_field(name="📖 Pokédex", value=description, inline=False)
         embed.add_field(name="⭐ Talents", value=abilities_text, inline=False)
         embed.add_field(name="🌀 Évolutions", value=evolution_text, inline=False)
+        embed.add_field(name="📜 Attaques apprises", value=moves_text, inline=False)
 
         await interaction.response.send_message(embed=embed)
         await asyncio.sleep(DELETE_DELAY)
