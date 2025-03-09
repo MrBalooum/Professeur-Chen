@@ -133,14 +133,15 @@ async def pokemon(interaction: discord.Interaction, nom: str):
 
         evolution_text = "\n".join(evolution_chain)
 
-        # 📌 Création de l'embed
+        # 📌 Création de l'embed avec mise en page demandée
         embed = discord.Embed(title=f"📜 {nom.capitalize()} (Génération {generation})", color=0xFFD700)
         embed.set_thumbnail(url=sprite)
         embed.set_image(url=official_art)
-        embed.add_field(name="🌟 Type(s)", value=translated_types, inline=True)
-        embed.add_field(name="⚖️ Taille & Poids", value=f"{height}m / {weight}kg", inline=True)
-        embed.add_field(name="💪 Fort contre", value=strong_against, inline=True)
-        embed.add_field(name="⚠️ Faible contre", value=weak_against, inline=True)
+
+        embed.add_field(name="⚖️ Taille & Poids", value=f"{height}m / {weight}kg", inline=False)
+        embed.add_field(name="🌟 Type", value=translated_types, inline=False)
+        embed.add_field(name="💪 Fort contre", value=strong_against, inline=False)
+        embed.add_field(name="⚠️ Faible contre", value=weak_against, inline=False)
         embed.add_field(name="⭐ Talents", value=abilities_text, inline=False)
         embed.add_field(name="🌀 Évolutions", value=evolution_text, inline=False)
 
