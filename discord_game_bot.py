@@ -264,21 +264,281 @@ BOOSTERS = {
             "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/216.png",
             "allowed_positions" : [1, 2, 3, 4] 
         },
+
+        ############################################
+        
+        "15": {
+            "drop_rate": 0.02432,
+            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/15.png",
+            "allowed_positions" : [5, 6]
+        },
+         "43": {
+            "drop_rate": 0.02432,
+            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/43.png",
+            "allowed_positions" : [5, 6]
+        },
          "52": {
             "drop_rate": 0.02432,
             "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/52.png",
             "allowed_positions" : [5, 6]
         },
+         "54": {
+            "drop_rate": 0.02432,
+            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/54.png",
+            "allowed_positions" : [5, 6]
+        },
+         "58": {
+            "drop_rate": 0.02432,
+            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/58.png",
+            "allowed_positions" : [5, 6]
+        },
+         "65": {
+            "drop_rate": 0.02432,
+            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/65.png",
+            "allowed_positions" : [5, 6]
+        },
+         "71": {
+            "drop_rate": 0.02432,
+            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/71.png",
+            "allowed_positions" : [5, 6]
+        },
+         "73": {
+            "drop_rate": 0.02432,
+            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/73.png",
+            "allowed_positions" : [5, 6]
+        },
+         "81": {
+            "drop_rate": 0.02432,
+            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/81.png",
+            "allowed_positions" : [5, 6]
+        },
+         "91": {
+            "drop_rate": 0.02432,
+            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/91.png",
+            "allowed_positions" : [5, 6]
+        },
+         "93": {
+            "drop_rate": 0.02432,
+            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/93.png",
+            "allowed_positions" : [5, 6]
+        },
+         "100": {
+            "drop_rate": 0.02432,
+            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/100.png",
+            "allowed_positions" : [5, 6]
+        },
+         "106": {
+            "drop_rate": 0.02432,
+            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/106.png",
+            "allowed_positions" : [5, 6]
+        },
+         "112": {
+            "drop_rate": 0.02432,
+            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/112.png",
+            "allowed_positions" : [5, 6]
+        },
+         "114": {
+            "drop_rate": 0.02432,
+            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/114.png",
+            "allowed_positions" : [5, 6]
+        },
+         "119": {
+            "drop_rate": 0.02432,
+            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/119.png",
+            "allowed_positions" : [5, 6]
+        },
+         "136": {
+            "drop_rate": 0.02432,
+            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/136.png",
+            "allowed_positions" : [5, 6]
+        },
+         "138": {
+            "drop_rate": 0.02432,
+            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/138.png",
+            "allowed_positions" : [5, 6]
+        },
+         "140": {
+            "drop_rate": 0.02432,
+            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/140.png",
+            "allowed_positions" : [5, 6]
+        },
+         "148": {
+            "drop_rate": 0.02432,
+            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/148.png",
+            "allowed_positions" : [5, 6]
+        },
+         "150": {
+            "drop_rate": 0.02432,
+            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/150.png",
+            "allowed_positions" : [5, 6]
+        },
+         "161": {
+            "drop_rate": 0.02432,
+            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/161.png",
+            "allowed_positions" : [5, 6]
+        },
+         "163": {
+            "drop_rate": 0.02432,
+            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/163.png",
+            "allowed_positions" : [5, 6]
+        },
+         "165": {
+            "drop_rate": 0.02432,
+            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/165.png",
+            "allowed_positions" : [5, 6]
+        },
+         "167": {
+            "drop_rate": 0.02432,
+            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/167.png",
+            "allowed_positions" : [5, 6]
+        },
+         "170": {
+            "drop_rate": 0.02432,
+            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/170.png",
+            "allowed_positions" : [5, 6]
+        },
+         "180": {
+            "drop_rate": 0.02432,
+            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/180.png",
+            "allowed_positions" : [5, 6]
+        },
+         "200": {
+            "drop_rate": 0.02432,
+            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/200.png",
+            "allowed_positions" : [5, 6]
+        },
+         "202": {
+            "drop_rate": 0.02432,
+            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/202.png",
+            "allowed_positions" : [5, 6]
+        },
+         "213": {
+            "drop_rate": 0.02432,
+            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/213.png",
+            "allowed_positions" : [5, 6]
+        },
+         "220": {
+            "drop_rate": 0.02432,
+            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/220.png",
+            "allowed_positions" : [5, 6]
+        },
+         "224": {
+            "drop_rate": 0.02432,
+            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/224.png",
+            "allowed_positions" : [5, 6]
+        },
+         "226": {
+            "drop_rate": 0.02432,
+            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/226.png",
+            "allowed_positions" : [5, 6]
+        },
+        ############################################
+        
          "40": {
             "drop_rate": 0.00357,
             "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/40.png",
             "allowed_positions" : [5, 6]
         },
+         "55": {
+            "drop_rate": 0.00357,
+            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/55.png",
+            "allowed_positions" : [5, 6]
+        },
+         "82": {
+            "drop_rate": 0.00357,
+            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/82.png",
+            "allowed_positions" : [5, 6]
+        },
+         "98": {
+            "drop_rate": 0.00357,
+            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/98.png",
+            "allowed_positions" : [5, 6]
+        },
+         "102": {
+            "drop_rate": 0.00357,
+            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/102.png",
+            "allowed_positions" : [5, 6]
+        },
+         "149": {
+            "drop_rate": 0.00357,
+            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/149.png",
+            "allowed_positions" : [5, 6]
+        },
+         "169": {
+            "drop_rate": 0.00357,
+            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/169.png",
+            "allowed_positions" : [5, 6]
+        },
+         "171": {
+            "drop_rate": 0.00357,
+            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/171.png",
+            "allowed_positions" : [5, 6]
+        },
+        
+        ############################################
          "41": {
             "drop_rate": 0.00333,
             "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/41.png",
             "allowed_positions" : [5, 6]
-        }     
+        }, 
+         "56": {
+            "drop_rate": 0.00333,
+            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/56.png",
+            "allowed_positions" : [5, 6]
+        },
+         "96": {
+            "drop_rate": 0.00333,
+            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/96.png",
+            "allowed_positions" : [5, 6]
+        },
+        ############################################
+        
+        "232": {
+            "drop_rate": 0.00321,
+            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/232.png",
+            "allowed_positions" : [5, 6]
+        },  
+         "233": {
+            "drop_rate": 0.00321,
+            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/233.png",
+            "allowed_positions" : [5, 6]
+        }, 
+         "235": {
+            "drop_rate": 0.00321,
+            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/235.png",
+            "allowed_positions" : [5, 6]
+        }, 
+         "238": {
+            "drop_rate": 0.00321,
+            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/238.png",
+            "allowed_positions" : [5, 6]
+        },
+         "240": {
+            "drop_rate": 0.00321,
+            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/240.png",
+            "allowed_positions" : [5, 6]
+        }, 
+         "241": {
+            "drop_rate": 0.00321,
+            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/241.png",
+            "allowed_positions" : [5, 6]
+        }, 
+         "248": {
+            "drop_rate": 0.00321,
+            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/248.png",
+            "allowed_positions" : [5, 6]
+        },  
+        ############################################
+         "254": {
+            "drop_rate": 0.0005,
+            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/254.png",
+            "allowed_positions" : [6]
+        },  
+         "260": {
+            "drop_rate": 0.0005,
+            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/260.png",
+            "allowed_positions" : [6]
+        },  
     },
     # Ajouter d'autres boosters ici (Mewtwo, Palkia, Dialga, Mew)
 }
