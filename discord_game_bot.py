@@ -1,4 +1,4 @@
-import discord
+fimport discord
 from discord.ext import commands
 import asyncio
 import os
@@ -502,8 +502,7 @@ async def booster(interaction: discord.Interaction, nom: str):
     card_data = cards[card_name]  # Récupérer les données de la carte
     embed = discord.Embed(title=f"🎴 Carte 1/6", color=0xFFD700)
     embed.set_image(url=card_data["image_url"])  # Afficher l'image de la carte
-    embed.add_field(name="Nom", value=card_name.capitalize(), inline=False)
-
+    
     # Ajouter les boutons de navigation
     view = BoosterView(selected_cards)
     await interaction.response.send_message(embed=embed, view=view)
