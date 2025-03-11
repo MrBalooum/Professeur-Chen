@@ -219,7 +219,6 @@ async def booster(interaction: discord.Interaction, nom: str):
 
     # 📌 Création de l'embed pour afficher la première carte
     card_name = selected_cards[0]
-    card_data = cards[card_name]
     embed = discord.Embed(title=f"🎴 Carte 1/10", color=0xFFD700)
     embed.set_image(url=card_data["image_url"])  # Afficher l'image de la carte
     embed.add_field(name="Nom", value=card_name.capitalize(), inline=False)
