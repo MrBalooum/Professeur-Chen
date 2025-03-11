@@ -206,6 +206,8 @@ class BoosterView(discord.ui.View):
         embed.add_field(name="Nom", value=card_name.capitalize(), inline=False)
         await interaction.response.edit_message(embed=embed, view=self)
 
+python
+Copy
 # 📌 Commande /booster
 @bot.tree.command(name="booster", description="Ouvre un booster de cartes Pokémon")
 async def booster(interaction: discord.Interaction, nom: str):
@@ -221,12 +223,37 @@ async def booster(interaction: discord.Interaction, nom: str):
     card_name = selected_cards[0]
     card_data = cards[card_name]
     embed = discord.Embed(title=f"🎴 Carte 1/10", color=0xFFD700)
-    embed.set_image(url=card_data["image_url"])
+    embed.set_image(url=card_data["image_url"])  # Afficher l'image de la carte
     embed.add_field(name="Nom", value=card_name.capitalize(), inline=False)
 
     # 📌 Ajouter les boutons de navigation
     view = BoosterView(selected_cards)
     await interaction.response.send_message(embed=embed, view=view)
+
+# 📌 Classe pour gérer les boutons de navigation
+class BoosterView(discord.ui.View):
+    def __init__(self, cards, current_index=0):
+        super().__init__()
+        self.cards = cards
+        self.current_index = current_index
+
+    @discord.ui.button(label="Précédent", style=discord.ButtonStyle.primary)
+    async def previous(self, interaction: discord.Interaction, button: discord.ui.Button):
+        self.current_index = (self.current_index - 1) % len(self.cards)
+        await self.update_embed(interaction)
+
+    @discord.ui.button(label="Suivant", style=discord.ButtonStyle.primary)
+    async def next(self, interaction: discord.Interaction, button: discord.ui.Button):
+        self.current_index = (self.current_index + 1) % len(self.cards)
+        await self.update_embed(interaction)
+
+    async def update_embed(self, interaction: discord.Interaction):
+        card_name = self.cards[self.current_index]
+        card_data = BOOSTERS["Pikachu"][card_name]  # Remplacez "Pikachu" par le booster sélectionné
+        embed = discord.Embed(title=f"🎴 Carte {self.current_index + 1}/{len(self.cards)}", color=0xFFD700)
+        embed.set_image(url=card_data["image_url"])  # Afficher l'image de la carte
+        embed.add_field(name="Nom", value=card_name.capitalize(), inline=False)
+        await interaction.response.edit_message(embed=embed, view=self)
 
 # 📌 Auto-complétion pour la commande /booster
 @booster.autocomplete("nom")
