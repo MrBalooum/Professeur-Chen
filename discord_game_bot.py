@@ -8,7 +8,7 @@ import random
 
 # 🔧 Configuration du bot
 TOKEN = os.getenv("TOKEN")
-CHANNEL_ID = 1347496375390048349  # ID du salon autorisé
+CHANNEL_ID = 1347496375390048349  # ID du salon autorisé pour /pokemon
 DELETE_DELAY = 60  # Suppression après 60 secondes
 POKEMON_LIST_FILE = "pokemon_names_fr.json"
 
@@ -181,34 +181,52 @@ async def pokemon_autocomplete(interaction: discord.Interaction, current: str):
     suggestions = [name for name in POKEMON_LIST.keys() if current.lower() in name.lower()]
     return [discord.app_commands.Choice(name=p, value=p) for p in suggestions[:10]]
 
+# 📌 Classe pour gérer les boutons de navigation
+class BoosterView(discord.ui.View):
+    def __init__(self, cards, current_index=0):
+        super().__init__()
+        self.cards = cards
+        self.current_index = current_index
+
+    @discord.ui.button(label="Précédent", style=discord.ButtonStyle.primary)
+    async def previous(self, interaction: discord.Interaction, button: discord.ui.Button):
+        self.current_index = (self.current_index - 1) % len(self.cards)
+        await self.update_embed(interaction)
+
+    @discord.ui.button(label="Suivant", style=discord.ButtonStyle.primary)
+    async def next(self, interaction: discord.Interaction, button: discord.ui.Button):
+        self.current_index = (self.current_index + 1) % len(self.cards)
+        await self.update_embed(interaction)
+
+    async def update_embed(self, interaction: discord.Interaction):
+        card_name = self.cards[self.current_index]
+        card_data = BOOSTERS["Pikachu"][card_name]  # Remplacez "Pikachu" par le booster sélectionné
+        embed = discord.Embed(title=f"🎴 Carte {self.current_index + 1}/{len(self.cards)}", color=0xFFD700)
+        embed.set_image(url=card_data["image_url"])
+        embed.add_field(name="Nom", value=card_name.capitalize(), inline=False)
+        await interaction.response.edit_message(embed=embed, view=self)
+
 # 📌 Commande /booster
 @bot.tree.command(name="booster", description="Ouvre un booster de cartes Pokémon")
 async def booster(interaction: discord.Interaction, nom: str):
-    if interaction.channel_id != CHANNEL_ID:
-        await interaction.response.send_message("❌ Commande interdite ici !", ephemeral=True)
-        return
-
     if nom not in BOOSTERS:
         await interaction.response.send_message("❌ Booster introuvable.", ephemeral=True)
         return
 
     # 📌 Ouvrir 10 cartes aléatoires en fonction des taux de drop
     cards = BOOSTERS[nom]
-    selected_cards = []
-    for _ in range(10):
-        card_name = random.choices(list(cards.keys()), weights=[card["drop_rate"] for card in cards.values()], k=1)[0]
-        selected_cards.append(card_name)
+    selected_cards = random.choices(list(cards.keys()), weights=[card["drop_rate"] for card in cards.values()], k=10)
 
-    # 📌 Création de l'embed pour afficher les cartes
-    embed = discord.Embed(title=f"🎴 Booster {nom}", color=0xFFD700)
-    for i, card_name in enumerate(selected_cards, start=1):
-        card_data = cards[card_name]
-        embed.add_field(name=f"Carte {i}", value=f"**{card_name.capitalize()}**", inline=False)
-        embed.set_image(url=card_data["image_url"])  # Utiliser set_image pour afficher l'image en grand
+    # 📌 Création de l'embed pour afficher la première carte
+    card_name = selected_cards[0]
+    card_data = cards[card_name]
+    embed = discord.Embed(title=f"🎴 Carte 1/10", color=0xFFD700)
+    embed.set_image(url=card_data["image_url"])
+    embed.add_field(name="Nom", value=card_name.capitalize(), inline=False)
 
-    await interaction.response.send_message(embed=embed)
-    await asyncio.sleep(DELETE_DELAY)
-    await interaction.delete_original_response()
+    # 📌 Ajouter les boutons de navigation
+    view = BoosterView(selected_cards)
+    await interaction.response.send_message(embed=embed, view=view)
 
 # 📌 Auto-complétion pour la commande /booster
 @booster.autocomplete("nom")
