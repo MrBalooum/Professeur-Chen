@@ -273,7 +273,6 @@ class BoosterView(discord.ui.View):
         card_data = BOOSTERS["Pikachu"][card_name]  # Remplacez "Pikachu" par le booster sélectionné
         embed = discord.Embed(title=f"🎴 Carte {self.current_index + 1}/{len(self.cards)}", color=0xFFD700)
         embed.set_image(url=card_data["image_url"])  # Afficher l'image de la carte
-        embed.add_field(name="Nom", value=card_name.capitalize(), inline=False)
         await interaction.response.edit_message(embed=embed, view=self)
 
 # 📌 Auto-complétion pour la commande /booster
