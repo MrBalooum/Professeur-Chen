@@ -49,6 +49,7 @@ BOOSTERS = {
          "chenipan_commun": {
             "drop_rate": 0.3,
             "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/chenipan_commun.png"
+        }     
     },
     # Ajouter d'autres boosters ici (Mewtwo, Palkia, Dialga, Mew)
 }
