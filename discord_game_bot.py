@@ -780,15 +780,6 @@ async def booster_autocomplete(interaction: discord.Interaction, current: str):
     suggestions = [name for name in BOOSTERS.keys() if current.lower() in name.lower()]
     return [discord.app_commands.Choice(name=p, value=p) for p in suggestions[:10]]
 
-# Auto-complétion pour la commande /search
-@search.autocomplete("card_name")
-async def search_autocomplete(interaction: discord.Interaction, current: str):
-    user_id = interaction.user.id
-    cursor.execute('SELECT card_name FROM user_collections WHERE user_id = ?', (user_id,))
-    user_cards = [row[0] for row in cursor.fetchall()]
-    suggestions = [name for name in user_cards if current.lower() in name.lower()]
-    return [discord.app_commands.Choice(name=p, value=p) for p in suggestions[:10]]
-
 class BoosterView(discord.ui.View):
     def __init__(self, cards):
         super().__init__()
@@ -863,25 +854,6 @@ async def collect(interaction: discord.Interaction):
     embed = discord.Embed(title=f"🎴 {initial_card.capitalize()}", color=0xFFD700)
     embed.set_image(url=card_data["image_url"])
     await interaction.response.send_message(embed=embed, view=view)
-
-# Commande /search
-@bot.tree.command(name="search", description="Rechercher une carte spécifique dans votre collection")
-async def search(interaction: discord.Interaction, card_name: str):
-    user_id = interaction.user.id
-    cursor.execute('SELECT card_name FROM user_collections WHERE user_id = ? AND card_name LIKE ?', (user_id, f"%{card_name}%"))
-    cards = [row[0] for row in cursor.fetchall()]
-
-    if not cards:
-        await interaction.response.send_message("Aucune carte trouvée dans votre collection.", ephemeral=True)
-        return
-
-    # Création de l'embed pour afficher les cartes trouvées
-    embed = discord.Embed(title=f"🎴 Résultats de Recherche pour '{card_name}'", color=0xFFD700)
-    for card in cards:
-        card_data = BOOSTERS["Pikachu"][card]  # Remplacez "Pikachu" par le booster sélectionné
-        embed.add_field(name=card.capitalize(), value=f"[Voir la Carte]({card_data['image_url']})", inline=False)
-
-    await interaction.response.send_message(embed=embed)
 
 # 📌 Événement de connexion du bot
 @bot.event
