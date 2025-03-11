@@ -32,7 +32,7 @@ BOOSTERS = {
         },
          "galopa_commun": {
             "drop_rate": 0.3,
-            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/galopa_commun.png"
+            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/galopa-commun.png"
         },
          "mysterbe_commun": {
             "drop_rate": 0.3,
@@ -46,9 +46,9 @@ BOOSTERS = {
             "drop_rate": 0.3,
             "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/cabriolaine_commun.png"
         },
-         "chenipan_commun": {
+         "salameche_commun": {
             "drop_rate": 0.3,
-            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/chenipan_commun.png"
+            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/salameche_commun.png"
         }     
     },
     # Ajouter d'autres boosters ici (Mewtwo, Palkia, Dialga, Mew)
