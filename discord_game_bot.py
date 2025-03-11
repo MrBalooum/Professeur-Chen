@@ -25,7 +25,7 @@ BOOSTERS = {
         "goupix_commun": {
             "drop_rate": 0.2,
             "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/goupix_commun.png"
-        }
+        },
          "ponyta_commun": {
             "drop_rate": 0.3,
             "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/ponyta_commun.png"
