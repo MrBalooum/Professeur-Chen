@@ -759,7 +759,7 @@ async def booster(interaction: discord.Interaction, nom: str):
     conn.commit()
 
     # Envoyer l'image du booster
-    booster_image_url = "URL_DE_VOTRE_IMAGE_DE_BOOSTER"  # Remplacez par l'URL de votre image de booster
+    booster_image_url = "https://github.com/MrBalooum/Professeur-Chen/blob/Pokemon-Card/booster_pikachu.png?raw=true"  # Remplacez par l'URL de votre image de booster
     booster_embed = discord.Embed(title="🎁 Booster Ouvert !", color=0xFFD700)
     booster_embed.set_image(url=booster_image_url)
     await interaction.response.send_message(embed=booster_embed)
