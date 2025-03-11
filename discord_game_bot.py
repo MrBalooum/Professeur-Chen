@@ -803,12 +803,14 @@ class BoosterView(discord.ui.View):
         self.add_item(self.next_button)
         await self.update_embed(interaction)
 
-    async def previous(self, interaction: discord.Interaction):
+     async def previous(self, interaction: discord.Interaction):
         self.current_index = (self.current_index - 1) % len(self.cards)
+        self.update_buttons()
         await self.update_embed(interaction)
 
     async def next(self, interaction: discord.Interaction):
         self.current_index = (self.current_index + 1) % len(self.cards)
+        self.update_buttons()
         await self.update_embed(interaction)
 
     async def update_embed(self, interaction: discord.Interaction):
