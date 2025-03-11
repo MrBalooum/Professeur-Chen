@@ -731,6 +731,7 @@ def sync_cards():
         cursor.execute('INSERT OR IGNORE INTO user_collections (user_id, card_name) VALUES (?, ?)', (user_id, card_name))
     conn.commit()
 
+# Commande /booster modifiée pour afficher une image de booster
 @bot.tree.command(name="booster", description="Ouvre un booster de cartes Pokémon")
 async def booster(interaction: discord.Interaction, nom: str):
     if nom not in BOOSTERS:
@@ -757,15 +758,21 @@ async def booster(interaction: discord.Interaction, nom: str):
         cursor.execute('INSERT OR IGNORE INTO user_collections (user_id, card_name) VALUES (?, ?)', (user_id, card_name))
     conn.commit()
 
+    # Envoyer l'image du booster
+    booster_image_url = "URL_DE_VOTRE_IMAGE_DE_BOOSTER"  # Remplacez par l'URL de votre image de booster
+    booster_embed = discord.Embed(title="🎁 Booster Ouvert !", color=0xFFD700)
+    booster_embed.set_image(url=booster_image_url)
+    await interaction.response.send_message(embed=booster_embed)
+
     # Création de l'embed pour afficher la première carte
     card_name = selected_cards[0]
     card_data = cards[card_name]  # Récupérer les données de la carte
     embed = discord.Embed(title=f"🎴 Carte 1/6", color=0xFFD700)
     embed.set_image(url=card_data["image_url"])  # Afficher l'image de la carte
-    
+
     # Ajouter les boutons de navigation
     view = BoosterView(selected_cards)
-    await interaction.response.send_message(embed=embed, view=view)
+    await interaction.followup.send(embed=embed, view=view)
 
 class BoosterView(discord.ui.View):
     def __init__(self, cards):
@@ -802,13 +809,7 @@ class BoosterView(discord.ui.View):
         await interaction.response.edit_message(embed=embed, view=self)
 
 
-# 📌 Auto-complétion pour la commande /booster
-@booster.autocomplete("nom")
-async def booster_autocomplete(interaction: discord.Interaction, current: str):
-    suggestions = [name for name in BOOSTERS.keys() if current.lower() in name.lower()]
-    return [discord.app_commands.Choice(name=p, value=p) for p in suggestions[:10]]
-
-# Classe pour gérer les boutons de navigation de la collection
+# Ajouter une méthode pour créer l'embed initial dans CollectionView
 class CollectionView(discord.ui.View):
     def __init__(self, cards, current_page=0, cards_per_page=6):
         super().__init__()
@@ -824,6 +825,16 @@ class CollectionView(discord.ui.View):
         self.add_item(self.next_button)
         self.update_buttons()
 
+    def create_embed(self):
+        start_index = self.current_page * self.cards_per_page
+        end_index = start_index + self.cards_per_page
+        cards_on_page = self.cards[start_index:end_index]
+
+        embed = discord.Embed(title=f"🎴 Collection de Cartes (Page {self.current_page + 1}/{self.total_pages})", color=0xFFD700)
+        for card_name in cards_on_page:
+            card_data = BOOSTERS["Pikachu"][card_name]  # Remplacez "Pikachu" par le booster sélectionné
+            embed.add_field(name=card_name.capitalize(), value=f"[Voir la Carte]({card_data['image_url']})", inline=False)
+        return embed
     def update_buttons(self):
         # Désactiver les boutons "Page Précédente" et "Page Suivante" si nécessaire
         self.previous_button.disabled = (self.current_page == 0)
@@ -838,19 +849,11 @@ class CollectionView(discord.ui.View):
         await self.update_embed(interaction)
 
     async def update_embed(self, interaction: discord.Interaction):
-        start_index = self.current_page * self.cards_per_page
-        end_index = start_index + self.cards_per_page
-        cards_on_page = self.cards[start_index:end_index]
-
-        embed = discord.Embed(title=f"🎴 Collection de Cartes (Page {self.current_page + 1}/{self.total_pages})", color=0xFFD700)
-        for card_name in cards_on_page:
-            card_data = BOOSTERS["Pikachu"][card_name]  # Remplacez "Pikachu" par le booster sélectionné
-            embed.add_field(name=card_name.capitalize(), value=f"[Voir la Carte]({card_data['image_url']})", inline=False)
-
+        embed = self.create_embed()
         self.update_buttons()
         await interaction.response.edit_message(embed=embed, view=self)
 
-# Commande /collect
+# Commande /collect corrigée
 @bot.tree.command(name="collect", description="Voir votre collection de cartes Pokémon")
 async def collect(interaction: discord.Interaction):
     user_id = interaction.user.id
@@ -863,7 +866,7 @@ async def collect(interaction: discord.Interaction):
 
     # Création de l'embed pour afficher la première page de cartes
     view = CollectionView(cards)
-    await view.update_embed(interaction)
+    await interaction.response.send_message(embed=view.create_embed(), view=view)
 
 # Commande /search
 @bot.tree.command(name="search", description="Rechercher une carte spécifique dans votre collection")
