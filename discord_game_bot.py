@@ -773,6 +773,21 @@ async def booster(interaction: discord.Interaction, nom: str):
     # Ajouter les boutons de navigation
     view = BoosterView(selected_cards)
     await interaction.followup.send(embed=embed, view=view)
+    
+# Auto-complétion pour la commande /booster
+@booster.autocomplete("nom")
+async def booster_autocomplete(interaction: discord.Interaction, current: str):
+    suggestions = [name for name in BOOSTERS.keys() if current.lower() in name.lower()]
+    return [discord.app_commands.Choice(name=p, value=p) for p in suggestions[:10]]
+
+# Auto-complétion pour la commande /search
+@search.autocomplete("card_name")
+async def search_autocomplete(interaction: discord.Interaction, current: str):
+    user_id = interaction.user.id
+    cursor.execute('SELECT card_name FROM user_collections WHERE user_id = ?', (user_id,))
+    user_cards = [row[0] for row in cursor.fetchall()]
+    suggestions = [name for name in user_cards if current.lower() in name.lower()]
+    return [discord.app_commands.Choice(name=p, value=p) for p in suggestions[:10]]
 
 class BoosterView(discord.ui.View):
     def __init__(self, cards):
@@ -809,51 +824,28 @@ class BoosterView(discord.ui.View):
         await interaction.response.edit_message(embed=embed, view=self)
 
 
-# Ajouter une méthode pour créer l'embed initial dans CollectionView
+# Classe pour gérer l'affichage des cartes de la collection avec un select menu
 class CollectionView(discord.ui.View):
-    def __init__(self, cards, current_page=0, cards_per_page=6):
+    def __init__(self, cards):
         super().__init__()
         self.cards = sorted(cards, key=lambda x: int(x.split()[0]))  # Trier les cartes par numéro
-        self.current_page = current_page
-        self.cards_per_page = cards_per_page
-        self.total_pages = (len(self.cards) + cards_per_page - 1) // cards_per_page
-        self.previous_button = discord.ui.Button(label="Page Précédente", style=discord.ButtonStyle.primary)
-        self.next_button = discord.ui.Button(label="Page Suivante", style=discord.ButtonStyle.primary)
-        self.previous_button.callback = self.previous_page
-        self.next_button.callback = self.next_page
-        self.add_item(self.previous_button)
-        self.add_item(self.next_button)
-        self.update_buttons()
 
-    def create_embed(self):
-        start_index = self.current_page * self.cards_per_page
-        end_index = start_index + self.cards_per_page
-        cards_on_page = self.cards[start_index:end_index]
+        # Créer un select menu pour naviguer entre les cartes
+        self.select_menu = discord.ui.Select(
+            placeholder="Sélectionnez une carte...",
+            options=[discord.SelectOption(label=card.capitalize(), value=card) for card in self.cards]
+        )
+        self.select_menu.callback = self.select_card
+        self.add_item(self.select_menu)
 
-        embed = discord.Embed(title=f"🎴 Collection de Cartes (Page {self.current_page + 1}/{self.total_pages})", color=0xFFD700)
-        for card_name in cards_on_page:
-            card_data = BOOSTERS["Pikachu"][card_name]  # Remplacez "Pikachu" par le booster sélectionné
-            embed.add_field(name=card_name.capitalize(), value=f"[Voir la Carte]({card_data['image_url']})", inline=False)
-        return embed
-    def update_buttons(self):
-        # Désactiver les boutons "Page Précédente" et "Page Suivante" si nécessaire
-        self.previous_button.disabled = (self.current_page == 0)
-        self.next_button.disabled = (self.current_page == self.total_pages - 1)
-
-    async def previous_page(self, interaction: discord.Interaction):
-        self.current_page -= 1
-        await self.update_embed(interaction)
-
-    async def next_page(self, interaction: discord.Interaction):
-        self.current_page += 1
-        await self.update_embed(interaction)
-
-    async def update_embed(self, interaction: discord.Interaction):
-        embed = self.create_embed()
-        self.update_buttons()
+    async def select_card(self, interaction: discord.Interaction):
+        selected_card = self.select_menu.values[0]
+        card_data = BOOSTERS["Pikachu"][selected_card]  # Remplacez "Pikachu" par le booster sélectionné
+        embed = discord.Embed(title=f"🎴 {selected_card.capitalize()}", color=0xFFD700)
+        embed.set_image(url=card_data["image_url"])
         await interaction.response.edit_message(embed=embed, view=self)
 
-# Commande /collect corrigée
+# Commande /collect modifiée pour utiliser un select menu
 @bot.tree.command(name="collect", description="Voir votre collection de cartes Pokémon")
 async def collect(interaction: discord.Interaction):
     user_id = interaction.user.id
@@ -864,9 +856,13 @@ async def collect(interaction: discord.Interaction):
         await interaction.response.send_message("Vous n'avez pas encore de cartes dans votre collection.", ephemeral=True)
         return
 
-    # Création de l'embed pour afficher la première page de cartes
+    # Création de l'embed initial avec le select menu
     view = CollectionView(cards)
-    await interaction.response.send_message(embed=view.create_embed(), view=view)
+    initial_card = cards[0]
+    card_data = BOOSTERS["Pikachu"][initial_card]  # Remplacez "Pikachu" par le booster sélectionné
+    embed = discord.Embed(title=f"🎴 {initial_card.capitalize()}", color=0xFFD700)
+    embed.set_image(url=card_data["image_url"])
+    await interaction.response.send_message(embed=embed, view=view)
 
 # Commande /search
 @bot.tree.command(name="search", description="Rechercher une carte spécifique dans votre collection")
