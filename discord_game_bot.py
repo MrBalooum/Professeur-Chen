@@ -813,6 +813,11 @@ class BoosterView(discord.ui.View):
         self.update_buttons()
         await self.update_embed(interaction)
 
+    def update_buttons(self):
+        # Désactiver les boutons "Précédent" et "Suivant" si nécessaire
+        self.previous_button.disabled = (self.current_index == 0)
+        self.next_button.disabled = (self.current_index == len(self.cards) - 1)
+
     async def update_embed(self, interaction: discord.Interaction):
         if not self.opened:
             # Afficher l'image du booster
