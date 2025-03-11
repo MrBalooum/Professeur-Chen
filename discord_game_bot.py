@@ -244,14 +244,14 @@ async def booster(interaction: discord.Interaction, nom: str):
         await interaction.response.send_message("❌ Booster introuvable.", ephemeral=True)
         return
 
-    # 📌 Ouvrir 10 cartes aléatoires en fonction des taux de drop
+    # 📌 Ouvrir 6 cartes aléatoires en fonction des taux de drop
     cards = BOOSTERS[nom]
-    selected_cards = random.choices(list(cards.keys()), weights=[card["drop_rate"] for card in cards.values()], k=8)
+    selected_cards = random.choices(list(cards.keys()), weights=[card["drop_rate"] for card in cards.values()], k=6)
 
     # 📌 Création de l'embed pour afficher la première carte
     card_name = selected_cards[0]
     card_data = cards[card_name]  # Récupérer les données de la carte
-    embed = discord.Embed(title=f"🎴 Carte 1/8", color=0xFFD700)
+    embed = discord.Embed(title=f"🎴 Carte 1/6", color=0xFFD700)
     embed.set_image(url=card_data["image_url"])  # Afficher l'image de la carte
     embed.add_field(name="Nom", value=card_name.capitalize(), inline=False)
 
@@ -261,26 +261,32 @@ async def booster(interaction: discord.Interaction, nom: str):
 
 # 📌 Classe pour gérer les boutons de navigation
 class BoosterView(discord.ui.View):
-    def __init__(self, cards, current_index=0):
+    def __init__(self, cards):
         super().__init__()
         self.cards = cards
-        self.current_index = current_index
+        self.current_index = 0
+        self.update_buttons()
+
+    def update_buttons(self):
+        # Désactiver les boutons "Précédent" et "Suivant" si nécessaire
+        self.previous_button.disabled = (self.current_index == 0)
+        self.next_button.disabled = (self.current_index == len(self.cards) - 1)
 
     @discord.ui.button(label="Précédent", style=discord.ButtonStyle.primary)
     async def previous(self, interaction: discord.Interaction, button: discord.ui.Button):
-        self.current_index = (self.current_index - 1) % len(self.cards)
+        self.current_index -= 1
         await self.update_embed(interaction)
 
     @discord.ui.button(label="Suivant", style=discord.ButtonStyle.primary)
     async def next(self, interaction: discord.Interaction, button: discord.ui.Button):
-        self.current_index = (self.current_index + 1) % len(self.cards)
+        self.current_index += 1
         await self.update_embed(interaction)
 
     async def update_embed(self, interaction: discord.Interaction):
-        card_name = self.cards[self.current_index]
-        card_data = BOOSTERS["Pikachu"][card_name]  # Remplacez "Pikachu" par le booster sélectionné
+        card_name, card_data = self.cards[self.current_index]
         embed = discord.Embed(title=f"🎴 Carte {self.current_index + 1}/{len(self.cards)}", color=0xFFD700)
         embed.set_image(url=card_data["image_url"])  # Afficher l'image de la carte
+        self.update_buttons()
         await interaction.response.edit_message(embed=embed, view=self)
 
 # 📌 Auto-complétion pour la commande /booster
