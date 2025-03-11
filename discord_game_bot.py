@@ -18,9 +18,9 @@ bot = commands.Bot(command_prefix="!", intents=intents)
 # 📌 Table des boosters et des cartes disponibles
 BOOSTERS = {
     "Pikachu": {
-        "paras_commun": {
+        "reptincel_commun": {
             "drop_rate": 0.3,
-            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/paras_commun.png"
+            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/reptincel_commun.png"
         },
         "goupix_commun": {
             "drop_rate": 0.3,
@@ -32,19 +32,19 @@ BOOSTERS = {
         },
          "galopa_commun": {
             "drop_rate": 0.3,
-            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/galopa-commun.png"
+            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/galopa_commun.png"
         },
-         "mysterbe_commun": {
+         "pyroli_commun": {
             "drop_rate": 0.3,
-            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/mysterbe_commun.png"
+            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/pyroli_commun.png"
         },
          "caninos_commun": {
             "drop_rate": 0.3,
             "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/caninos_commun.png"
         },
-         "cabriolaine_commun": {
+         "chetiflor_commun": {
             "drop_rate": 0.3,
-            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/cabriolaine_commun.png"
+            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/chetiflor_commun.png"
         },
          "salameche_commun": {
             "drop_rate": 0.3,
