@@ -731,7 +731,7 @@ def sync_cards():
         cursor.execute('INSERT OR IGNORE INTO user_collections (user_id, card_name) VALUES (?, ?)', (user_id, card_name))
     conn.commit()
 
-# Commande /booster modifiée pour afficher une image de booster
+# Commande /booster modifiée
 @bot.tree.command(name="booster", description="Ouvre un booster de cartes Pokémon")
 async def booster(interaction: discord.Interaction, nom: str):
     if nom not in BOOSTERS:
@@ -758,21 +758,16 @@ async def booster(interaction: discord.Interaction, nom: str):
         cursor.execute('INSERT OR IGNORE INTO user_collections (user_id, card_name) VALUES (?, ?)', (user_id, card_name))
     conn.commit()
 
-    # Envoyer l'image du booster
-    booster_image_url = "https://github.com/MrBalooum/Professeur-Chen/blob/Pokemon-Card/booster_pikachu.png?raw=true"  # Remplacez par l'URL de votre image de booster
-    booster_embed = discord.Embed(title="🎁 Booster Ouvert !", color=0xFFD700)
-    booster_embed.set_image(url=booster_image_url)
-    await interaction.response.send_message(embed=booster_embed)
+    # URL de l'image du booster
+    booster_image_url = "URL_DE_VOTRE_IMAGE_DE_BOOSTER"  # Remplacez par l'URL de votre image de booster
 
-    # Création de l'embed pour afficher la première carte
-    card_name = selected_cards[0]
-    card_data = cards[card_name]  # Récupérer les données de la carte
-    embed = discord.Embed(title=f"🎴 Carte 1/6", color=0xFFD700)
-    embed.set_image(url=card_data["image_url"])  # Afficher l'image de la carte
+    # Création de l'embed initial avec l'image du booster
+    embed = discord.Embed(title="🎁 Booster Fermé", color=0xFFD700)
+    embed.set_image(url=booster_image_url)
 
-    # Ajouter les boutons de navigation
-    view = BoosterView(selected_cards)
-    await interaction.followup.send(embed=embed, view=view)
+    # Ajouter le bouton "Ouvrir"
+    view = BoosterView(selected_cards, booster_image_url)
+    await interaction.response.send_message(embed=embed, view=view)
     
 # Auto-complétion pour la commande /booster
 @booster.autocomplete("nom")
@@ -780,38 +775,54 @@ async def booster_autocomplete(interaction: discord.Interaction, current: str):
     suggestions = [name for name in BOOSTERS.keys() if current.lower() in name.lower()]
     return [discord.app_commands.Choice(name=p, value=p) for p in suggestions[:10]]
 
+# Classe pour gérer l'affichage du booster et des cartes
 class BoosterView(discord.ui.View):
-    def __init__(self, cards):
+    def __init__(self, cards, booster_image_url):
         super().__init__()
         self.cards = cards
         self.current_index = 0
+        self.booster_image_url = booster_image_url
+        self.opened = False
+
+        # Ajouter le bouton "Ouvrir"
+        self.open_button = discord.ui.Button(label="Ouvrir", style=discord.ButtonStyle.success)
+        self.open_button.callback = self.open_booster
+        self.add_item(self.open_button)
+
+        # Ajouter les boutons de navigation
         self.previous_button = discord.ui.Button(label="Précédent", style=discord.ButtonStyle.primary)
         self.next_button = discord.ui.Button(label="Suivant", style=discord.ButtonStyle.primary)
         self.previous_button.callback = self.previous
         self.next_button.callback = self.next
-        self.add_item(self.previous_button)
-        self.add_item(self.next_button)
-        self.update_buttons()
 
-    def update_buttons(self):
-        # Désactiver les boutons "Précédent" et "Suivant" si nécessaire
-        self.previous_button.disabled = (self.current_index == 0)
-        self.next_button.disabled = (self.current_index == len(self.cards) - 1)
+    async def open_booster(self, interaction: discord.Interaction):
+        # Remplacer l'image du booster par la première carte
+        self.opened = True
+        self.remove_item(self.open_button)  # Retirer le bouton "Ouvrir"
+        self.add_item(self.previous_button)  # Ajouter les boutons de navigation
+        self.add_item(self.next_button)
+        await self.update_embed(interaction)
 
     async def previous(self, interaction: discord.Interaction):
-        self.current_index -= 1
+        self.current_index = (self.current_index - 1) % len(self.cards)
         await self.update_embed(interaction)
 
     async def next(self, interaction: discord.Interaction):
-        self.current_index += 1
+        self.current_index = (self.current_index + 1) % len(self.cards)
         await self.update_embed(interaction)
 
     async def update_embed(self, interaction: discord.Interaction):
-        card_name = self.cards[self.current_index]
-        card_data = BOOSTERS["Pikachu"][card_name]  # Remplacez "Pikachu" par le booster sélectionné
-        embed = discord.Embed(title=f"🎴 Carte {self.current_index + 1}/{len(self.cards)}", color=0xFFD700)
-        embed.set_image(url=card_data["image_url"])
-        self.update_buttons()
+        if not self.opened:
+            # Afficher l'image du booster
+            embed = discord.Embed(title="🎁 Booster Fermé", color=0xFFD700)
+            embed.set_image(url=self.booster_image_url)
+        else:
+            # Afficher la carte actuelle
+            card_name = self.cards[self.current_index]
+            card_data = BOOSTERS["Pikachu"][card_name]  # Remplacez "Pikachu" par le booster sélectionné
+            embed = discord.Embed(title=f"🎴 Carte {self.current_index + 1}/{len(self.cards)}", color=0xFFD700)
+            embed.set_image(url=card_data["image_url"])
+
         await interaction.response.edit_message(embed=embed, view=self)
 
 
