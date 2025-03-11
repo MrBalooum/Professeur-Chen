@@ -31,32 +31,32 @@ BOOSTERS = {
           "42": {
             "drop_rate": 0.02083,
             "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/42.png",
-            "allowed_positions" [1, 2, 3, 4]
+            "allowed_positions" : [1, 2, 3, 4]
         },
          "48": {
             "drop_rate": 0.02083,
             "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/48.png",
-            "allowed_positions" [1, 2, 3, 4]
+            "allowed_positions" : [1, 2, 3, 4]
         },
          "51": {
             "drop_rate": 0.02083,
             "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/51.png",
-            "allowed_positions" [1, 2, 3, 4] 
+            "allowed_positions" : [1, 2, 3, 4] 
         },
          "52": {
             "drop_rate": 0.02432,
             "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/52.png",
-            "allowed_positions" [5, 6]
+            "allowed_positions" : [5, 6]
         },
          "40": {
             "drop_rate": 0.00357,
             "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/40.png",
-            "allowed_positions" [5, 6]
+            "allowed_positions" : [5, 6]
         },
          "41": {
             "drop_rate": 0.00333,
             "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/41.png",
-            "allowed_positions" [5, 6]
+            "allowed_positions" : [5, 6]
         }     
     },
     # Ajouter d'autres boosters ici (Mewtwo, Palkia, Dialga, Mew)
