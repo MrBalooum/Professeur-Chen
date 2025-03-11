@@ -18,8 +18,14 @@ bot = commands.Bot(command_prefix="!", intents=intents)
 # 📌 Table des boosters et des cartes disponibles
 BOOSTERS = {
     "Pikachu": {
-        "cabriolaine_commun": {"drop_rate": 0.8, "https://github.com/MrBalooum/Professeur-Chen/blob/Pokemon-Card/cabriolaine_commun.png"},
-        "chenipan_commun": {"drop_rate": 0.2, "image_url": "https://github.com/MrBalooum/Professeur-Chen/blob/Pokemon-Card/chenipan_commun.png"}
+        "cabriolaine_commun": {
+            "drop_rate": 0.8,
+            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/Pokemon-Card/cabriolaine_commun.png"
+        },
+        "chenipan_commun": {
+            "drop_rate": 0.2,
+            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/Pokemon-Card/chenipan_commun.png"
+        }
     },
     # Ajouter d'autres boosters ici (Mewtwo, Palkia, Dialga, Mew)
 }
@@ -198,7 +204,7 @@ async def booster(interaction: discord.Interaction, nom: str):
     for i, card_name in enumerate(selected_cards, start=1):
         card_data = cards[card_name]
         embed.add_field(name=f"Carte {i}", value=f"**{card_name.capitalize()}**", inline=False)
-        embed.set_thumbnail(url=card_data["image_url"])
+        embed.set_image(url=card_data["image_url"])  # Utiliser set_image pour afficher l'image en grand
 
     await interaction.response.send_message(embed=embed)
     await asyncio.sleep(DELETE_DELAY)
