@@ -206,8 +206,6 @@ class BoosterView(discord.ui.View):
         embed.add_field(name="Nom", value=card_name.capitalize(), inline=False)
         await interaction.response.edit_message(embed=embed, view=self)
 
-python
-Copy
 # 📌 Commande /booster
 @bot.tree.command(name="booster", description="Ouvre un booster de cartes Pokémon")
 async def booster(interaction: discord.Interaction, nom: str):
