@@ -18,8 +18,8 @@ bot = commands.Bot(command_prefix="!", intents=intents)
 # 📌 Table des boosters et des cartes disponibles
 BOOSTERS = {
     "Pikachu": {
-        "cabriolaine_commun": {"drop_rate": 0.8, "image_url": "https://raw.githubusercontent.com/username/repo/main/cabriolaine_commun.png"},
-        "chenipan_commun": {"drop_rate": 0.2, "image_url": "https://raw.githubusercontent.com/username/repo/main/chenipan_commun.png"}
+        "cabriolaine_commun": {"drop_rate": 0.8, "https://github.com/MrBalooum/Professeur-Chen/blob/Pokemon-Card/cabriolaine_commun.png"},
+        "chenipan_commun": {"drop_rate": 0.2, "image_url": "https://github.com/MrBalooum/Professeur-Chen/blob/Pokemon-Card/chenipan_commun.png"}
     },
     # Ajouter d'autres boosters ici (Mewtwo, Palkia, Dialga, Mew)
 }
