@@ -18,37 +18,45 @@ bot = commands.Bot(command_prefix="!", intents=intents)
 # 📌 Table des boosters et des cartes disponibles
 BOOSTERS = {
     "Pikachu": {
-        "reptincel_commun": {
-            "drop_rate": 0.3,
-            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/reptincel_commun.png"
+        "6": {
+            "drop_rate": 0.02083,
+            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/6.png"
+            "allowed_positions": [1, 2, 3, 4]  
         },
-        "goupix_commun": {
-            "drop_rate": 0.3,
-            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/goupix_commun.png"
+        "39": {
+            "drop_rate": 0.02083,
+            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/39.png"
+            "allowed_positions": [1, 2, 3, 4] 
         },
-         "ponyta_commun": {
-            "drop_rate": 0.3,
-            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/ponyta_commun.png"
+         "42": {
+            "drop_rate": 0.02083,
+            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/42.png"
+             "allowed_positions": [1, 2, 3, 4]
         },
-         "galopa_commun": {
-            "drop_rate": 0.3,
-            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/galopa_commun.png"
+         "48": {
+            "drop_rate": 0.02083,
+            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/48.png"
+             "allowed_positions": [1, 2, 3, 4]
         },
-         "pyroli_commun": {
-            "drop_rate": 0.3,
-            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/pyroli_commun.png"
+         "51": {
+            "drop_rate": 0.02083,
+            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/51.png"
+             "allowed_positions": [1, 2, 3, 4] 
         },
-         "caninos_commun": {
-            "drop_rate": 0.3,
-            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/caninos_commun.png"
+         "52": {
+            "drop_rate": 0.02432,
+            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/52.png"
+             "allowed_positions": [5, 6]
         },
-         "chetiflor_commun": {
-            "drop_rate": 0.3,
-            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/chetiflor_commun.png"
+         "40": {
+            "drop_rate": 0.00357,
+            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/40.png"
+             "allowed_positions": [5, 6]
         },
-         "salameche_commun": {
-            "drop_rate": 0.3,
-            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/salameche_commun.png"
+         "41": {
+            "drop_rate": 0.00333,
+            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/41.png"
+             "allowed_positions": [5, 6]
         }     
     },
     # Ajouter d'autres boosters ici (Mewtwo, Palkia, Dialga, Mew)
