@@ -20,11 +20,11 @@ BOOSTERS = {
     "Pikachu": {
         "cabriolaine_commun": {
             "drop_rate": 0.8,
-            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/cabriolaine_commun.png?token=GHSAT0AAAAAADABYQANSMOXPGL6B6CSYDMEZ6QDGDA"
+            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/cabriolaine_commun.png"
         },
         "chenipan_commun": {
             "drop_rate": 0.2,
-            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/chenipan_commun.png?token=GHSAT0AAAAAADABYQAMMRAJZXTYXTLMAMQWZ6QDIIA"
+            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/chenipan_commun.png"
         }
     },
     # Ajouter d'autres boosters ici (Mewtwo, Palkia, Dialga, Mew)
