@@ -4,6 +4,7 @@ import asyncio
 import os
 import json
 import requests
+import random
 
 # 🔧 Configuration du bot
 TOKEN = os.getenv("TOKEN")
@@ -13,6 +14,15 @@ POKEMON_LIST_FILE = "pokemon_names_fr.json"
 
 intents = discord.Intents.all()
 bot = commands.Bot(command_prefix="!", intents=intents)
+
+# 📌 Table des boosters et des cartes disponibles
+BOOSTERS = {
+    "Pikachu": {
+        "cabriolaine_commun": {"drop_rate": 0.8, "image_url": "https://raw.githubusercontent.com/username/repo/main/cabriolaine_commun.png"},
+        "chenipan_commun": {"drop_rate": 0.2, "image_url": "https://raw.githubusercontent.com/username/repo/main/chenipan_commun.png"}
+    },
+    # Ajouter d'autres boosters ici (Mewtwo, Palkia, Dialga, Mew)
+}
 
 # 📥 Charger la liste des Pokémon en français
 def load_pokemon_list():
@@ -159,10 +169,45 @@ async def pokemon(interaction: discord.Interaction, nom: str):
     except Exception:
         await interaction.response.send_message("❌ Une erreur est survenue.", ephemeral=True)
 
-# 📌 Auto-complétion
+# 📌 Auto-complétion pour la commande /pokemon
 @pokemon.autocomplete("nom")
 async def pokemon_autocomplete(interaction: discord.Interaction, current: str):
     suggestions = [name for name in POKEMON_LIST.keys() if current.lower() in name.lower()]
+    return [discord.app_commands.Choice(name=p, value=p) for p in suggestions[:10]]
+
+# 📌 Commande /booster
+@bot.tree.command(name="booster", description="Ouvre un booster de cartes Pokémon")
+async def booster(interaction: discord.Interaction, nom: str):
+    if interaction.channel_id != CHANNEL_ID:
+        await interaction.response.send_message("❌ Commande interdite ici !", ephemeral=True)
+        return
+
+    if nom not in BOOSTERS:
+        await interaction.response.send_message("❌ Booster introuvable.", ephemeral=True)
+        return
+
+    # 📌 Ouvrir 10 cartes aléatoires en fonction des taux de drop
+    cards = BOOSTERS[nom]
+    selected_cards = []
+    for _ in range(10):
+        card_name = random.choices(list(cards.keys()), weights=[card["drop_rate"] for card in cards.values()], k=1)[0]
+        selected_cards.append(card_name)
+
+    # 📌 Création de l'embed pour afficher les cartes
+    embed = discord.Embed(title=f"🎴 Booster {nom}", color=0xFFD700)
+    for i, card_name in enumerate(selected_cards, start=1):
+        card_data = cards[card_name]
+        embed.add_field(name=f"Carte {i}", value=f"**{card_name.capitalize()}**", inline=False)
+        embed.set_thumbnail(url=card_data["image_url"])
+
+    await interaction.response.send_message(embed=embed)
+    await asyncio.sleep(DELETE_DELAY)
+    await interaction.delete_original_response()
+
+# 📌 Auto-complétion pour la commande /booster
+@booster.autocomplete("nom")
+async def booster_autocomplete(interaction: discord.Interaction, current: str):
+    suggestions = [name for name in BOOSTERS.keys() if current.lower() in name.lower()]
     return [discord.app_commands.Choice(name=p, value=p) for p in suggestions[:10]]
 
 # 📌 Événement de connexion du bot
