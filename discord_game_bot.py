@@ -5,6 +5,7 @@ import os
 import json
 import requests
 import random
+import sqlite3
 
 # 🔧 Configuration du bot
 TOKEN = os.getenv("TOKEN")
@@ -14,6 +15,21 @@ POKEMON_LIST_FILE = "pokemon_names_fr.json"
 
 intents = discord.Intents.all()
 bot = commands.Bot(command_prefix="!", intents=intents)
+
+# Connexion à la base de données SQLite
+conn = sqlite3.connect('pokemon_collections.db')
+cursor = conn.cursor()
+
+# Créer la table user_collections
+cursor.execute('''
+CREATE TABLE IF NOT EXISTS user_collections (
+    user_id INTEGER,
+    card_name TEXT,
+    PRIMARY KEY (user_id, card_name)
+)
+''')
+conn.commit()
+
 
 # 📌 Table des boosters et des cartes disponibles
 BOOSTERS = {
@@ -237,7 +253,6 @@ class BoosterView(discord.ui.View):
         embed.set_image(url=card_data["image_url"])
         await interaction.response.edit_message(embed=embed, view=self)
 
-# 📌 Commande /booster
 @bot.tree.command(name="booster", description="Ouvre un booster de cartes Pokémon")
 async def booster(interaction: discord.Interaction, nom: str):
     if nom not in BOOSTERS:
@@ -247,6 +262,12 @@ async def booster(interaction: discord.Interaction, nom: str):
     # Ouvrir 6 cartes aléatoires en fonction des taux de drop
     cards = BOOSTERS[nom]
     selected_cards = random.choices(list(cards.keys()), weights=[card["drop_rate"] for card in cards.values()], k=6)
+
+    # Enregistrer les cartes obtenues dans la table user_collections
+    user_id = interaction.user.id
+    for card_name in selected_cards:
+        cursor.execute('INSERT OR IGNORE INTO user_collections (user_id, card_name) VALUES (?, ?)', (user_id, card_name))
+    conn.commit()
 
     # Création de l'embed pour afficher la première carte
     card_name = selected_cards[0]
@@ -299,6 +320,61 @@ class BoosterView(discord.ui.View):
 async def booster_autocomplete(interaction: discord.Interaction, current: str):
     suggestions = [name for name in BOOSTERS.keys() if current.lower() in name.lower()]
     return [discord.app_commands.Choice(name=p, value=p) for p in suggestions[:10]]
+
+class CollectionView(discord.ui.View):
+    def __init__(self, cards):
+        super().__init__()
+        self.cards = sorted(cards, key=lambda x: int(x.split()[0]))  # Trier les cartes par numéro
+        self.current_index = 0
+        self.previous_button = discord.ui.Button(label="Précédent", style=discord.ButtonStyle.primary)
+        self.next_button = discord.ui.Button(label="Suivant", style=discord.ButtonStyle.primary)
+        self.previous_button.callback = self.previous
+        self.next_button.callback = self.next
+        self.add_item(self.previous_button)
+        self.add_item(self.next_button)
+        self.update_buttons()
+
+    def update_buttons(self):
+        # Désactiver les boutons "Précédent" et "Suivant" si nécessaire
+        self.previous_button.disabled = (self.current_index == 0)
+        self.next_button.disabled = (self.current_index == len(self.cards) - 1)
+
+    async def previous(self, interaction: discord.Interaction):
+        self.current_index -= 1
+        await self.update_embed(interaction)
+
+    async def next(self, interaction: discord.Interaction):
+        self.current_index += 1
+        await self.update_embed(interaction)
+
+    async def update_embed(self, interaction: discord.Interaction):
+        card_name = self.cards[self.current_index]
+        card_data = BOOSTERS["Pikachu"][card_name]  # Remplacez "Pikachu" par le booster sélectionné
+        embed = discord.Embed(title=f"🎴 Carte {self.current_index + 1}/{len(self.cards)}", color=0xFFD700)
+        embed.set_image(url=card_data["image_url"])
+        self.update_buttons()
+        await interaction.response.edit_message(embed=embed, view=self)
+
+@bot.tree.command(name="collect", description="Voir votre collection de cartes Pokémon")
+async def collect(interaction: discord.Interaction):
+    user_id = interaction.user.id
+    cursor.execute('SELECT card_name FROM user_collections WHERE user_id = ?', (user_id,))
+    cards = [row[0] for row in cursor.fetchall()]
+
+    if not cards:
+        await interaction.response.send_message("Vous n'avez pas encore de cartes dans votre collection.", ephemeral=True)
+        return
+
+    # Création de l'embed pour afficher la première carte
+    card_name = cards[0]
+    card_data = BOOSTERS["Pikachu"][card_name]  # Remplacez "Pikachu" par le booster sélectionné
+    embed = discord.Embed(title=f"🎴 Carte 1/{len(cards)}", color=0xFFD700)
+    embed.set_image(url=card_data["image_url"])  # Afficher l'image de la carte
+    embed.add_field(name="Nom", value=card_name.capitalize(), inline=False)
+
+    # Ajouter les boutons de navigation
+    view = CollectionView(cards)
+    await interaction.response.send_message(embed=embed, view=view)
 
 # 📌 Événement de connexion du bot
 @bot.event
