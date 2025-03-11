@@ -184,11 +184,6 @@ BOOSTERS = {
             "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/147.png",
             "allowed_positions" : [1, 2, 3, 4] 
         },
-         "52": {
-            "drop_rate": 0.02432,
-            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/52.png",
-            "allowed_positions" : [5, 6]
-        },
          "160": {
             "drop_rate": 0.02083,
             "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/160.png",
@@ -268,6 +263,11 @@ BOOSTERS = {
             "drop_rate": 0.02083,
             "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/216.png",
             "allowed_positions" : [1, 2, 3, 4] 
+        },
+         "52": {
+            "drop_rate": 0.02432,
+            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/52.png",
+            "allowed_positions" : [5, 6]
         },
          "40": {
             "drop_rate": 0.00357,
@@ -457,6 +457,19 @@ class BoosterView(discord.ui.View):
         embed = discord.Embed(title=f"🎴 Carte {self.current_index + 1}/{len(self.cards)}", color=0xFFD700)
         embed.set_image(url=card_data["image_url"])
         await interaction.response.edit_message(embed=embed, view=self)
+
+def sync_cards():
+    # Charger les cartes actuelles depuis le fichier JSON ou l'API
+    with open(POKEMON_LIST_FILE, "r", encoding="utf-8") as f:
+        pokemon_list = json.load(f)
+
+    # Mettre à jour les cartes dans la base de données
+    cursor.execute('DELETE FROM user_collections')  # Supprimer toutes les cartes existantes
+    conn.commit()
+
+    for user_id, card_name in pokemon_list.items():
+        cursor.execute('INSERT OR IGNORE INTO user_collections (user_id, card_name) VALUES (?, ?)', (user_id, card_name))
+    conn.commit()
 
 @bot.tree.command(name="booster", description="Ouvre un booster de cartes Pokémon")
 async def booster(interaction: discord.Interaction, nom: str):
