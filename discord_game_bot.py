@@ -259,9 +259,19 @@ async def booster(interaction: discord.Interaction, nom: str):
         await interaction.response.send_message("❌ Booster introuvable.", ephemeral=True)
         return
 
-    # Ouvrir 6 cartes aléatoires en fonction des taux de drop
+    # Ouvrir 6 cartes aléatoires en fonction des taux de drop et des positions autorisées
     cards = BOOSTERS[nom]
-    selected_cards = random.choices(list(cards.keys()), weights=[card["drop_rate"] for card in cards.values()], k=6)
+    selected_cards = []
+
+    for position in range(1, 7):  # Positions de 1 à 6
+        eligible_cards = [card for card, data in cards.items() if position in data["allowed_positions"]]
+        if eligible_cards:
+            selected_card = random.choices(eligible_cards, weights=[cards[card]["drop_rate"] for card in eligible_cards])[0]
+            selected_cards.append(selected_card)
+        else:
+            # Si aucune carte n'est éligible pour cette position, sélectionner une carte aléatoire parmi toutes les cartes
+            selected_card = random.choices(list(cards.keys()), weights=[card["drop_rate"] for card in cards.values()])[0]
+            selected_cards.append(selected_card)
 
     # Enregistrer les cartes obtenues dans la table user_collections
     user_id = interaction.user.id
