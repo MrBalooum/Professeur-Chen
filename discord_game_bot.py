@@ -548,6 +548,7 @@ async def booster_autocomplete(interaction: discord.Interaction, current: str):
     suggestions = [name for name in BOOSTERS.keys() if current.lower() in name.lower()]
     return [discord.app_commands.Choice(name=p, value=p) for p in suggestions[:10]]
 
+# Classe pour gérer les boutons de navigation de la collection
 class CollectionView(discord.ui.View):
     def __init__(self, cards, current_page=0, cards_per_page=6):
         super().__init__()
@@ -589,6 +590,7 @@ class CollectionView(discord.ui.View):
         self.update_buttons()
         await interaction.response.edit_message(embed=embed, view=self)
 
+# Commande /collect
 @bot.tree.command(name="collect", description="Voir votre collection de cartes Pokémon")
 async def collect(interaction: discord.Interaction):
     user_id = interaction.user.id
@@ -603,6 +605,7 @@ async def collect(interaction: discord.Interaction):
     view = CollectionView(cards)
     await view.update_embed(interaction)
 
+# Commande /search
 @bot.tree.command(name="search", description="Rechercher une carte spécifique dans votre collection")
 async def search(interaction: discord.Interaction, card_name: str):
     user_id = interaction.user.id
