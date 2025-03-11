@@ -21,7 +21,7 @@ BOOSTERS = {
         "6": {
             "drop_rate": 0.02083,
             "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/6.png",
-            "allowed_positions" [1, 2, 3, 4]  
+            "allowed_positions" [1, 2, 3, 4 ]  
         },
         "39": {
             "drop_rate": 0.02083,
