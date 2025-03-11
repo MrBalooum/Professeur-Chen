@@ -19,17 +19,36 @@ bot = commands.Bot(command_prefix="!", intents=intents)
 BOOSTERS = {
     "Pikachu": {
         "paras_commun": {
-            "drop_rate": 0.5,
+            "drop_rate": 0.3,
             "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/paras_commun.png"
         },
         "goupix_commun": {
-            "drop_rate": 0.2,
+            "drop_rate": 0.3,
             "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/goupix_commun.png"
         },
          "ponyta_commun": {
             "drop_rate": 0.3,
             "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/ponyta_commun.png"
-        }
+        },
+         "galopa_commun": {
+            "drop_rate": 0.3,
+            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/galopa_commun.png"
+        },
+         "mysterbe_commun": {
+            "drop_rate": 0.3,
+            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/mysterbe_commun.png"
+        },
+         "caninos_commun": {
+            "drop_rate": 0.3,
+            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/caninos_commun.png"
+        },
+         "cabriolaine_commun": {
+            "drop_rate": 0.3,
+            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/cabriolaine_commun.png"
+        },
+         "chenipan_commun": {
+            "drop_rate": 0.3,
+            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/chenipan_commun.png"
     },
     # Ajouter d'autres boosters ici (Mewtwo, Palkia, Dialga, Mew)
 }
