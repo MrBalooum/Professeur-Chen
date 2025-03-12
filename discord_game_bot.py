@@ -1333,8 +1333,11 @@ async def booster(interaction: discord.Interaction, nom: str):
         cursor.execute('INSERT OR IGNORE INTO user_collections (user_id, card_name) VALUES (?, ?)', (user_id, card_name))
     conn.commit()
 
-    # URL de l'image du booster
-    booster_image_url = "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/booster_pikachu.png"  # Remplacez par l'URL de votre image de booster
+    # URL de l'image du booster en fonction du nom du booster
+    if nom == "Pikachu":
+        booster_image_url = "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/pikachu.png"
+    elif nom == "Dialga":
+        booster_image_url = "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/dialga.png"
 
     # Création de l'embed initial avec l'image du booster
     embed = discord.Embed(title="🎁 Booster Fermé", color=0xFFD700)
