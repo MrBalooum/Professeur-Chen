@@ -35,8 +35,8 @@ conn.commit()
 BOOSTERS = {
     "Pikachu": {
         "6": {
-            "drop_rate": 0.02083,
-            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/6.png",
+            "drop_rate": 0.1,
+            "image_url": "https://static.pkmcards.fr/cards/fr/bcr/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-bcr-fr-140-noir-blanc-frontieres-franchies-potion-dor.webp",
             "allowed_positions" : [1, 2, 3, 4]  
         },
          "5": {
