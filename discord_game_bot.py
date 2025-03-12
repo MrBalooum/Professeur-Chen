@@ -578,7 +578,7 @@ BOOSTERS = {
             "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/260.png",
             "allowed_positions" : [6]
         } 
-     }
+       }
     "MewTwo": {
         "1": {
             "drop_rate": 0.02083,
