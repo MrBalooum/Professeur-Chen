@@ -1337,18 +1337,20 @@ async def booster(interaction: discord.Interaction, nom: str):
         return
 
     # Ouvrir 6 cartes aléatoires en fonction des taux de drop et des positions autorisées
-    cards = BOOSTERS[nom]
-    selected_cards = []
+cards = BOOSTERS[nom]
+selected_cards = []
 
-    for position in range(1, 7):  # Positions de 1 à 6
-        eligible_cards = [card for card, data in cards.items() if position in data["allowed_positions"]]
-        if eligible_cards:
-            selected_card = random.choices(eligible_cards, weights=[cards[card]["drop_rate"] for card in eligible_cards])[0]
-            selected_cards.append(selected_card)
-        else:
-            # Si aucune carte n'est éligible pour cette position, sélectionner une carte aléatoire parmi toutes les cartes
-            selected_card = random.choices(list(cards.keys()), weights=[data["drop_rate"] for data in cards.values()])[0]
-            selected_cards.append(selected_card)
+for position in range(1, 7):  # Positions de 1 à 6
+    eligible_cards = [card for card, data in cards.items() if position in data["allowed_positions"]]
+    if eligible_cards:
+        selected_card = random.choices(eligible_cards, weights=[cards[card]["drop_rate"] for card in eligible_cards])[0]
+        selected_cards.append(selected_card)
+        print(f"Carte sélectionnée pour la position {position}: {selected_card}")  # Ajouter cette ligne
+    else:
+        # Si aucune carte n'est éligible pour cette position, sélectionner une carte aléatoire parmi toutes les cartes
+        selected_card = random.choices(list(cards.keys()), weights=[data["drop_rate"] for data in cards.values()])[0]
+        selected_cards.append(selected_card)
+        print(f"Aucune carte éligible pour la position {position}, carte sélectionnée: {selected_card}")  # Ajouter cette ligne
 
     # URL de l'image du booster en fonction du nom du booster
     if nom == "Pikachu":
@@ -1418,18 +1420,19 @@ class BoosterView(discord.ui.View):
         self.next_button.disabled = (self.current_index == len(self.cards) - 1)
 
     async def update_embed(self, interaction: discord.Interaction):
-        if not self.opened:
-            # Afficher l'image du booster
-            embed = discord.Embed(title="🎁 Booster Fermé", color=0xFFD700)
-            embed.set_image(url=self.booster_image_url)
-        else:
-            # Afficher la carte actuelle
-            card_name = self.cards[self.current_index]
-            card_data = BOOSTERS[self.booster_name][card_name]
-            embed = discord.Embed(title=f"🎴 Carte {self.current_index + 1}/{len(self.cards)}", color=0xFFD700)
-            embed.set_image(url=card_data["image_url"])
+    if not self.opened:
+        # Afficher l'image du booster
+        embed = discord.Embed(title="🎁 Booster Fermé", color=0xFFD700)
+        embed.set_image(url=self.booster_image_url)
+    else:
+        # Afficher la carte actuelle
+        card_name = self.cards[self.current_index]
+        print(f"Affichage de la carte: {card_name}")  # Ajouter cette ligne
+        card_data = BOOSTERS[self.booster_name][card_name]
+        embed = discord.Embed(title=f"🎴 Carte {self.current_index + 1}/{len(self.cards)}", color=0xFFD700)
+        embed.set_image(url=card_data["image_url"])
 
-        await interaction.response.edit_message(embed=embed, view=self)
+    await interaction.response.edit_message(embed=embed, view=self)
 
 # Classe pour gérer l'affichage des cartes de la collection avec un select menu
 class CollectionView(discord.ui.View):
