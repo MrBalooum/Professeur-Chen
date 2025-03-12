@@ -1369,6 +1369,7 @@ for position in range(1, 7):  # Positions de 1 à 6
     # Ajouter le bouton "Ouvrir"
     view = BoosterView(selected_cards, booster_image_url, nom)
     await interaction.response.send_message(embed=embed, view=view)
+    
 # Auto-complétion pour la commande /booster
 @booster.autocomplete("nom")
 async def booster_autocomplete(interaction: discord.Interaction, current: str):
