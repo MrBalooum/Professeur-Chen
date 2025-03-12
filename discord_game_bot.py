@@ -1113,13 +1113,6 @@ BOOSTERS = {
             "drop_rate": 0.000222,
             "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/282.png",
             "allowed_positions" : [6]
-        } 
-    }
-    "Dialga": {
-        "": {
-            "drop_rate": 0.02083,
-            "image_url": "https://static.pkmcards.fr/cards/fr/bcr/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-bcr-fr-140-noir-blanc-frontieres-franchies-potion-dor.webp",
-            "allowed_positions" : [1, 2, 3, 4, 5, 6]  
         },
     },
     # Ajouter d'autres boosters ici (Mewtwo, Palkia, Dialga, Mew)
