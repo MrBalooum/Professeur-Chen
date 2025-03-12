@@ -1337,20 +1337,20 @@ async def booster(interaction: discord.Interaction, nom: str):
         return
 
     # Ouvrir 6 cartes aléatoires en fonction des taux de drop et des positions autorisées
-cards = BOOSTERS[nom]
-selected_cards = []
+    cards = BOOSTERS[nom]
+    selected_cards = []
 
-for position in range(1, 7):  # Positions de 1 à 6
-    eligible_cards = [card for card, data in cards.items() if position in data["allowed_positions"]]
-    if eligible_cards:
-        selected_card = random.choices(eligible_cards, weights=[cards[card]["drop_rate"] for card in eligible_cards])[0]
-        selected_cards.append(selected_card)
-        print(f"Carte sélectionnée pour la position {position}: {selected_card}")  # Ajouter cette ligne
-    else:
-        # Si aucune carte n'est éligible pour cette position, sélectionner une carte aléatoire parmi toutes les cartes
-        selected_card = random.choices(list(cards.keys()), weights=[data["drop_rate"] for data in cards.values()])[0]
-        selected_cards.append(selected_card)
-        print(f"Aucune carte éligible pour la position {position}, carte sélectionnée: {selected_card}")  # Ajouter cette ligne
+    for position in range(1, 7):  # Positions de 1 à 6
+        eligible_cards = [card for card, data in cards.items() if position in data["allowed_positions"]]
+        if eligible_cards:
+            selected_card = random.choices(eligible_cards, weights=[cards[card]["drop_rate"] for card in eligible_cards])[0]
+            selected_cards.append(selected_card)
+            print(f"Carte sélectionnée pour la position {position}: {selected_card}")  # Ajouter cette ligne
+        else:
+            # Si aucune carte n'est éligible pour cette position, sélectionner une carte aléatoire parmi toutes les cartes
+            selected_card = random.choices(list(cards.keys()), weights=[data["drop_rate"] for data in cards.values()])[0]
+            selected_cards.append(selected_card)
+            print(f"Aucune carte éligible pour la position {position}, carte sélectionnée: {selected_card}")  # Ajouter cette ligne
 
     # URL de l'image du booster en fonction du nom du booster
     if nom == "Pikachu":
@@ -1368,7 +1368,7 @@ for position in range(1, 7):  # Positions de 1 à 6
 
     # Ajouter le bouton "Ouvrir"
     view = BoosterView(selected_cards, booster_image_url, nom)
-await interaction.response.send_message(embed=embed, view=view)
+    await interaction.response.send_message(embed=embed, view=view)
     
 # Auto-complétion pour la commande /booster
 @booster.autocomplete("nom")
