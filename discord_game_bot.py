@@ -33,7 +33,7 @@ conn.commit()
 
 # 📌 Table des boosters et des cartes disponibles
 BOOSTERS = {
-    "Pikachu":{
+    "Pikachu": {
         "6": {
             "drop_rate": 0.02083,
             "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/6.png",
@@ -577,9 +577,9 @@ BOOSTERS = {
             "drop_rate": 0.0005,
             "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/260.png",
             "allowed_positions" : [6]
-        } 
-       }
-    "MewTwo": {
+        }
+    },
+    "Mewtwo": {
         "1": {
             "drop_rate": 0.02083,
             "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/1.png",
@@ -1336,8 +1336,8 @@ async def booster(interaction: discord.Interaction, nom: str):
     # URL de l'image du booster en fonction du nom du booster
     if nom == "Pikachu":
         booster_image_url = "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/pikachu.png"
-    elif nom == "Dialga":
-        booster_image_url = "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/dialga.png"
+    elif nom == "Mewtwo":
+        booster_image_url = "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/mewtwo.png"
 
     # Création de l'embed initial avec l'image du booster
     embed = discord.Embed(title="🎁 Booster Fermé", color=0xFFD700)
