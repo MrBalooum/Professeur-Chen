@@ -1396,7 +1396,7 @@ class BoosterView(discord.ui.View):
         self.previous_button.disabled = (self.current_index == 0)
         self.next_button.disabled = (self.current_index == len(self.cards) - 1)
 
-    async def update_embed(self, interaction: discord.Interaction):
+     async def update_embed(self, interaction: discord.Interaction):
         if not self.opened:
             # Afficher l'image du booster
             embed = discord.Embed(title="🎁 Booster Fermé", color=0xFFD700)
@@ -1404,7 +1404,7 @@ class BoosterView(discord.ui.View):
         else:
             # Afficher la carte actuelle
             card_name = self.cards[self.current_index]
-            card_data = BOOSTERS["Pikachu"][card_name]  # Remplacez "Pikachu" par le booster sélectionné
+            card_data = BOOSTERS[self.booster_name][card_name]
             embed = discord.Embed(title=f"🎴 Carte {self.current_index + 1}/{len(self.cards)}", color=0xFFD700)
             embed.set_image(url=card_data["image_url"])
 
