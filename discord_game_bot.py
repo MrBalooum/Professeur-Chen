@@ -1350,17 +1350,15 @@ async def booster(interaction: discord.Interaction, nom: str):
             selected_card = random.choices(list(cards.keys()), weights=[data["drop_rate"] for data in cards.values()])[0]
             selected_cards.append(selected_card)
 
-    # Enregistrer les cartes obtenues dans la table user_collections
-    user_id = interaction.user.id
-    for card_name in selected_cards:
-        cursor.execute('INSERT OR IGNORE INTO user_collections (user_id, card_name) VALUES (?, ?)', (user_id, card_name))
-    conn.commit()
-
     # URL de l'image du booster en fonction du nom du booster
     if nom == "Pikachu":
         booster_image_url = "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/pikachu.png"
+    elif nom == "Dialga":
+        booster_image_url = "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/dialga.png"
     elif nom == "Mewtwo":
         booster_image_url = "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/mewtwo.png"
+    else:
+        booster_image_url = "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/default.png"  # URL par défaut si le booster n'est ni Pikachu ni Dialga ni Mewtwo
 
     # Création de l'embed initial avec l'image du booster
     embed = discord.Embed(title="🎁 Booster Fermé", color=0xFFD700)
@@ -1377,11 +1375,12 @@ async def booster_autocomplete(interaction: discord.Interaction, current: str):
 
 # Classe pour gérer l'affichage du booster et des cartes
 class BoosterView(discord.ui.View):
-    def __init__(self, cards, booster_image_url):
+    def __init__(self, cards, booster_image_url, booster_name):
         super().__init__()
         self.cards = cards
-        self.current_index = 0
         self.booster_image_url = booster_image_url
+        self.booster_name = booster_name
+        self.current_index = 0
         self.opened = False
 
         # Ajouter le bouton "Ouvrir"
