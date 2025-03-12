@@ -33,7 +33,7 @@ conn.commit()
 
 # 📌 Table des boosters et des cartes disponibles
 BOOSTERS = {
-    "Pikachu": {
+    "Pikachu":{
         "6": {
             "drop_rate": 0.02083,
             "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/6.png",
