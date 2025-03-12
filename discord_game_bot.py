@@ -1269,42 +1269,65 @@ async def pokemon_autocomplete(interaction: discord.Interaction, current: str):
     suggestions = [name for name in POKEMON_LIST.keys() if current.lower() in name.lower()]
     return [discord.app_commands.Choice(name=p, value=p) for p in suggestions[:10]]
 
-# 📌 Classe pour gérer les boutons de navigation
+# Initialisation du bot Discord
+bot = commands.Bot(command_prefix="!", intents=discord.Intents.default())
+
 class BoosterView(discord.ui.View):
-    def __init__(self, cards, current_index=0):
+    def __init__(self, cards, booster_image_url, booster_name):
         super().__init__()
         self.cards = cards
-        self.current_index = current_index
+        self.booster_image_url = booster_image_url
+        self.booster_name = booster_name
+        self.current_index = 0
+        self.opened = False
 
-    @discord.ui.button(label="Précédent", style=discord.ButtonStyle.primary)
-    async def previous(self, interaction: discord.Interaction, button: discord.ui.Button):
+        # Ajouter le bouton "Ouvrir"
+        self.open_button = discord.ui.Button(label="Ouvrir", style=discord.ButtonStyle.success)
+        self.open_button.callback = self.open_booster
+        self.add_item(self.open_button)
+
+        # Ajouter les boutons de navigation
+        self.previous_button = discord.ui.Button(label="Précédent", style=discord.ButtonStyle.primary)
+        self.next_button = discord.ui.Button(label="Suivant", style=discord.ButtonStyle.primary)
+        self.previous_button.callback = self.previous
+        self.next_button.callback = self.next
+
+    async def open_booster(self, interaction: discord.Interaction):
+        # Remplacer l'image du booster par la première carte
+        self.opened = True
+        self.remove_item(self.open_button)  # Retirer le bouton "Ouvrir"
+        self.add_item(self.previous_button)  # Ajouter les boutons de navigation
+        self.add_item(self.next_button)
+        await self.update_embed(interaction)
+
+    async def previous(self, interaction: discord.Interaction):
         self.current_index = (self.current_index - 1) % len(self.cards)
+        self.update_buttons()
         await self.update_embed(interaction)
 
-    @discord.ui.button(label="Suivant", style=discord.ButtonStyle.primary)
-    async def next(self, interaction: discord.Interaction, button: discord.ui.Button):
+    async def next(self, interaction: discord.Interaction):
         self.current_index = (self.current_index + 1) % len(self.cards)
+        self.update_buttons()
         await self.update_embed(interaction)
+
+    def update_buttons(self):
+        # Désactiver les boutons "Précédent" et "Suivant" si nécessaire
+        self.previous_button.disabled = (self.current_index == 0)
+        self.next_button.disabled = (self.current_index == len(self.cards) - 1)
 
     async def update_embed(self, interaction: discord.Interaction):
-        card_name = self.cards[self.current_index]
-        card_data = BOOSTERS["Pikachu"][card_name]  # Remplacez "Pikachu" par le booster sélectionné
-        embed = discord.Embed(title=f"🎴 Carte {self.current_index + 1}/{len(self.cards)}", color=0xFFD700)
-        embed.set_image(url=card_data["image_url"])
+        if not self.opened:
+            # Afficher l'image du booster
+            embed = discord.Embed(title="🎁 Booster Fermé", color=0xFFD700)
+            embed.set_image(url=self.booster_image_url)
+        else:
+            # Afficher la carte actuelle
+            card_name = self.cards[self.current_index]
+            card_data = BOOSTERS[self.booster_name][card_name]
+            embed = discord.Embed(title=f"🎴 Carte {self.current_index + 1}/{len(self.cards)}", color=0xFFD700)
+            embed.set_image(url=card_data["image_url"])
+
         await interaction.response.edit_message(embed=embed, view=self)
-
-def sync_cards():
-    # Charger les cartes actuelles depuis le fichier JSON ou l'API
-    with open(POKEMON_LIST_FILE, "r", encoding="utf-8") as f:
-        pokemon_list = json.load(f)
-
-    # Mettre à jour les cartes dans la base de données
-    cursor.execute('DELETE FROM user_collections')  # Supprimer toutes les cartes existantes
-    conn.commit()
-
-    for user_id, card_name in pokemon_list.items():
-        cursor.execute('INSERT OR IGNORE INTO user_collections (user_id, card_name) VALUES (?, ?)', (user_id, card_name))
-    conn.commit()
 
 # Commande /booster modifiée
 @bot.tree.command(name="booster", description="Ouvre un booster de cartes Pokémon")
@@ -1324,7 +1347,7 @@ async def booster(interaction: discord.Interaction, nom: str):
             selected_cards.append(selected_card)
         else:
             # Si aucune carte n'est éligible pour cette position, sélectionner une carte aléatoire parmi toutes les cartes
-            selected_card = random.choices(list(cards.keys()), weights=[card["drop_rate"] for card in cards.values()])[0]
+            selected_card = random.choices(list(cards.keys()), weights=[data["drop_rate"] for data in cards.values()])[0]
             selected_cards.append(selected_card)
 
     # Enregistrer les cartes obtenues dans la table user_collections
@@ -1344,9 +1367,8 @@ async def booster(interaction: discord.Interaction, nom: str):
     embed.set_image(url=booster_image_url)
 
     # Ajouter le bouton "Ouvrir"
-    view = BoosterView(selected_cards, booster_image_url)
+    view = BoosterView(selected_cards, booster_image_url, nom)
     await interaction.response.send_message(embed=embed, view=view)
-    
 # Auto-complétion pour la commande /booster
 @booster.autocomplete("nom")
 async def booster_autocomplete(interaction: discord.Interaction, current: str):
@@ -1410,7 +1432,6 @@ class BoosterView(discord.ui.View):
 
         await interaction.response.edit_message(embed=embed, view=self)
 
-
 # Classe pour gérer l'affichage des cartes de la collection avec un select menu
 class CollectionView(discord.ui.View):
     def __init__(self, cards):
@@ -1451,7 +1472,7 @@ async def collect(interaction: discord.Interaction):
     embed.set_image(url=card_data["image_url"])
     await interaction.response.send_message(embed=embed, view=view)
 
-# 📌 Événement de connexion du bot
+# Événement de connexion du bot
 @bot.event
 async def on_ready():
     await bot.change_presence(activity=discord.Game(name="Pokémon Jaune"))
