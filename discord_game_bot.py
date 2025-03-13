@@ -1337,6 +1337,7 @@ class BoosterView(discord.ui.View):
             card_data = BOOSTERS[self.booster_name][card_name]
             embed = discord.Embed(title=f"🎴 Carte {self.current_index + 1}/{len(self.cards)}", color=0xFFD700)
             embed.set_image(url=card_data["image_url"])
+            embed.add_field(title=f"🎴 Carte {self.current_index + 1}/{len(self.cards)}", color=0xFFD700)
     
         await interaction.response.edit_message(embed=embed, view=self)
 
