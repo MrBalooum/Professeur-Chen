@@ -33,66 +33,66 @@ conn.commit()
 
 # 📌 Table des boosters et des cartes disponibles
 BOOSTERS = {
-    "Pikachu": {
-        "6": {
-            "drop_rate": 0.1,
-            "image_url": "https://static.pkmcards.fr/cards/fr/bcr/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-bcr-fr-140-noir-blanc-frontieres-franchies-potion-dor.webp",
-            "allowed_positions" : [1, 2, 3, 4]  
+    "PGO - Pokemon Go": {
+        "PGO-064/078": {
+            "drop_rate": 12,
+            "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-064-epee-et-bouclier-pokemon-go-capitaine-dequipe-blanche.webp",
+            "allowed_positions" : [1]  
         },
-         "5": {
-            "drop_rate": 0.02083,
-            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/5.png",
-            "allowed_positions" : [1, 2, 3, 4] 
+         "PGO-065/078": {
+            "drop_rate": 12,
+            "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-064-epee-et-bouclier-pokemon-go-capitaine-dequipe-candela.webp",
+            "allowed_positions" : [1] 
         },
-         "14": {
-            "drop_rate": 0.02083,
-            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/14.png",
-            "allowed_positions" : [1, 2, 3, 4] 
+         "PGO-0.66/078": {
+            "drop_rate": 12,
+            "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-066-epee-et-bouclier-pokemon-go-incubateur-doeufs.webp",
+            "allowed_positions" : [1] 
         },
-        "27": {
-            "drop_rate": 0.02083,
-            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/27.png",
-            "allowed_positions" : [1, 2, 3, 4] 
+        "Pgo-0.67/078": {
+            "drop_rate": 12,
+            "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-067-epee-et-bouclier-pokemon-go-module-leurre.webp",
+            "allowed_positions" : [1] 
         },
-        "29": {
-            "drop_rate": 0.02083,
-            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/29.png",
-            "allowed_positions" : [1, 2, 3, 4] 
+        "PGO-0.68/078": {
+            "drop_rate": 12,
+            "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-068-epee-et-bouclier-pokemon-go-pokestop.webp",
+            "allowed_positions" : [1] 
         },
-         "39": {
-            "drop_rate": 0.02083,
-            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/39.png",
-            "allowed_positions" : [1, 2, 3, 4] 
+         "PGO-0.69/078": {
+            "drop_rate": 12,
+            "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-069-epee-et-bouclier-pokemon-go-super-bonbon.webp",
+            "allowed_positions" : [1] 
         },
-         "42": {
-            "drop_rate": 0.02083,
-            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/42.png",
-            "allowed_positions" : [1, 2, 3, 4] 
+         "PGO-070/078": {
+            "drop_rate": 12,
+            "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-070-epee-et-bouclier-pokemon-go-capitaine-dequipe-spark.webp",
+            "allowed_positions" : [1] 
         },
-         "48": {
-            "drop_rate": 0.02083,
-            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/48.png",
-            "allowed_positions" : [1, 2, 3, 4] 
+         "PGO-0.78/078": {
+            "drop_rate": 10,
+            "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-078-epee-et-bouclier-pokemon-go-recherches-professorales.webp",
+            "allowed_positions" : [1] 
         },
-         "51": {
-            "drop_rate": 0.02083,
-            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/51.png",
-            "allowed_positions" : [1, 2, 3, 4] 
+         "PGO-0.82/078": {
+            "drop_rate": 1.5,
+            "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-082-epee-et-bouclier-pokemon-go-capitaine-dequipe-blanche.webp",
+            "allowed_positions" : [1] 
         },
-         "53": {
-            "drop_rate": 0.02083,
-            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/53.png",
-            "allowed_positions" : [1, 2, 3, 4] 
+         "PGO-0.83/0.78": {
+            "drop_rate": 1.5,
+            "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-083-epee-et-bouclier-pokemon-go-capitaine-dequipe-candela.webp",
+            "allowed_positions" : [1] 
         },
-         "57": {
-            "drop_rate": 0.02083,
-            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/57.png",
-            "allowed_positions" : [1, 2, 3, 4] 
+         "PGO-0.84/0.78": {
+            "drop_rate": 1.5,
+            "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-084-epee-et-bouclier-pokemon-go-recherhes-professorales.webp",
+            "allowed_positions" : [1] 
         },
-         "64": {
-            "drop_rate": 0.02083,
-            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/64.png",
-            "allowed_positions" : [1, 2, 3, 4] 
+         "PGO-0.85/0.78": {
+            "drop_rate": 1.5,
+            "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-085-epee-et-bouclier-pokemon-go-capitaine-dequipe-spark.webp",
+            "allowed_positions" : [1] 
         },
          "70": {
             "drop_rate": 0.02083,
