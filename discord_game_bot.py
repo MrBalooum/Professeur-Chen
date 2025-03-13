@@ -76,12 +76,12 @@ BOOSTERS = {
             "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-078-epee-et-bouclier-pokemon-go-recherches-professorales.webp",
             "allowed_positions" : [1] 
         },
-         "PGO-082 - Capitaine Blanche Rare ": {
+         "PGO-082 - Capitaine Blanche Rare": {
             "drop_rate": 3,
             "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-082-epee-et-bouclier-pokemon-go-capitaine-dequipe-blanche.webp",
             "allowed_positions" : [1] 
         },
-         "PGO-083 - Capitaine Candela Rare ": {
+         "PGO-083 - Capitaine Candela Rare": {
             "drop_rate": 3,
             "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-083-epee-et-bouclier-pokemon-go-capitaine-dequipe-candela.webp",
             "allowed_positions" : [1] 
