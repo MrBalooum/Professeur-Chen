@@ -478,7 +478,7 @@ BOOSTERS = {
         },
          "PGO-088/078": {
             "drop_rate": 0.8833,
-            "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-087-epee-et-bouclier-pokemon-go-module-leurre.webp",
+            "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-088-epee-et-bouclier-pokemon-go-module-leurre.webp",
             "allowed_positions" : [6]
         },
  ############################################
