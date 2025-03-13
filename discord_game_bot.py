@@ -14,7 +14,8 @@ CHANNEL_ID = 1347496375390048349  # ID du salon autorisé pour /pokemon
 DELETE_DELAY = 60  # Suppression après 60 secondes
 POKEMON_LIST_FILE = "pokemon_names_fr.json"
 
-intents = discord.Intents.all()
+intents = discord.Intents.default()
+intents.message_content = True  # Activer l'intent message_content
 bot = commands.Bot(command_prefix="!", intents=intents)
 
 # Connexion à la base de données SQLite
