@@ -1275,26 +1275,28 @@ class BoosterView(discord.ui.View):
         self.next_button.disabled = (self.current_index == len(self.cards) - 1)
 
     async def update_embed(self, interaction: discord.Interaction):
-        if not self.opened:
-            # Afficher l'image du booster
-            embed = discord.Embed(title="🎁 Booster Fermé", color=0xFFD700)
-            embed.set_image(url=self.booster_image_url)
+    if not self.opened:
+        # Afficher l'image du booster
+        embed = discord.Embed(title="🎁 Booster Fermé", color=0xFFD700)
+        embed.set_image(url=self.booster_image_url)
+    else:
+        # Afficher la carte actuelle
+        card_name = self.cards[self.current_index]
+        card_data = BOOSTERS[self.booster_name][card_name]
+        embed = discord.Embed(title=f" Carte {self.current_index + 1}/{len(self.cards)}", color=0xFFD700)
+        embed.set_image(url=card_data["image_url"])
+
+        # Vérifier si la carte est déjà dans la collection de l'utilisateur
+        user_id = interaction.user.id
+        cursor.execute('SELECT 1 FROM user_collections WHERE user_id = ? AND card_name = ?', (user_id, card_name))
+        result = cursor.fetchone()
+        logging.info(f"Checking card {card_name} for user {user_id}: {result}")
+        if result:
+            embed.set_footer(text="Déjà possédée ❌")
         else:
-            # Afficher la carte actuelle
-            card_name = self.cards[self.current_index]
-            card_data = BOOSTERS[self.booster_name][card_name]
-            embed = discord.Embed(title=f" Carte {self.current_index + 1}/{len(self.cards)}", color=0xFFD700)
-            embed.set_image(url=card_data["image_url"])
+            embed.set_footer(text="NEW! ✅")
 
-            # Vérifier si la carte est déjà dans la collection de l'utilisateur
-            user_id = interaction.user.id
-            cursor.execute('SELECT 1 FROM user_collections WHERE user_id = ? AND card_name = ?', (user_id, card_name))
-            result = cursor.fetchone()
-            logging.info(f"Checking card {card_name} for user {user_id}: {result}")
-            if result:
-                embed.set_footer(text="Carte déjà possédée", icon_url="https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/pokeball.png")
-
-        await interaction.response.edit_message(embed=embed, view=self)
+    await interaction.response.edit_message(embed=embed, view=self)
 
 # Configurer le logging
 logging.basicConfig(level=logging.INFO)
