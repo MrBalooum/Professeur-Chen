@@ -1,3 +1,5 @@
+import logging
+import sqlite3
 import discord
 from discord.ext import commands
 import asyncio
@@ -5,8 +7,6 @@ import os
 import json
 import requests
 import random
-import sqlite3
-import logging
 
 # 🔧 Configuration du bot
 TOKEN = os.getenv("TOKEN")
@@ -14,6 +14,7 @@ CHANNEL_ID = 1347496375390048349  # ID du salon autorisé pour /pokemon
 DELETE_DELAY = 60  # Suppression après 60 secondes
 POKEMON_LIST_FILE = "pokemon_names_fr.json"
 
+# Configuration du bot
 intents = discord.Intents.default()
 intents.message_content = True  # Activer l'intent message_content
 bot = commands.Bot(command_prefix="!", intents=intents)
@@ -22,7 +23,7 @@ bot = commands.Bot(command_prefix="!", intents=intents)
 conn = sqlite3.connect('pokemon_collections.db')
 cursor = conn.cursor()
 
-# Créer la table user_collections
+# Créer la table user_collections si elle n'existe pas
 cursor.execute('''
 CREATE TABLE IF NOT EXISTS user_collections (
     user_id INTEGER,
@@ -1237,7 +1238,7 @@ class BoosterView(discord.ui.View):
 # Configurer le logging
 logging.basicConfig(level=logging.INFO)
 
-# Commande /booster modifiée pour vérifier la présence des cartes dans la collection
+# Commande /booster pour ouvrir un booster de cartes Pokémon
 @bot.tree.command(name="booster", description="Ouvre un booster de cartes Pokémon")
 async def booster(interaction: discord.Interaction, nom: str):
     if nom not in BOOSTERS:
@@ -1283,12 +1284,6 @@ async def booster(interaction: discord.Interaction, nom: str):
     view = BoosterView(selected_cards, booster_image_url, nom)
     await interaction.response.send_message(embed=embed, view=view)
     
-# Auto-complétion pour la commande /booster
-@booster.autocomplete("nom")
-async def booster_autocomplete(interaction: discord.Interaction, current: str):
-    suggestions = [name for name in BOOSTERS.keys() if current.lower() in name.lower()]
-    return [discord.app_commands.Choice(name=p, value=p) for p in suggestions[:10]]
-
 # Classe pour gérer l'affichage du booster et des cartes
 class BoosterView(discord.ui.View):
     def __init__(self, cards, booster_image_url, booster_name):
@@ -1355,54 +1350,6 @@ class BoosterView(discord.ui.View):
 
         await interaction.response.edit_message(embed=embed, view=self)
 
-# Commande /booster modifiée pour vérifier la présence des cartes dans la collection
-@bot.tree.command(name="booster", description="Ouvre un booster de cartes Pokémon")
-async def booster(interaction: discord.Interaction, nom: str):
-    if nom not in BOOSTERS:
-        await interaction.response.send_message("❌ Booster introuvable.", ephemeral=True)
-        return
-
-    # Ouvrir 6 cartes aléatoires en fonction des taux de drop et des positions autorisées
-    cards = BOOSTERS[nom]
-    selected_cards = []
-
-    for position in range(1, 7):  # Positions de 1 à 6
-        eligible_cards = [card for card, data in cards.items() if position in data["allowed_positions"]]
-        if eligible_cards:
-            weights = [cards[card]["drop_rate"] for card in eligible_cards]
-            selected_card = random.choices(eligible_cards, weights=weights)[0]
-            selected_cards.append(selected_card)
-        else:
-            selected_card = random.choices(list(cards.keys()), weights=[data["drop_rate"] for data in cards.values()])[0]
-            selected_cards.append(selected_card)
-
-    # Insérer les cartes sélectionnées dans la collection de l'utilisateur
-    user_id = interaction.user.id
-    for card_name in selected_cards:
-        cursor.execute('INSERT OR IGNORE INTO user_collections (user_id, card_name) VALUES (?, ?)', (user_id, card_name))
-        logging.info(f"Inserted card: {card_name} for user: {user_id}")
-    conn.commit()
-
-    # URL de l'image du booster en fonction du nom du booster
-    if nom == "PGO - Pokemon Go":
-        booster_image_url = "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/Pokemon_go.png"
-    elif nom == "Dialga":
-        booster_image_url = "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/dialga.png"
-    elif nom == "Mewtwo":
-        booster_image_url = "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/mewtwo.png"
-    else:
-        booster_image_url = "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/default.png"
-
-    # Création de l'embed initial avec l'image du booster
-    embed = discord.Embed(title="🎁 Booster Fermé", color=0xFFD700)
-    embed.set_image(url=booster_image_url)
-
-    # Ajouter le bouton "Ouvrir"
-    view = BoosterView(selected_cards, booster_image_url, nom)
-    await interaction.response.send_message(embed=embed, view=view)
-        
-import logging
-
 # Configurer le logging
 logging.basicConfig(level=logging.INFO)
 
@@ -1441,14 +1388,16 @@ class CollectionView(discord.ui.View):
             # Vérifier si la carte est déjà dans la collection de l'utilisateur
             user_id = interaction.user.id
             cursor.execute('SELECT 1 FROM user_collections WHERE user_id = ? AND card_name = ?', (user_id, selected_card))
-            if cursor.fetchone():
+            result = cursor.fetchone()
+            logging.info(f"Checking card {selected_card} for user {user_id}: {result}")
+            if result:
                 embed.set_footer(text="Carte déjà possédée", icon_url="https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/pokeball.png")
 
             await interaction.response.edit_message(embed=embed, view=self)
         else:
             await interaction.response.send_message("Carte introuvable dans le booster.", ephemeral=True)
             
-# Commande /collect avec des logs
+# Commande /collect pour voir la collection de cartes Pokémon de l'utilisateur
 @bot.tree.command(name="collect", description="Voir votre collection de cartes Pokémon")
 async def collect(interaction: discord.Interaction):
     user_id = interaction.user.id
