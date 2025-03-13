@@ -1235,6 +1235,12 @@ class BoosterView(discord.ui.View):
 
         await interaction.response.edit_message(embed=embed, view=self)
 
+# Auto-complétion pour la commande /booster
+@booster.autocomplete("nom")
+async def booster_autocomplete(interaction: discord.Interaction, current: str):
+    suggestions = [name for name in BOOSTERS.keys() if current.lower() in name.lower()]
+    return [discord.app_commands.Choice(name=p, value=p) for p in suggestions[:10]]
+
 # Configurer le logging
 logging.basicConfig(level=logging.INFO)
 
