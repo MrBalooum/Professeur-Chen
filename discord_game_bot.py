@@ -422,47 +422,47 @@ BOOSTERS = {
         "PGO-004/078": {
             "drop_rate": 1.15,
             "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-004-epee-et-bouclier-pokemon-go-florizarre-radieux.webp",
-            "allowed_positions" : [5, 6]
+            "allowed_positions" : [6]
         },    
          "PGO-011/078": {
             "drop_rate": 1.15,
             "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-011-epee-et-bouclier-pokemon-go-dracaufeu-radieux.webp",
-            "allowed_positions" : [5, 6]
+            "allowed_positions" : [6]
         },
          "PGO-018/078": {
             "drop_rate": 1.15,
             "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-018-epee-et-bouclier-pokemon-go-tortank-radieux.webp",
-            "allowed_positions" : [5, 6]
+            "allowed_positions" : [6]
         },
          "PGO-031/078": {
             "drop_rate": 1.15,
             "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-031-epee-et-bouclier-pokemon-go-mewtwo-vstar.webp",
-            "allowed_positions" : [5, 6]
+            "allowed_positions" : [6]
         },
          "PGO-048/078": {
             "drop_rate": 1.15,
             "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-048-epee-et-bouclier-pokemon-go-melmetal-vmax.webp",
-            "allowed_positions" : [5, 6]
+            "allowed_positions" : [6]
         },
          "PGO-050/078": {
             "drop_rate": 1.15,
             "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-050-epee-et-bouclier-pokemon-go-dracolosse-vstar.webp",
-            "allowed_positions" : [5, 6]
+            "allowed_positions" : [6]
         },
          "PGO-079/078": {
             "drop_rate": 1.15,
             "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-079-epee-et-bouclier-pokemon-go-mewtwo-vstar.webp",
-            "allowed_positions" : [5, 6]
+            "allowed_positions" : [6]
         },
          "PGO-080/078": {
             "drop_rate": 1.15,
             "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-080-epee-et-bouclier-pokemon-go-melmetal-vmax.webp",
-            "allowed_positions" : [5, 6]
+            "allowed_positions" : [6]
         },
          "PGO-081/078": {
             "drop_rate": 1.15,
             "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-081-epee-et-bouclier-pokemon-go-dracolosse-vstar.webp",
-            "allowed_positions" : [5, 6]
+            "allowed_positions" : [6]
         },   
 ############################################
          "PGO-086/078": {
