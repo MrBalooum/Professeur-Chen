@@ -41,7 +41,7 @@ BOOSTERS = {
         },
          "PGO-065/078": {
             "drop_rate": 11,
-            "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-064-epee-et-bouclier-pokemon-go-capitaine-dequipe-candela.webp",
+            "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-065-epee-et-bouclier-pokemon-go-capitaine-dequipe-candela.webp",
             "allowed_positions" : [1] 
         },
          "PGO-066/078": {
