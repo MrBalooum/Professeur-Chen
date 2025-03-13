@@ -1358,7 +1358,7 @@ class CollectionView(discord.ui.View):
 
     async def select_card(self, interaction: discord.Interaction):
         selected_card = self.select_menu.values[0]
-        card_data = BOOSTERS["Pikachu"][selected_card]  # Remplacez "Pikachu" par le booster sélectionné
+        card_data = BOOSTERS["PGO - Pokemon Go"][selected_card]  # Remplacez "PGO - Pokemon Go" par le booster sélectionné
         embed = discord.Embed(title=f"🎴 {selected_card.capitalize()}", color=0xFFD700)
         embed.set_image(url=card_data["image_url"])
         await interaction.response.edit_message(embed=embed, view=self)
@@ -1377,8 +1377,8 @@ async def collect(interaction: discord.Interaction):
     # Création de l'embed initial avec le select menu
     view = CollectionView(cards)
     initial_card = cards[0]
-    card_data = BOOSTERS["Pikachu"][initial_card]  # Remplacez "Pikachu" par le booster sélectionné
-    embed = discord.Embed(title=f"🎴 {initial_card.capitalize()}", color=0xFFD700)
+    card_data = BOOSTERS["PGO - Pokemon Go"][initial_card]  # Remplacez "PGO - Pokemon Go" par le booster sélectionné
+    embed = discord.Embed(title=f" {initial_card.capitalize()}", color=0xFFD700)
     embed.set_image(url=card_data["image_url"])
     await interaction.response.send_message(embed=embed, view=view)
 
