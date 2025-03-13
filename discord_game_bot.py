@@ -1237,7 +1237,7 @@ class BoosterView(discord.ui.View):
 # Configurer le logging
 logging.basicConfig(level=logging.INFO)
 
-# Commande /booster modifiée avec des logs
+# Commande /booster modifiée pour vérifier la présence des cartes dans la collection
 @bot.tree.command(name="booster", description="Ouvre un booster de cartes Pokémon")
 async def booster(interaction: discord.Interaction, nom: str):
     if nom not in BOOSTERS:
@@ -1342,14 +1342,21 @@ class BoosterView(discord.ui.View):
             # Afficher la carte actuelle
             card_name = self.cards[self.current_index]
             card_data = BOOSTERS[self.booster_name][card_name]
-            embed = discord.Embed(color=0xFFD700)
+            embed = discord.Embed(title=f" Carte {self.current_index + 1}/{len(self.cards)}", color=0xFFD700)
             embed.set_image(url=card_data["image_url"])
-    
+
+            # Vérifier si la carte est déjà dans la collection de l'utilisateur
+            user_id = interaction.user.id
+            cursor.execute('SELECT 1 FROM user_collections WHERE user_id = ? AND card_name = ?', (user_id, card_name))
+            if cursor.fetchone():
+                embed.set_footer(text="Carte déjà possédée", icon_url="https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/pokeball.png")
+
         # Ajouter le pied de page avec le numéro de la carte
         embed.set_footer(text=f"Carte {self.current_index + 1}/{len(self.cards)}")
-    
-        await interaction.response.edit_message(embed=embed, view=self)
 
+        await interaction.response.edit_message(embed=embed, view=self)
+        
+# Classe pour gérer l'affichage des cartes de la collection avec un select menu
 class CollectionView(discord.ui.View):
     def __init__(self, cards):
         super().__init__()
@@ -1378,6 +1385,13 @@ class CollectionView(discord.ui.View):
         card_data = BOOSTERS["PGO - Pokemon Go"][selected_card]  # Remplacez "PGO - Pokemon Go" par le booster sélectionné
         embed = discord.Embed(title=f"🎴 {selected_card.capitalize()}", color=0xFFD700)
         embed.set_image(url=card_data["image_url"])
+
+        # Vérifier si la carte est déjà dans la collection de l'utilisateur
+        user_id = interaction.user.id
+        cursor.execute('SELECT 1 FROM user_collections WHERE user_id = ? AND card_name = ?', (user_id, selected_card))
+        if cursor.fetchone():
+            embed.set_footer(text="Carte déjà possédée", icon_url="https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/pokeball.png")
+
         await interaction.response.edit_message(embed=embed, view=self)
 
 # Commande /collect avec des logs
