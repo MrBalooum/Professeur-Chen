@@ -44,22 +44,22 @@ BOOSTERS = {
             "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-064-epee-et-bouclier-pokemon-go-capitaine-dequipe-candela.webp",
             "allowed_positions" : [1] 
         },
-         "PGO-0.66/078": {
+         "PGO-066/078": {
             "drop_rate": 12,
             "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-066-epee-et-bouclier-pokemon-go-incubateur-doeufs.webp",
             "allowed_positions" : [1] 
         },
-        "Pgo-0.67/078": {
+        "Pgo-067/078": {
             "drop_rate": 12,
             "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-067-epee-et-bouclier-pokemon-go-module-leurre.webp",
             "allowed_positions" : [1] 
         },
-        "PGO-0.68/078": {
+        "PGO-068/078": {
             "drop_rate": 12,
             "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-068-epee-et-bouclier-pokemon-go-pokestop.webp",
             "allowed_positions" : [1] 
         },
-         "PGO-0.69/078": {
+         "PGO-069/078": {
             "drop_rate": 12,
             "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-069-epee-et-bouclier-pokemon-go-super-bonbon.webp",
             "allowed_positions" : [1] 
@@ -69,515 +69,418 @@ BOOSTERS = {
             "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-070-epee-et-bouclier-pokemon-go-capitaine-dequipe-spark.webp",
             "allowed_positions" : [1] 
         },
-         "PGO-0.78/078": {
+         "PGO-078/078": {
             "drop_rate": 10,
             "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-078-epee-et-bouclier-pokemon-go-recherches-professorales.webp",
             "allowed_positions" : [1] 
         },
-         "PGO-0.82/078": {
+         "PGO-082/078": {
             "drop_rate": 1.5,
             "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-082-epee-et-bouclier-pokemon-go-capitaine-dequipe-blanche.webp",
             "allowed_positions" : [1] 
         },
-         "PGO-0.83/0.78": {
+         "PGO-083/078": {
             "drop_rate": 1.5,
             "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-083-epee-et-bouclier-pokemon-go-capitaine-dequipe-candela.webp",
             "allowed_positions" : [1] 
         },
-         "PGO-0.84/0.78": {
+         "PGO-084/078": {
             "drop_rate": 1.5,
             "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-084-epee-et-bouclier-pokemon-go-recherches-professorales.webp",
             "allowed_positions" : [1] 
         },
-         "PGO-0.85/0.78": {
+         "PGO-085/078": {
             "drop_rate": 1.5,
             "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-085-epee-et-bouclier-pokemon-go-capitaine-dequipe-spark.webp",
             "allowed_positions" : [1] 
         },
-         "70": {
-            "drop_rate": 0.02083,
-            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/70.png",
-            "allowed_positions" : [1, 2, 3, 4] 
+############################################
+         "PGO-01/078": {
+            "drop_rate": 2.857,
+            "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-001-epee-et-bouclier-pokemon-go-bulbizarre.webp",
+            "allowed_positions" : [2, 3, 4] 
         },
-         "72": {
-            "drop_rate": 0.02083,
-            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/72.png",
-            "allowed_positions" : [1, 2, 3, 4] 
+         "PGO-002/078": {
+            "drop_rate": 2.857,
+            "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-002-epee-et-bouclier-pokemon-go-herbizarre.webp",
+            "allowed_positions" : [2, 3, 4] 
         },
-         "77": {
-            "drop_rate": 0.02083,
-            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/77.png",
-            "allowed_positions" : [1, 2, 3, 4] 
+         "PGO-006/078": {
+            "drop_rate": 2.857,
+            "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-006-epee-et-bouclier-pokemon-go-mimigal.webp",
+            "allowed_positions" : [2, 3, 4] 
         },
-         "92": {
-            "drop_rate": 0.02083,
-            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/92.png",
-            "allowed_positions" : [1, 2, 3, 4] 
+         "PGO-007/078": {
+            "drop_rate": 2.857,
+            "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-007-epee-et-bouclier-pokemon-go-migalos.webp",
+            "allowed_positions" : [2, 3, 4] 
         },
-         "94": {
-            "drop_rate": 0.02083,
-            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/94.png",
-            "allowed_positions" : [1, 2, 3, 4] 
+         "PGO-008/078": {
+            "drop_rate": 2.857,
+            "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-008-epee-et-bouclier-pokemon-go-salameche.webp",
+            "allowed_positions" : [2, 3, 4] 
         },
-         "97": {
-            "drop_rate": 0.02083,
-            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/97.png",
-            "allowed_positions" : [1, 2, 3, 4] 
+         "PGO-009/078": {
+            "drop_rate": 2.857,
+            "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-009-epee-et-bouclier-pokemon-go-reptincel.webp",
+            "allowed_positions" : [2, 3, 4] 
         },
-         "99": {
-            "drop_rate": 0.02083,
-            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/99.png",
-            "allowed_positions" : [1, 2, 3, 4] 
+         "PGO-013/078": {
+            "drop_rate": 2.857,
+            "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-013-epee-et-bouclier-pokemon-go-chamallot.webp",
+            "allowed_positions" : [2, 3, 4] 
         },
-         "101": {
-            "drop_rate": 0.02083,
-            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/101.png",
-            "allowed_positions" : [1, 2, 3, 4] 
+         "PGO-014/078": {
+            "drop_rate": 2.857,
+            "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-014-epee-et-bouclier-pokemon-go-camerupt.webp",
+            "allowed_positions" : [2, 3, 4] 
         },
-         "105": {
-            "drop_rate": 0.02083,
-            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/105.png",
-            "allowed_positions" : [1, 2, 3, 4] 
+         "PGO-015/078": {
+            "drop_rate": 2.857,
+            "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-015-epee-et-bouclier-pokemon-go-carapuce.webp",
+            "allowed_positions" : [2, 3, 4] 
         },
-         "110": {
-            "drop_rate": 0.02083,
-            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/110.png",
-            "allowed_positions" : [1, 2, 3, 4] 
+         "PGO-016/078": {
+            "drop_rate": 2.857,
+            "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-016-epee-et-bouclier-pokemon-go-carabaffe.webp",
+            "allowed_positions" : [2, 3, 4] 
         },
-         "111": {
-            "drop_rate": 0.02083,
-            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/111.png",
-            "allowed_positions" : [1, 2, 3, 4] 
+         "PGO-019/078": {
+            "drop_rate": 2.857,
+            "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-019-epee-et-bouclier-pokemon-go-ramoloss.webp",
+            "allowed_positions" : [2, 3, 4] 
         },
-         "113": {
-            "drop_rate": 0.02083,
-            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/113.png",
-            "allowed_positions" : [1, 2, 3, 4] 
+         "PGO-020/078": {
+            "drop_rate": 2.857,
+            "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-020-epee-et-bouclier-pokemon-go-flagadoss.webp",
+            "allowed_positions" : [2, 3, 4] 
         },
-         "118": {
-            "drop_rate": 0.02083,
-            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/118.png",
-            "allowed_positions" : [1, 2, 3, 4] 
+         "PGO-021/078": {
+            "drop_rate": 2.857,
+            "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-021-epee-et-bouclier-pokemon-go-magicarpe.webp",
+            "allowed_positions" : [2, 3, 4] 
         },
-         "124": {
-            "drop_rate": 0.02083,
-            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/124.png",
-            "allowed_positions" : [1, 2, 3, 4] 
+         "PGO-025/078": {
+            "drop_rate": 2.857,
+            "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-025-epee-et-bouclier-pokemon-go-sovkipou.webp",
+            "allowed_positions" : [2, 3, 4] 
         },
-         "133": {
-            "drop_rate": 0.02083,
-            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/133.png",
-            "allowed_positions" : [1, 2, 3, 4] 
+         "PGO-027/078": {
+            "drop_rate": 2.857,
+            "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-027-epee-et-bouclier-pokemon-go-pikachu.webp",
+            "allowed_positions" : [2, 3, 4] 
         }, 
-         "134": {
-            "drop_rate": 0.02083,
-            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/134.png",
-            "allowed_positions" : [1, 2, 3, 4] 
+         "PGO-032/078": {
+            "drop_rate": 2.857,
+            "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-032-epee-et-bouclier-pokemon-go-natu.webp",
+            "allowed_positions" : [2, 3, 4] 
         },
-         "135": {
-            "drop_rate": 0.02083,
-            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/135.png",
-            "allowed_positions" : [1, 2, 3, 4] 
+         "PGO-033/078": {
+            "drop_rate": 2.857,
+            "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-033-epee-et-bouclier-pokemon-go-xatu.webp",
+            "allowed_positions" : [2, 3, 4] 
         },
-         "137": {
-            "drop_rate": 0.02083,
-            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/137.png",
-            "allowed_positions" : [1, 2, 3, 4] 
+         "PGO-034/078": {
+            "drop_rate": 2.857,
+            "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-034-epee-et-bouclier-pokemon-go-seleroc.webp",
+            "allowed_positions" : [2, 3, 4] 
         },
-         "139": {
-            "drop_rate": 0.02083,
-            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/139.png",
-            "allowed_positions" : [1, 2, 3, 4] 
+         "PGO-036/078": {
+            "drop_rate": 2.857,
+            "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-036-epee-et-bouclier-pokemon-go-onix.webp",
+            "allowed_positions" : [2, 3, 4] 
         },
-         "147": {
-            "drop_rate": 0.02083,
-            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/147.png",
-            "allowed_positions" : [1, 2, 3, 4] 
+         "PGO-037/078": {
+            "drop_rate": 2.857,
+            "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-037-epee-et-bouclier-pokemon-go-embrylex.webp",
+            "allowed_positions" : [2, 3, 4] 
         },
-         "160": {
-            "drop_rate": 0.02083,
-            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/160.png",
-            "allowed_positions" : [1, 2, 3, 4] 
+         "PGO-038/078": {
+            "drop_rate": 2.857,
+            "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-038-epee-et-bouclier-pokemon-go-ymphect.webp",
+            "allowed_positions" : [2, 3, 4] 
         },
-         "162": {
-            "drop_rate": 0.02083,
-            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/162.png",
-            "allowed_positions" : [1, 2, 3, 4] 
+         "PGO-039/078": {
+            "drop_rate": 2.857,
+            "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-039-epee-et-bouclier-pokemon-go-solaroc.webp",
+            "allowed_positions" : [2, 3, 4] 
         },
-         "164": {
-            "drop_rate": 0.02083,
-            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/164.png",
-            "allowed_positions" : [1, 2, 3, 4] 
+         "PGO-041/078": {
+            "drop_rate": 2.857,
+            "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-041-epee-et-bouclier-pokemon-go-rattata-dalola.webp",
+            "allowed_positions" : [2, 3, 4] 
         },
-         "166": {
-            "drop_rate": 0.02083,
-            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/166.png",
-            "allowed_positions" : [1, 2, 3, 4] 
+         "PGO-042/078": {
+            "drop_rate": 2.857,
+            "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-042-epee-et-bouclier-pokemon-go-rattatac-dalola.webp",
+            "allowed_positions" : [2, 3, 4] 
         },
-         "169": {
-            "drop_rate": 0.02083,
-            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/169.png",
-            "allowed_positions" : [1, 2, 3, 4] 
+         "PGO-044/078": {
+            "drop_rate": 2.857,
+            "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-044-epee-et-bouclier-pokemon-go-steelix.webp",
+            "allowed_positions" : [2, 3, 4] 
         },
-         "179": {
-            "drop_rate": 0.02083,
-            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/179.png",
-            "allowed_positions" : [1, 2, 3, 4] 
+         "PGO-045/078": {
+            "drop_rate": 2.857,
+            "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-045-epee-et-bouclier-pokemon-go-meltan.webp",
+            "allowed_positions" : [2, 3, 4] 
         },
-         "189": {
-            "drop_rate": 0.02083,
-            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/189.png",
-            "allowed_positions" : [1, 2, 3, 4] 
+         "PGO-051/078": {
+            "drop_rate": 2.857,
+            "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-051-epee-et-bouclier-pokemon-go-leveinard.webp",
+            "allowed_positions" : [2, 3, 4] 
         },
-         "190": {
-            "drop_rate": 0.02083,
-            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/190.png",
-            "allowed_positions" : [1, 2, 3, 4] 
+         "PGO-054/078": {
+            "drop_rate": 2.857,
+            "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-054-epee-et-bouclier-pokemon-go-evoli.webp",
+            "allowed_positions" : [2, 3, 4] 
         },
-         "193": {
-            "drop_rate": 0.02083,
-            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/193.png",
-            "allowed_positions" : [1, 2, 3, 4] 
+         "PGO-056/078": {
+            "drop_rate": 2.857,
+            "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-056-epee-et-bouclier-pokemon-go-capumain.webp",
+            "allowed_positions" : [2, 3, 4] 
         },
-         "194": {
-            "drop_rate": 0.02083,
-            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/194.png",
-            "allowed_positions" : [1, 2, 3, 4] 
+         "PGO-057/078": {
+            "drop_rate": 2.857,
+            "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-057-epee-et-bouclier-pokemon-go-capidextre.webp",
+            "allowed_positions" : [2, 3, 4] 
         },
-         "199": {
-            "drop_rate": 0.02083,
-            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/199.png",
-            "allowed_positions" : [1, 2, 3, 4] 
+         "PGO-059/078": {
+            "drop_rate": 2.857,
+            "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-059-epee-et-bouclier-pokemon-go-keunotor.webp",
+            "allowed_positions" : [2, 3, 4] 
         },
-         "208": {
-            "drop_rate": 0.02083,
-            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/208.png",
-            "allowed_positions" : [1, 2, 3, 4] 
+         "PGO-060/078": {
+            "drop_rate": 2.857,
+            "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-060-epee-et-bouclier-pokemon-go-castorno.webp",
+            "allowed_positions" : [2, 3, 4] 
         },
-         "212": {
-            "drop_rate": 0.02083,
-            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/212.png",
-            "allowed_positions" : [1, 2, 3, 4] 
+         "PGO-061/078": {
+            "drop_rate": 2.857,
+            "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-061-epee-et-bouclier-pokemon-go-poichigeon.webp",
+            "allowed_positions" : [2, 3, 4] 
         },
-         "214": {
-            "drop_rate": 0.02083,
-            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/214.png",
-            "allowed_positions" : [1, 2, 3, 4] 
+         "PGO-062/078": {
+            "drop_rate": 2.857,
+            "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-062-epee-et-bouclier-pokemon-go-colombeau.webp",
+            "allowed_positions" : [2, 3, 4] 
         },
-         "215": {
-            "drop_rate": 0.02083,
-            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/215.png",
-            "allowed_positions" : [1, 2, 3, 4] 
+         "PGO-063/078": {
+            "drop_rate": 2.857,
+            "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-063-epee-et-bouclier-pokemon-go-deflaisean.webp",
+            "allowed_positions" : [2, 3, 4] 
         },
-         "216": {
-            "drop_rate": 0.02083,
-            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/216.png",
-            "allowed_positions" : [1, 2, 3, 4] 
-        },
-
-        ############################################
+############################################
         
-        "15": {
-            "drop_rate": 0.02432,
-            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/15.png",
+        "PGO-003/078": {
+            "drop_rate": 3,
+            "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-003-epee-et-bouclier-pokemon-go-florizarre.webp",
             "allowed_positions" : [5, 6]
         },
-        "26": {
-            "drop_rate": 0.02432,
-            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/26.png",
+        "PGO-005/078": {
+            "drop_rate": 3,
+            "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-005-epee-et-bouclier-pokemon-go-noadkoko-dalola-v.webp",
             "allowed_positions" : [5, 6]
         },
-        "28": {
-            "drop_rate": 0.02432,
-            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/28.png",
+        "PGO-010/078": {
+            "drop_rate": 3,
+            "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-010-epee-et-bouclier-pokemon-go-dracaufeu.webp",
             "allowed_positions" : [5, 6]
         },
-        "30": {
-            "drop_rate": 0.02432,
-            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/30.png",
+        "PGO-012/078": {
+            "drop_rate": 3,
+            "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-012-epee-et-bouclier-pokemon-go-sulfura.webp",
             "allowed_positions" : [5, 6]
         },
-         "43": {
-            "drop_rate": 0.02432,
-            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/43.png",
+         "PGO-017/078": {
+            "drop_rate": 3,
+            "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-017-epee-et-bouclier-pokemon-go-tortank.webp",
             "allowed_positions" : [5, 6]
         },
-         "52": {
-            "drop_rate": 0.02432,
-            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/52.png",
+         "PGO-022/078": {
+            "drop_rate": 3,
+            "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-022-epee-et-bouclier-pokemon-go-leviator.webp",
             "allowed_positions" : [5, 6]
         },
-         "54": {
-            "drop_rate": 0.02432,
-            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/54.png",
+         "PGO-023/078": {
+            "drop_rate": 3,
+            "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-023-epee-et-bouclier-pokemon-go-lokhlass.webp",
             "allowed_positions" : [5, 6]
         },
-         "58": {
-            "drop_rate": 0.02432,
-            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/58.png",
+         "PGO-024/078": {
+            "drop_rate": 3,
+            "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-024-epee-et-bouclier-pokemon-go-artikodin.webp",
             "allowed_positions" : [5, 6]
         },
-         "65": {
-            "drop_rate": 0.02432,
-            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/65.png",
+         "PGO-026/078": {
+            "drop_rate": 3,
+            "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-026-epee-et-bouclier-pokemon-go-sarmurai.webp",
             "allowed_positions" : [5, 6]
         },
-         "71": {
-            "drop_rate": 0.02432,
-            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/71.png",
+         "PGO-028/078": {
+            "drop_rate": 3,
+            "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-028-epee-et-bouclier-pokemon-go-pikachu.webp",
             "allowed_positions" : [5, 6]
         },
-         "73": {
-            "drop_rate": 0.02432,
-            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/73.png",
+         "PGO-029/078": {
+            "drop_rate": 3,
+            "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-029-epee-et-bouclier-pokemon-go-electhor.webp",
             "allowed_positions" : [5, 6]
         },
-         "81": {
-            "drop_rate": 0.02432,
-            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/81.png",
+         "PGO-030/078": {
+            "drop_rate": 3,
+            "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-030-epee-et-bouclier-pokemon-go-mewtwo-v.webp",
             "allowed_positions" : [5, 6]
         },
-         "91": {
-            "drop_rate": 0.02432,
-            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/91.png",
+         "PGO-035/078": {
+            "drop_rate": 3,
+            "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-035-epee-et-bouclier-pokemon-go-nymphali.webp",
             "allowed_positions" : [5, 6]
         },
-         "93": {
-            "drop_rate": 0.02432,
-            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/93.png",
+         "PGO-040/078": {
+            "drop_rate": 3,
+            "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-040-epee-et-bouclier-pokemon-go-betochef-v.webp",
             "allowed_positions" : [5, 6]
         },
-         "100": {
-            "drop_rate": 0.02432,
-            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/100.png",
+         "PGO-043/078": {
+            "drop_rate": 3,
+            "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-043-epee-et-bouclier-pokemon-go-tyranocif.webp",
             "allowed_positions" : [5, 6]
         },
-         "106": {
-            "drop_rate": 0.02432,
-            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/106.png",
+         "PGO-046/078": {
+            "drop_rate": 3,
+            "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-046-epee-et-bouclier-pokemon-go-melmetal.webp",
             "allowed_positions" : [5, 6]
         },
-         "112": {
-            "drop_rate": 0.02432,
-            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/112.png",
+         "PGO-047/078": {
+            "drop_rate": 3,
+            "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-047-epee-et-bouclier-pokemon-go-melmetal-v.webp",
             "allowed_positions" : [5, 6]
         },
-         "114": {
-            "drop_rate": 0.02432,
-            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/114.png",
+         "PGO-049/078": {
+            "drop_rate": 3,
+            "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-049-epee-et-bouclier-pokemon-go-dracolosse-v.webp",
             "allowed_positions" : [5, 6]
         },
-         "119": {
-            "drop_rate": 0.02432,
-            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/119.png",
+         "PGO-052/078": {
+            "drop_rate": 3,
+            "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-052-epee-et-bouclier-pokemon-go-leuphorie.webp",
             "allowed_positions" : [5, 6]
         },
-         "136": {
-            "drop_rate": 0.02432,
-            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/136.png",
+         "PGO-053/078": {
+            "drop_rate": 3,
+            "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-053-epee-et-bouclier-pokemon-go-metamorph.webp",
             "allowed_positions" : [5, 6]
         },
-         "138": {
-            "drop_rate": 0.02432,
-            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/138.png",
+         "PGO-055/078": {
+            "drop_rate": 3,
+            "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-055-epee-et-bouclier-pokemon-go-ronflex.webp",
             "allowed_positions" : [5, 6]
         },
-         "140": {
-            "drop_rate": 0.02432,
-            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/140.png",
+         "PGO-058/078": {
+            "drop_rate": 3,
+            "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-058-epee-et-bouclier-pokemon-go-monaflemit-v.webp",
             "allowed_positions" : [5, 6]
         },
-         "148": {
-            "drop_rate": 0.02432,
-            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/148.png",
+         "PGO-071/078": {
+            "drop_rate": 3,
+            "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-071-epee-et-bouclier-pokemon-go-noadkoko-dalola--v.webp",
             "allowed_positions" : [5, 6]
         },
-         "150": {
-            "drop_rate": 0.02432,
-            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/150.png",
+         "PGO-072/078": {
+            "drop_rate": 3,
+            "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-072-epee-et-bouclier-pokemon-go-mewtwo-v.webp",
             "allowed_positions" : [5, 6]
         },
-         "161": {
-            "drop_rate": 0.02432,
-            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/161.png",
+         "PGO-073/078": {
+            "drop_rate": 3,
+            "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-073-epee-et-bouclier-pokemon-go-betochef-v.webp",
             "allowed_positions" : [5, 6]
         },
-         "163": {
-            "drop_rate": 0.02432,
-            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/163.png",
+         "PGO-074/078": {
+            "drop_rate": 3,
+            "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-074-epee-et-bouclier-pokemon-go-betochef-v.webp",
             "allowed_positions" : [5, 6]
         },
-         "165": {
-            "drop_rate": 0.02432,
-            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/165.png",
+         "PGO-075/078": {
+            "drop_rate": 3,
+            "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-075-epee-et-bouclier-pokemon-go-melmetal-v.webp",
             "allowed_positions" : [5, 6]
         },
-         "167": {
-            "drop_rate": 0.02432,
-            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/167.png",
+         "PGO-076/078": {
+            "drop_rate": 3,
+            "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-076-epee-et-bouclier-pokemon-go-dracolosse-v.webp",
             "allowed_positions" : [5, 6]
         },
-         "170": {
-            "drop_rate": 0.02432,
-            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/170.png",
+         "PGO-077/078": {
+            "drop_rate": 3,
+            "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-077-epee-et-bouclier-pokemon-go-monaflemit-v.webp",
             "allowed_positions" : [5, 6]
         },
-         "180": {
-            "drop_rate": 0.02432,
-            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/180.png",
-            "allowed_positions" : [5, 6]
-        },
-         "200": {
-            "drop_rate": 0.02432,
-            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/200.png",
-            "allowed_positions" : [5, 6]
-        },
-         "202": {
-            "drop_rate": 0.02432,
-            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/202.png",
-            "allowed_positions" : [5, 6]
-        },
-         "213": {
-            "drop_rate": 0.02432,
-            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/213.png",
-            "allowed_positions" : [5, 6]
-        },
-         "220": {
-            "drop_rate": 0.02432,
-            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/220.png",
-            "allowed_positions" : [5, 6]
-        },
-         "224": {
-            "drop_rate": 0.02432,
-            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/224.png",
-            "allowed_positions" : [5, 6]
-        },
-         "226": {
-            "drop_rate": 0.02432,
-            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/226.png",
-            "allowed_positions" : [5, 6]
-        },
-        ############################################
-        "7": {
-            "drop_rate": 0.00357,
-            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/7.png",
+        
+############################################
+        "PGO-004/078": {
+            "drop_rate": 1.15,
+            "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-004-epee-et-bouclier-pokemon-go-florizarre-radieux.webp",
             "allowed_positions" : [5, 6]
         },    
-         "40": {
-            "drop_rate": 0.00357,
-            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/40.png",
+         "PGO-011/078": {
+            "drop_rate": 1.15,
+            "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-011-epee-et-bouclier-pokemon-go-dracaufeu-radieux.webp",
             "allowed_positions" : [5, 6]
         },
-         "55": {
-            "drop_rate": 0.00357,
-            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/55.png",
+         "PGO-018/078": {
+            "drop_rate": 1.15,
+            "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-018-epee-et-bouclier-pokemon-go-tortank-radieux.webp",
             "allowed_positions" : [5, 6]
         },
-         "82": {
-            "drop_rate": 0.00357,
-            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/82.png",
+         "PGO-031/078": {
+            "drop_rate": 1.15,
+            "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-031-epee-et-bouclier-pokemon-go-mewtwo-vstar.webp",
             "allowed_positions" : [5, 6]
         },
-         "95": {
-            "drop_rate": 0.00357,
-            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/95.png",
+         "PGO-048/078": {
+            "drop_rate": 1.15,
+            "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-048-epee-et-bouclier-pokemon-go-melmetal-vmax.webp",
             "allowed_positions" : [5, 6]
         },
-         "98": {
-            "drop_rate": 0.00357,
-            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/98.png",
+         "PGO-050/078": {
+            "drop_rate": 1.15,
+            "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-050-epee-et-bouclier-pokemon-go-dracolosse-vstar.webp",
             "allowed_positions" : [5, 6]
         },
-         "102": {
-            "drop_rate": 0.00357,
-            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/102.png",
+         "PGO-079/078": {
+            "drop_rate": 1.15,
+            "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-079-epee-et-bouclier-pokemon-go-mewtwo-vstar.webp",
             "allowed_positions" : [5, 6]
         },
-         "149": {
-            "drop_rate": 0.00357,
-            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/149.png",
+         "PGO-080/078": {
+            "drop_rate": 1.15,
+            "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-080-epee-et-bouclier-pokemon-go-melmetal-vmax.webp",
             "allowed_positions" : [5, 6]
         },
-         "169": {
-            "drop_rate": 0.00357,
-            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/169.png",
+         "PGO-081/078": {
+            "drop_rate": 1.15,
+            "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-081-epee-et-bouclier-pokemon-go-dracolosse-vstar.webp",
             "allowed_positions" : [5, 6]
-        },
-         "171": {
-            "drop_rate": 0.00357,
-            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/171.png",
-            "allowed_positions" : [5, 6]
-        },
-        
-        ############################################
-         "41": {
-            "drop_rate": 0.00333,
-            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/41.png",
-            "allowed_positions" : [5, 6]
-        }, 
-         "56": {
-            "drop_rate": 0.00333,
-            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/56.png",
-            "allowed_positions" : [5, 6]
-        },
-         "96": {
-            "drop_rate": 0.00333,
-            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/96.png",
-            "allowed_positions" : [5, 6]
-        },
-        "195": {
-            "drop_rate": 0.00333,
-            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/195.png",
-            "allowed_positions" : [5, 6]
-        },
-        ############################################
-        
-        "232": {
-            "drop_rate": 0.00321,
-            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/232.png",
-            "allowed_positions" : [5, 6]
-        },  
-         "233": {
-            "drop_rate": 0.00321,
-            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/233.png",
-            "allowed_positions" : [5, 6]
-        }, 
-         "235": {
-            "drop_rate": 0.00321,
-            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/235.png",
-            "allowed_positions" : [5, 6]
-        }, 
-         "238": {
-            "drop_rate": 0.00321,
-            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/238.png",
-            "allowed_positions" : [5, 6]
-        },
-         "240": {
-            "drop_rate": 0.00321,
-            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/240.png",
-            "allowed_positions" : [5, 6]
-        }, 
-         "241": {
-            "drop_rate": 0.00321,
-            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/241.png",
-            "allowed_positions" : [5, 6]
-        }, 
-         "248": {
-            "drop_rate": 0.00321,
-            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/248.png",
-            "allowed_positions" : [5, 6]
-        },  
-        ############################################
-         "254": {
-            "drop_rate": 0.0005,
-            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/254.png",
+        },   
+############################################
+         "PGO-086/078": {
+            "drop_rate": 0.8833,
+            "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-086-epee-et-bouclier-pokemon-go-mewtwo-vstar.webp",
             "allowed_positions" : [6]
-        },  
-         "260": {
-            "drop_rate": 0.0005,
-            "image_url": "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/260.png",
+        }, 
+         "PGO-087/078": {
+            "drop_rate": 0.8833,
+            "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-087-epee-et-bouclier-pokemon-go-incubateur-doeufs.webp",
             "allowed_positions" : [6]
-        }
+        },
+         "PGO-088/078": {
+            "drop_rate": 0.8833,
+            "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-087-epee-et-bouclier-pokemon-go-module-leurre.webp",
+            "allowed_positions" : [6]
+        },
+ ############################################
     },
     "Mewtwo": {
         "1": {
