@@ -6,6 +6,7 @@ import json
 import requests
 import random
 import sqlite3
+import logging
 
 # 🔧 Configuration du bot
 TOKEN = os.getenv("TOKEN")
@@ -1232,7 +1233,10 @@ class BoosterView(discord.ui.View):
 
         await interaction.response.edit_message(embed=embed, view=self)
 
-# Commande /booster modifiée
+# Configurer le logging
+logging.basicConfig(level=logging.INFO)
+
+# Commande /booster modifiée avec des logs
 @bot.tree.command(name="booster", description="Ouvre un booster de cartes Pokémon")
 async def booster(interaction: discord.Interaction, nom: str):
     if nom not in BOOSTERS:
@@ -1250,7 +1254,6 @@ async def booster(interaction: discord.Interaction, nom: str):
             selected_card = random.choices(eligible_cards, weights=weights)[0]
             selected_cards.append(selected_card)
         else:
-            # Si aucune carte n'est éligible pour cette position, sélectionner une carte aléatoire parmi toutes les cartes
             selected_card = random.choices(list(cards.keys()), weights=[data["drop_rate"] for data in cards.values()])[0]
             selected_cards.append(selected_card)
 
@@ -1258,6 +1261,7 @@ async def booster(interaction: discord.Interaction, nom: str):
     user_id = interaction.user.id
     for card_name in selected_cards:
         cursor.execute('INSERT OR IGNORE INTO user_collections (user_id, card_name) VALUES (?, ?)', (user_id, card_name))
+        logging.info(f"Inserted card: {card_name} for user: {user_id}")
     conn.commit()
 
     # URL de l'image du booster en fonction du nom du booster
@@ -1268,7 +1272,7 @@ async def booster(interaction: discord.Interaction, nom: str):
     elif nom == "Mewtwo":
         booster_image_url = "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/mewtwo.png"
     else:
-        booster_image_url = "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/default.png"  # URL par défaut si le booster n'est ni Pikachu ni Dialga ni Mewtwo
+        booster_image_url = "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/default.png"
 
     # Création de l'embed initial avec l'image du booster
     embed = discord.Embed(title="🎁 Booster Fermé", color=0xFFD700)
@@ -1375,23 +1379,25 @@ class CollectionView(discord.ui.View):
         embed.set_image(url=card_data["image_url"])
         await interaction.response.edit_message(embed=embed, view=self)
 
+# Commande /collect avec des logs
 @bot.tree.command(name="collect", description="Voir votre collection de cartes Pokémon")
 async def collect(interaction: discord.Interaction):
-        user_id = interaction.user.id
-        cursor.execute('SELECT card_name FROM user_collections WHERE user_id = ?', (user_id,))
-        cards = [row[0] for row in cursor.fetchall()]
-    
-        if not cards:
-            await interaction.response.send_message("Vous n'avez pas encore de cartes dans votre collection.", ephemeral=True)
-            return
-    
-        # Création de l'embed initial avec le select menu
-        view = CollectionView(cards)
-        initial_card = cards[0]
-        card_data = BOOSTERS["PGO - Pokemon Go"][initial_card]  # Remplacez "PGO - Pokemon Go" par le booster sélectionné
-        embed = discord.Embed(title=f" {initial_card.capitalize()}", color=0xFFD700)
-        embed.set_image(url=card_data["image_url"])
-        await interaction.response.send_message(embed=embed, view=view)
+    user_id = interaction.user.id
+    cursor.execute('SELECT card_name FROM user_collections WHERE user_id = ?', (user_id,))
+    cards = [row[0] for row in cursor.fetchall()]
+    logging.info(f"Cards retrieved for user {user_id}: {cards}")
+
+    if not cards:
+        await interaction.response.send_message("Vous n'avez pas encore de cartes dans votre collection.", ephemeral=True)
+        return
+
+    # Création de l'embed initial avec le select menu
+    view = CollectionView(cards)
+    initial_card = cards[0]
+    card_data = BOOSTERS["PGO - Pokemon Go"][initial_card]  # Remplacez "PGO - Pokemon Go" par le booster sélectionné
+    embed = discord.Embed(title=f" {initial_card.capitalize()}", color=0xFFD700)
+    embed.set_image(url=card_data["image_url"])
+    await interaction.response.send_message(embed=embed, view=view)
         
 @bot.event
 async def on_ready():
