@@ -1351,9 +1351,6 @@ class BoosterView(discord.ui.View):
             if cursor.fetchone():
                 embed.set_footer(text="Carte déjà possédée", icon_url="https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/pokeball.png")
 
-        # Ajouter le pied de page avec le numéro de la carte
-        embed.set_footer(text=f"Carte {self.current_index + 1}/{len(self.cards)}")
-
         await interaction.response.edit_message(embed=embed, view=self)
         
 # Classe pour gérer l'affichage des cartes de la collection avec un select menu
@@ -1382,18 +1379,22 @@ class CollectionView(discord.ui.View):
 
     async def select_card(self, interaction: discord.Interaction):
         selected_card = self.select_menu.values[0]
-        card_data = BOOSTERS["PGO - Pokemon Go"][selected_card]  # Remplacez "PGO - Pokemon Go" par le booster sélectionné
-        embed = discord.Embed(title=f"🎴 {selected_card.capitalize()}", color=0xFFD700)
-        embed.set_image(url=card_data["image_url"])
+        # Vérifiez si la carte existe dans le booster
+        if selected_card in BOOSTERS["PGO - Pokemon Go"]:
+            card_data = BOOSTERS["PGO - Pokemon Go"][selected_card]
+            embed = discord.Embed(title=f"🎴 {selected_card.capitalize()}", color=0xFFD700)
+            embed.set_image(url=card_data["image_url"])
 
-        # Vérifier si la carte est déjà dans la collection de l'utilisateur
-        user_id = interaction.user.id
-        cursor.execute('SELECT 1 FROM user_collections WHERE user_id = ? AND card_name = ?', (user_id, selected_card))
-        if cursor.fetchone():
-            embed.set_footer(text="Carte déjà possédée", icon_url="https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/pokeball.png")
+            # Vérifier si la carte est déjà dans la collection de l'utilisateur
+            user_id = interaction.user.id
+            cursor.execute('SELECT 1 FROM user_collections WHERE user_id = ? AND card_name = ?', (user_id, selected_card))
+            if cursor.fetchone():
+                embed.set_footer(text="Carte déjà possédée", icon_url="https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/pokeball.png")
 
-        await interaction.response.edit_message(embed=embed, view=self)
-
+            await interaction.response.edit_message(embed=embed, view=self)
+        else:
+            await interaction.response.send_message("Carte introuvable dans le booster.", ephemeral=True)
+            
 # Commande /collect avec des logs
 @bot.tree.command(name="collect", description="Voir votre collection de cartes Pokémon")
 async def collect(interaction: discord.Interaction):
