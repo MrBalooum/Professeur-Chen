@@ -1227,7 +1227,7 @@ class BoosterView(discord.ui.View):
             # Afficher la carte actuelle
             card_name = self.cards[self.current_index]
             card_data = BOOSTERS[self.booster_name][card_name]
-            embed = discord.Embed(title=f"🎴 Carte {self.current_index + 1}/{len(self.cards)}", color=0xFFD700)
+            embed = discord.Embed(title=f" Carte {self.current_index + 1}/{len(self.cards)}", color=0xFFD700)
             embed.set_image(url=card_data["image_url"])
 
         await interaction.response.edit_message(embed=embed, view=self)
@@ -1335,9 +1335,9 @@ class BoosterView(discord.ui.View):
             card_name = self.cards[self.current_index]
             print(f"Affichage de la carte: {card_name}")  # Ajouter cette ligne
             card_data = BOOSTERS[self.booster_name][card_name]
-            embed = discord.Embed(title=f"🎴 Carte {self.current_index + 1}/{len(self.cards)}", color=0xFFD700)
+            embed = discord.Embed(title=f" Carte {self.current_index + 1}/{len(self.cards)}", color=0xFFD700)
             embed.set_image(url=card_data["image_url"])
-            embed.add_field(title=f"🎴 Carte {self.current_index + 1}/{len(self.cards)}", color=0xFFD700)
+            embed.add_field(title=f" Carte {self.current_index + 1}/{len(self.cards)}", color=0xFFD700)
     
         await interaction.response.edit_message(embed=embed, view=self)
 
