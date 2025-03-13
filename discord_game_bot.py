@@ -97,7 +97,7 @@ BOOSTERS = {
             "allowed_positions" : [1] 
         },
 ############################################
-         "PGO-01/078": {
+         "PGO-001/078": {
             "drop_rate": 2.857,
             "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-001-epee-et-bouclier-pokemon-go-bulbizarre.webp",
             "allowed_positions" : [2, 3, 4] 
@@ -386,7 +386,7 @@ BOOSTERS = {
         },
          "PGO-071/078": {
             "drop_rate": 3,
-            "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-071-epee-et-bouclier-pokemon-go-noadkoko-dalola--v.webp",
+            "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-071-epee-et-bouclier-pokemon-go-noadkoko-dalola-v.webp",
             "allowed_positions" : [5, 6]
         },
          "PGO-072/078": {
