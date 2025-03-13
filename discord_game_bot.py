@@ -1275,10 +1275,10 @@ class BoosterView(discord.ui.View):
         self.next_button.disabled = (self.current_index == len(self.cards) - 1)
 
     async def update_embed(self, interaction: discord.Interaction):
-    if not self.opened:
-        # Afficher l'image du booster
-        embed = discord.Embed(title="🎁 Booster Fermé", color=0xFFD700)
-        embed.set_image(url=self.booster_image_url)
+        if not self.opened:
+            # Afficher l'image du booster
+            embed = discord.Embed(title="🎁 Booster Fermé", color=0xFFD700)
+            embed.set_image(url=self.booster_image_url)
     else:
         # Afficher la carte actuelle
         card_name = self.cards[self.current_index]
