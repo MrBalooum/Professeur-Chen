@@ -1375,8 +1375,8 @@ class CollectionView(discord.ui.View):
         embed.set_image(url=card_data["image_url"])
         await interaction.response.edit_message(embed=embed, view=self)
 
-    @bot.tree.command(name="collect", description="Voir votre collection de cartes Pokémon")
-    async def collect(interaction: discord.Interaction):
+@bot.tree.command(name="collect", description="Voir votre collection de cartes Pokémon")
+async def collect(interaction: discord.Interaction):
         user_id = interaction.user.id
         cursor.execute('SELECT card_name FROM user_collections WHERE user_id = ?', (user_id,))
         cards = [row[0] for row in cursor.fetchall()]
