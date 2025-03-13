@@ -267,7 +267,7 @@ BOOSTERS = {
         },
          "PGO-063/078": {
             "drop_rate": 2.857,
-            "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-063-epee-et-bouclier-pokemon-go-deflaisean.webp",
+            "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-063-epee-et-bouclier-pokemon-go-deflaisan.webp",
             "allowed_positions" : [2, 3, 4] 
         },
 ############################################
