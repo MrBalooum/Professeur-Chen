@@ -1345,7 +1345,6 @@ class BoosterView(discord.ui.View):
     
         await interaction.response.edit_message(embed=embed, view=self)
 
-# Classe pour gérer l'affichage des cartes de la collection avec un select menu
 class CollectionView(discord.ui.View):
     def __init__(self, cards):
         super().__init__()
@@ -1375,6 +1374,24 @@ class CollectionView(discord.ui.View):
         embed = discord.Embed(title=f"🎴 {selected_card.capitalize()}", color=0xFFD700)
         embed.set_image(url=card_data["image_url"])
         await interaction.response.edit_message(embed=embed, view=self)
+
+    @bot.tree.command(name="collect", description="Voir votre collection de cartes Pokémon")
+    async def collect(interaction: discord.Interaction):
+        user_id = interaction.user.id
+        cursor.execute('SELECT card_name FROM user_collections WHERE user_id = ?', (user_id,))
+        cards = [row[0] for row in cursor.fetchall()]
+    
+        if not cards:
+            await interaction.response.send_message("Vous n'avez pas encore de cartes dans votre collection.", ephemeral=True)
+            return
+    
+        # Création de l'embed initial avec le select menu
+        view = CollectionView(cards)
+        initial_card = cards[0]
+        card_data = BOOSTERS["PGO - Pokemon Go"][initial_card]  # Remplacez "PGO - Pokemon Go" par le booster sélectionné
+        embed = discord.Embed(title=f" {initial_card.capitalize()}", color=0xFFD700)
+        embed.set_image(url=card_data["image_url"])
+        await interaction.response.send_message(embed=embed, view=view)
         
 @bot.event
 async def on_ready():
