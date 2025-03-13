@@ -1246,18 +1246,20 @@ async def booster(interaction: discord.Interaction, nom: str):
     for position in range(1, 7):  # Positions de 1 à 6
         eligible_cards = [card for card, data in cards.items() if position in data["allowed_positions"]]
         if eligible_cards:
-            selected_card = random.choices(eligible_cards, weights=[cards[card]["drop_rate"] for card in eligible_cards])[0]
+            weights = [cards[card]["drop_rate"] for card in eligible_cards]
+            print(f"Position {position}: Cartes éligibles = {eligible_cards}, Poids = {weights}")
+            selected_card = random.choices(eligible_cards, weights=weights)[0]
             selected_cards.append(selected_card)
-            print(f"Carte sélectionnée pour la position {position}: {selected_card}")  # Ajouter cette ligne
+            print(f"Carte sélectionnée pour la position {position}: {selected_card}")
         else:
             # Si aucune carte n'est éligible pour cette position, sélectionner une carte aléatoire parmi toutes les cartes
             selected_card = random.choices(list(cards.keys()), weights=[data["drop_rate"] for data in cards.values()])[0]
             selected_cards.append(selected_card)
-            print(f"Aucune carte éligible pour la position {position}, carte sélectionnée: {selected_card}")  # Ajouter cette ligne
+            print(f"Aucune carte éligible pour la position {position}, carte sélectionnée: {selected_card}")
 
     # URL de l'image du booster en fonction du nom du booster
-    if nom == "Pikachu":
-        booster_image_url = "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/pikachu.png"
+    if nom == "PGO - Pokemon Go":
+        booster_image_url = "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/pokemon_go.png"
     elif nom == "Dialga":
         booster_image_url = "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/dialga.png"
     elif nom == "Mewtwo":
