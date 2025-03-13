@@ -1330,7 +1330,7 @@ class CollectionView(discord.ui.View):
         # Vérifiez si la carte existe dans le booster
         if selected_card in BOOSTERS["PGO - Pokemon Go"]:
             card_data = BOOSTERS["PGO - Pokemon Go"][selected_card]
-            embed = discord.Embed(title=f"🎴 {selected_card.capitalize()}", color=0xFFD700)
+            embed = discord.Embed(title=f" {selected_card.capitalize()}", color=0xFFD700)
             embed.set_image(url=card_data["image_url"])
 
             # Vérifier si la carte est déjà dans la collection de l'utilisateur
@@ -1338,8 +1338,6 @@ class CollectionView(discord.ui.View):
             cursor.execute('SELECT 1 FROM user_collections WHERE user_id = ? AND card_name = ?', (user_id, selected_card))
             result = cursor.fetchone()
             logging.info(f"Checking card {selected_card} for user {user_id}: {result}")
-            if result:
-                embed.set_footer(text="Carte déjà possédée", icon_url="https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/pokeball.png")
 
             await interaction.response.edit_message(embed=embed, view=self)
         else:
