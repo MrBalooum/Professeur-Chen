@@ -1349,7 +1349,7 @@ class BoosterView(discord.ui.View):
 class CollectionView(discord.ui.View):
     def __init__(self, cards):
         super().__init__()
-        self.cards = sorted(cards, key=lambda x: int(x.split()[0]))  # Trier les cartes par numéro
+        self.cards = sorted(cards, key=lambda x: self.extract_number(x))  # Trier les cartes par numéro si possible
 
         # Créer un select menu pour naviguer entre les cartes
         self.select_menu = discord.ui.Select(
@@ -1359,33 +1359,23 @@ class CollectionView(discord.ui.View):
         self.select_menu.callback = self.select_card
         self.add_item(self.select_menu)
 
+    def extract_number(self, card_name):
+        # Extraire le numéro de la carte si possible
+        parts = card_name.split('-')
+        if len(parts) > 1:
+            try:
+                return int(parts[1].split('/')[0])
+            except ValueError:
+                return float('inf')  # Retourner l'infini si la conversion échoue
+        return float('inf')  # Retourner l'infini si aucun numéro n'est trouvé
+
     async def select_card(self, interaction: discord.Interaction):
         selected_card = self.select_menu.values[0]
         card_data = BOOSTERS["PGO - Pokemon Go"][selected_card]  # Remplacez "PGO - Pokemon Go" par le booster sélectionné
         embed = discord.Embed(title=f"🎴 {selected_card.capitalize()}", color=0xFFD700)
         embed.set_image(url=card_data["image_url"])
         await interaction.response.edit_message(embed=embed, view=self)
-
-# Commande /collect modifiée pour utiliser un select menu
-@bot.tree.command(name="collect", description="Voir votre collection de cartes Pokémon")
-async def collect(interaction: discord.Interaction):
-    user_id = interaction.user.id
-    cursor.execute('SELECT card_name FROM user_collections WHERE user_id = ?', (user_id,))
-    cards = [row[0] for row in cursor.fetchall()]
-
-    if not cards:
-        await interaction.response.send_message("Vous n'avez pas encore de cartes dans votre collection.", ephemeral=True)
-        return
-
-    # Création de l'embed initial avec le select menu
-    view = CollectionView(cards)
-    initial_card = cards[0]
-    card_data = BOOSTERS["PGO - Pokemon Go"][initial_card]  # Remplacez "PGO - Pokemon Go" par le booster sélectionné
-    embed = discord.Embed(title=f" {initial_card.capitalize()}", color=0xFFD700)
-    embed.set_image(url=card_data["image_url"])
-    await interaction.response.send_message(embed=embed, view=view)
-
-# Événement de connexion du bot
+        
 @bot.event
 async def on_ready():
     await bot.change_presence(activity=discord.Game(name="Pokémon Jaune"))
