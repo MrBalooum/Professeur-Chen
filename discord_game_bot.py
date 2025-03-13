@@ -35,62 +35,62 @@ conn.commit()
 BOOSTERS = {
     "PGO - Pokemon Go": {
         "PGO-064/078": {
-            "drop_rate": 12,
+            "drop_rate": 11,
             "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-064-epee-et-bouclier-pokemon-go-capitaine-dequipe-blanche.webp",
             "allowed_positions" : [1]  
         },
          "PGO-065/078": {
-            "drop_rate": 12,
+            "drop_rate": 11,
             "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-064-epee-et-bouclier-pokemon-go-capitaine-dequipe-candela.webp",
             "allowed_positions" : [1] 
         },
          "PGO-066/078": {
-            "drop_rate": 12,
+            "drop_rate": 11,
             "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-066-epee-et-bouclier-pokemon-go-incubateur-doeufs.webp",
             "allowed_positions" : [1] 
         },
         "Pgo-067/078": {
-            "drop_rate": 12,
+            "drop_rate": 11,
             "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-067-epee-et-bouclier-pokemon-go-module-leurre.webp",
             "allowed_positions" : [1] 
         },
         "PGO-068/078": {
-            "drop_rate": 12,
+            "drop_rate": 11,
             "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-068-epee-et-bouclier-pokemon-go-pokestop.webp",
             "allowed_positions" : [1] 
         },
          "PGO-069/078": {
-            "drop_rate": 12,
+            "drop_rate": 11,
             "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-069-epee-et-bouclier-pokemon-go-super-bonbon.webp",
             "allowed_positions" : [1] 
         },
          "PGO-070/078": {
-            "drop_rate": 12,
+            "drop_rate": 11,
             "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-070-epee-et-bouclier-pokemon-go-capitaine-dequipe-spark.webp",
             "allowed_positions" : [1] 
         },
          "PGO-078/078": {
-            "drop_rate": 10,
+            "drop_rate": 11,
             "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-078-epee-et-bouclier-pokemon-go-recherches-professorales.webp",
             "allowed_positions" : [1] 
         },
          "PGO-082/078": {
-            "drop_rate": 1.5,
+            "drop_rate": 3,
             "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-082-epee-et-bouclier-pokemon-go-capitaine-dequipe-blanche.webp",
             "allowed_positions" : [1] 
         },
          "PGO-083/078": {
-            "drop_rate": 1.5,
+            "drop_rate": 3,
             "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-083-epee-et-bouclier-pokemon-go-capitaine-dequipe-candela.webp",
             "allowed_positions" : [1] 
         },
          "PGO-084/078": {
-            "drop_rate": 1.5,
+            "drop_rate": 3,
             "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-084-epee-et-bouclier-pokemon-go-recherches-professorales.webp",
             "allowed_positions" : [1] 
         },
          "PGO-085/078": {
-            "drop_rate": 1.5,
+            "drop_rate": 3,
             "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-085-epee-et-bouclier-pokemon-go-capitaine-dequipe-spark.webp",
             "allowed_positions" : [1] 
         },
