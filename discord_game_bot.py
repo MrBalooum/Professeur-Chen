@@ -667,7 +667,7 @@ async def booster(interaction: discord.Interaction, nom: str):
     user_id = interaction.user.id
     for card_name in selected_cards:
         cursor.execute('INSERT OR IGNORE INTO user_collections (user_id, card_name) VALUES (?, ?)', (user_id, card_name))
-        logging.info(f"Inserted card: {card_name} for user: {user_id}")
+        print(f"Inserted card: {card_name} for user: {user_id}")  # Ajout du print statement
     conn.commit()
 
     # URL de l'image du booster en fonction du nom du booster
@@ -753,7 +753,7 @@ class BoosterView(discord.ui.View):
             user_id = interaction.user.id
             cursor.execute('SELECT 1 FROM user_collections WHERE user_id = ? AND card_name = ?', (user_id, card_name))
             result = cursor.fetchone()
-            logging.info(f"Checking card {card_name} for user {user_id}: {result}")
+            print(f"Checking card {card_name} for user {user_id}: {result}")  # Ajout du print statement
             if result:
                 embed.set_footer(text="Déjà possédée ❌", icon_url="https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/pokeball.png")
             else:
@@ -799,7 +799,7 @@ class CollectionView(discord.ui.View):
             user_id = interaction.user.id
             cursor.execute('SELECT 1 FROM user_collections WHERE user_id = ? AND card_name = ?', (user_id, selected_card))
             result = cursor.fetchone()
-            logging.info(f"Checking card {selected_card} for user {user_id}: {result}")
+            print(f"Checking card {selected_card} for user {user_id}: {result}")  # Ajout du print statement
             if result:
                 embed.set_footer(text="Déjà possédée ❌", icon_url="https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/pokeball.png")
             else:
@@ -815,7 +815,7 @@ async def collect(interaction: discord.Interaction):
     user_id = interaction.user.id
     cursor.execute('SELECT card_name FROM user_collections WHERE user_id = ?', (user_id,))
     cards = [row[0] for row in cursor.fetchall()]
-    logging.info(f"Cards retrieved for user {user_id}: {cards}")
+    print(f"Cards retrieved for user {user_id}: {cards}")  # Ajout du print statement
 
     if not cards:
         await interaction.response.send_message("Vous n'avez pas encore de cartes dans votre collection.", ephemeral=True)
