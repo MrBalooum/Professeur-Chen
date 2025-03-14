@@ -857,4 +857,10 @@ async def on_ready():
     await bot.tree.sync()
     print(f'✅ Connecté en tant que {bot.user}')
 
+    # Vérifier l'état initial de la collection
+    user_id = 670192764448931840  # Remplacez par un ID d'utilisateur pour tester
+    cursor.execute('SELECT card_name FROM user_collections WHERE user_id = ?', (user_id,))
+    cards = [row[0] for row in cursor.fetchall()]
+    print(f"Initial cards for user {user_id}: {cards}")
+
 bot.run(TOKEN)
