@@ -808,6 +808,28 @@ class CollectionView(discord.ui.View):
             await interaction.response.edit_message(embed=embed, view=self)
         else:
             await interaction.response.send_message("Carte introuvable dans le booster.", ephemeral=True)
+
+    async def select_card(self, interaction: discord.Interaction):
+        selected_card = self.select_menu.values[0]
+        # Vérifiez si la carte existe dans le booster
+        if selected_card in BOOSTERS["PGO - Pokemon Go"]:
+            card_data = BOOSTERS["PGO - Pokemon Go"][selected_card]
+            embed = discord.Embed(title=f" {selected_card.capitalize()}", color=0xFFD700)
+            embed.set_image(url=card_data["image_url"])
+
+            # Vérifier si la carte est déjà dans la collection de l'utilisateur
+            user_id = interaction.user.id
+            cursor.execute('SELECT 1 FROM user_collections WHERE user_id = ? AND card_name = ?', (user_id, selected_card))
+            result = cursor.fetchone()
+            print(f"Checking card {selected_card} for user {user_id}: {result}")  # Ajout du print statement
+            if result:
+                embed.set_footer(text="Déjà possédée ❌", icon_url="https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/pokeball.png")
+            else:
+                embed.set_footer(text="✅ New !")
+
+            await interaction.response.edit_message(embed=embed, view=self)
+        else:
+            await interaction.response.send_message("Carte introuvable dans le booster.", ephemeral=True)
             
 # Commande /collect pour voir la collection de cartes Pokémon de l'utilisateur
 @bot.tree.command(name="collect", description="Voir votre collection de cartes Pokémon")
