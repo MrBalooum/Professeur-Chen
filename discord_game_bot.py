@@ -757,7 +757,7 @@ class BoosterView(discord.ui.View):
             if result:
                 embed.set_footer(text="Déjà possédée ❌", icon_url="https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/pokeball.png")
             else:
-                embed.set_footer(text="NEW! ✅")
+                embed.set_footer(text="✅ New !")
 
         await interaction.response.edit_message(embed=embed, view=self)
 
@@ -800,6 +800,10 @@ class CollectionView(discord.ui.View):
             cursor.execute('SELECT 1 FROM user_collections WHERE user_id = ? AND card_name = ?', (user_id, selected_card))
             result = cursor.fetchone()
             logging.info(f"Checking card {selected_card} for user {user_id}: {result}")
+            if result:
+                embed.set_footer(text="Déjà possédée ❌", icon_url="https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/pokeball.png")
+            else:
+                embed.set_footer(text="✅ New !")
 
             await interaction.response.edit_message(embed=embed, view=self)
         else:
