@@ -667,8 +667,13 @@ async def booster(interaction: discord.Interaction, nom: str):
     user_id = interaction.user.id
     for card_name in selected_cards:
         cursor.execute('INSERT OR IGNORE INTO user_collections (user_id, card_name) VALUES (?, ?)', (user_id, card_name))
+        conn.commit()  # Assurez-vous de commiter après chaque insertion
         print(f"Inserted card: {card_name} for user: {user_id}")  # Ajout du print statement
-    conn.commit()
+
+    # Vérifier les cartes insérées
+    cursor.execute('SELECT card_name FROM user_collections WHERE user_id = ?', (user_id,))
+    cards_in_db = [row[0] for row in cursor.fetchall()]
+    print(f"Cards in database for user {user_id}: {cards_in_db}")  # Ajout du print statement
 
     # URL de l'image du booster en fonction du nom du booster
     if nom == "PGO - Pokemon Go":
@@ -694,6 +699,55 @@ async def booster_autocomplete(interaction: discord.Interaction, current: str):
     suggestions = [name for name in BOOSTERS.keys() if current.lower() in name.lower()]
     return [discord.app_commands.Choice(name=p, value=p) for p in suggestions[:10]]
     
+class CollectionView(discord.ui.View):
+    def __init__(self, cards):
+        super().__init__()
+        self.cards = sorted(cards, key=lambda x: self.extract_number(x))  # Trier les cartes par numéro si possible
+
+        # Créer un select menu pour naviguer entre les cartes
+        self.select_menu = discord.ui.Select(
+            placeholder="Sélectionnez une carte...",
+            options=[discord.SelectOption(label=card[:25].capitalize(), value=card) for card in self.cards]
+        )
+        self.select_menu.callback = self.select_card
+        self.add_item(self.select_menu)
+
+    def extract_number(self, card_name):
+        # Extraire le numéro de la carte si possible
+        parts = card_name.split('-')
+        if len(parts) > 1:
+            try:
+                return int(parts[1].split('/')[0])
+            except ValueError:
+                return float('inf')  # Retourner l'infini si la conversion échoue
+        return float('inf')  # Retourner l'infini si aucun numéro n'est trouvé
+
+    async def select_card(self, interaction: discord.Interaction):
+        selected_card = self.select_menu.values[0]
+        # Vérifiez si la carte existe dans le booster
+        if selected_card in BOOSTERS["PGO - Pokemon Go"]:
+            card_data = BOOSTERS["PGO - Pokemon Go"][selected_card]
+            embed = discord.Embed(title=f" {selected_card.capitalize()}", color=0xFFD700)
+            embed.set_image(url=card_data["image_url"])
+
+            # Vérifier si la carte est déjà dans la collection de l'utilisateur
+            user_id = interaction.user.id
+            cursor.execute('SELECT 1 FROM user_collections WHERE user_id = ? AND card_name = ?', (user_id, selected_card))
+            result = cursor.fetchone()
+            print(f"Checking card {selected_card} for user {user_id}: {result}")  # Ajout du print statement
+            if result:
+                embed.set_footer(text="Déjà possédée ❌", icon_url="https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/pokeball.png")
+            else:
+                embed.set_footer(text="✅ New !")
+
+            await interaction.response.edit_message(embed=embed, view=self)
+        else:
+            await interaction.response.send_message("Carte introuvable dans le booster.", ephemeral=True)
+
+
+# Configurer le logging
+logging.basicConfig(level=logging.INFO)
+
 class BoosterView(discord.ui.View):
     def __init__(self, cards, booster_image_url, booster_name):
         super().__init__()
@@ -760,76 +814,6 @@ class BoosterView(discord.ui.View):
                 embed.set_footer(text="✅ New !")
 
         await interaction.response.edit_message(embed=embed, view=self)
-
-# Configurer le logging
-logging.basicConfig(level=logging.INFO)
-
-class CollectionView(discord.ui.View):
-    def __init__(self, cards):
-        super().__init__()
-        self.cards = sorted(cards, key=lambda x: self.extract_number(x))  # Trier les cartes par numéro si possible
-
-        # Créer un select menu pour naviguer entre les cartes
-        self.select_menu = discord.ui.Select(
-            placeholder="Sélectionnez une carte...",
-            options=[discord.SelectOption(label=card[:25].capitalize(), value=card) for card in self.cards]
-        )
-        self.select_menu.callback = self.select_card
-        self.add_item(self.select_menu)
-
-    def extract_number(self, card_name):
-        # Extraire le numéro de la carte si possible
-        parts = card_name.split('-')
-        if len(parts) > 1:
-            try:
-                return int(parts[1].split('/')[0])
-            except ValueError:
-                return float('inf')  # Retourner l'infini si la conversion échoue
-        return float('inf')  # Retourner l'infini si aucun numéro n'est trouvé
-
-    async def select_card(self, interaction: discord.Interaction):
-        selected_card = self.select_menu.values[0]
-        # Vérifiez si la carte existe dans le booster
-        if selected_card in BOOSTERS["PGO - Pokemon Go"]:
-            card_data = BOOSTERS["PGO - Pokemon Go"][selected_card]
-            embed = discord.Embed(title=f" {selected_card.capitalize()}", color=0xFFD700)
-            embed.set_image(url=card_data["image_url"])
-
-            # Vérifier si la carte est déjà dans la collection de l'utilisateur
-            user_id = interaction.user.id
-            cursor.execute('SELECT 1 FROM user_collections WHERE user_id = ? AND card_name = ?', (user_id, selected_card))
-            result = cursor.fetchone()
-            print(f"Checking card {selected_card} for user {user_id}: {result}")  # Ajout du print statement
-            if result:
-                embed.set_footer(text="Déjà possédée ❌", icon_url="https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/pokeball.png")
-            else:
-                embed.set_footer(text="✅ New !")
-
-            await interaction.response.edit_message(embed=embed, view=self)
-        else:
-            await interaction.response.send_message("Carte introuvable dans le booster.", ephemeral=True)
-
-    async def select_card(self, interaction: discord.Interaction):
-        selected_card = self.select_menu.values[0]
-        # Vérifiez si la carte existe dans le booster
-        if selected_card in BOOSTERS["PGO - Pokemon Go"]:
-            card_data = BOOSTERS["PGO - Pokemon Go"][selected_card]
-            embed = discord.Embed(title=f" {selected_card.capitalize()}", color=0xFFD700)
-            embed.set_image(url=card_data["image_url"])
-
-            # Vérifier si la carte est déjà dans la collection de l'utilisateur
-            user_id = interaction.user.id
-            cursor.execute('SELECT 1 FROM user_collections WHERE user_id = ? AND card_name = ?', (user_id, selected_card))
-            result = cursor.fetchone()
-            print(f"Checking card {selected_card} for user {user_id}: {result}")  # Ajout du print statement
-            if result:
-                embed.set_footer(text="Déjà possédée ❌", icon_url="https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/pokeball.png")
-            else:
-                embed.set_footer(text="✅ New !")
-
-            await interaction.response.edit_message(embed=embed, view=self)
-        else:
-            await interaction.response.send_message("Carte introuvable dans le booster.", ephemeral=True)
             
 # Commande /collect pour voir la collection de cartes Pokémon de l'utilisateur
 @bot.tree.command(name="collect", description="Voir votre collection de cartes Pokémon")
