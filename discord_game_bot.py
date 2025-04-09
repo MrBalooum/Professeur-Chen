@@ -503,62 +503,62 @@ BOOSTERS = {
         },
         "PLS-120 - Corde Sortie": {
             "drop_rate": 8,
-            "image_url": "https://static.pkmcards.fr/cards/fr/pls/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pls-fr-117-noir-blanc-tempete-plasma-corde-sortie.webp",
+            "image_url": "https://static.pkmcards.fr/cards/fr/pls/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pls-fr-120-noir-blanc-tempete-plasma-corde-sortie.webp",
             "allowed_positions" : [1] 
         },
         "PLS-121 - Huile": {
             "drop_rate": 8,
-            "image_url": "https://static.pkmcards.fr/cards/fr/pls/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pls-fr-117-noir-blanc-tempete-plasma-huile.webp",
+            "image_url": "https://static.pkmcards.fr/cards/fr/pls/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pls-fr-121-noir-blanc-tempete-plasma-huile.webp",
             "allowed_positions" : [1] 
         },
          "PLS-122 - Evoluroc": {
             "drop_rate": 8,
-            "image_url": "https://static.pkmcards.fr/cards/fr/pls/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pls-fr-117-noir-blanc-tempete-plasma-evoluroc.webp",
+            "image_url": "https://static.pkmcards.fr/cards/fr/pls/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pls-fr-122-noir-blanc-tempete-plasma-evoluroc.webp",
             "allowed_positions" : [1] 
         },
          "PLS-123 Laser Hypnotoxique": {
             "drop_rate": 8,
-            "image_url": "https://static.pkmcards.fr/cards/fr/pls/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pls-fr-117-noir-blanc-tempete-plasma-laser-hypnotoxique.webp",
+            "image_url": "https://static.pkmcards.fr/cards/fr/pls/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pls-fr-123-noir-blanc-tempete-plasma-laser-hypnotoxique.webp",
             "allowed_positions" : [1] 
         },
          "PLS-124 - Frégate Plasma": {
             "drop_rate": 8,
-            "image_url": "https://static.pkmcards.fr/cards/fr/pls/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pls-fr-117-noir-blanc-tempete-plasma-fregate-plasma.webp",
+            "image_url": "https://static.pkmcards.fr/cards/fr/pls/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pls-fr-124-noir-blanc-tempete-plasma-fregate-plasma.webp",
             "allowed_positions" : [1] 
         },
         "PLS-125 - Sbire de la team Plasma": {
             "drop_rate": 8,
-            "image_url": "https://static.pkmcards.fr/cards/fr/pls/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pls-fr-117-noir-blanc-tempete-plasma-sbire-de-la-team-plasma.webp",
+            "image_url": "https://static.pkmcards.fr/cards/fr/pls/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pls-fr-125-noir-blanc-tempete-plasma-sbire-de-la-team-plasma.webp",
             "allowed_positions" : [1] 
         },
         "PLS-126 - Aréne d'Ondes-Sur-Mer": {
             "drop_rate": 8,
-            "image_url": "https://static.pkmcards.fr/cards/fr/pls/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pls-fr-117-noir-blanc-tempete-plasma-arene-donde-sur-mer.webp",
+            "image_url": "https://static.pkmcards.fr/cards/fr/pls/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pls-fr-126-noir-blanc-tempete-plasma-arene-donde-sur-mer.webp",
             "allowed_positions" : [1] 
         },
         "PLS-127 - Energie Plasma": {
             "drop_rate": 8,
-            "image_url": "https://static.pkmcards.fr/cards/fr/pls/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pls-fr-117-noir-blanc-tempete-plasma-energie-plasma.webp",
+            "image_url": "https://static.pkmcards.fr/cards/fr/pls/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pls-fr-127-noir-blanc-tempete-plasma-energie-plasma.webp",
             "allowed_positions" : [1] 
         },
          "PLS-128 - Cherch'Objet": {
             "drop_rate": 3.1,
-            "image_url": "https://static.pkmcards.fr/cards/fr/pls/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pls-fr-117-noir-blanc-tempete-plasma-cherchobjet.webp",
+            "image_url": "https://static.pkmcards.fr/cards/fr/pls/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pls-fr-128-noir-blanc-tempete-plasma-cherchobjet.webp",
             "allowed_positions" : [1] 
         },
          "PLS-129 - Echange Combine": {
             "drop_rate": 3.1,
-            "image_url": "https://static.pkmcards.fr/cards/fr/pls/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pls-fr-117-noir-blanc-tempete-plasma-echange-conbine.webp",
+            "image_url": "https://static.pkmcards.fr/cards/fr/pls/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pls-fr-129-noir-blanc-tempete-plasma-echange-conbine.webp",
             "allowed_positions" : [1] 
         },
          "PLS-130 - Eclat de Victoire": {
             "drop_rate": 3.1,
-            "image_url": "https://static.pkmcards.fr/cards/fr/pls/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pls-fr-117-noir-blanc-tempete-plasma-eclat-de-victoire.webp",
+            "image_url": "https://static.pkmcards.fr/cards/fr/pls/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pls-fr-130-noir-blanc-tempete-plasma-eclat-de-victoire.webp",
             "allowed_positions" : [1] 
         },
          "PLS-138 - Recepteur Aleatoire": {
             "drop_rate": 2.7,
-            "image_url": "https://static.pkmcards.fr/cards/fr/pls/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pls-fr-117-noir-blanc-tempete-plasma-recepteur-aleatoire.webp",
+            "image_url": "https://static.pkmcards.fr/cards/fr/pls/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pls-fr-138-noir-blanc-tempete-plasma-recepteur-aleatoire.webp",
             "allowed_positions" : [1] 
         },
 ############################################
