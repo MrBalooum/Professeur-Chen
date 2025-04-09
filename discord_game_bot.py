@@ -1142,7 +1142,7 @@ async def booster(interaction: discord.Interaction, nom: str):
     if nom == "PGO - Pokemon Go":
         booster_image_url = "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/Pokemon_go.png"
     elif nom == "PLS - Noir & Blanc - Tempête plasma":
-        booster_image_url = "https://github.com/MrBalooum/Professeur-Chen/blob/Pokemon-Card/Tempete%20plasma.jpg"
+        booster_image_url = "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/Tempete_plasma.png"
     elif nom == "Mewtwo":
         booster_image_url = "https://raw.githubusercontent.com/MrBalooum/Professeur-Chen/refs/heads/Pokemon-Card/mewtwo.png"
     else:
