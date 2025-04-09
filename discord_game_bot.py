@@ -542,22 +542,22 @@ BOOSTERS = {
             "allowed_positions" : [1] 
         },
          "PLS-128 - Cherch'Objet": {
-            "drop_rate": 3.1,
+            "drop_rate": 3.2,
             "image_url": "https://static.pkmcards.fr/cards/fr/pls/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pls-fr-128-noir-blanc-tempete-plasma-cherchobjet.webp",
             "allowed_positions" : [1] 
         },
          "PLS-129 - Echange Combine": {
-            "drop_rate": 3.1,
+            "drop_rate": 3.2,
             "image_url": "https://static.pkmcards.fr/cards/fr/pls/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pls-fr-129-noir-blanc-tempete-plasma-echange-conbine.webp",
             "allowed_positions" : [1] 
         },
          "PLS-130 - Eclat de Victoire": {
-            "drop_rate": 3.1,
+            "drop_rate": 3.2,
             "image_url": "https://static.pkmcards.fr/cards/fr/pls/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pls-fr-130-noir-blanc-tempete-plasma-eclat-de-victoire.webp",
             "allowed_positions" : [1] 
         },
          "PLS-138 - Recepteur Aleatoire": {
-            "drop_rate": 2.7,
+            "drop_rate": 2.4,
             "image_url": "https://static.pkmcards.fr/cards/fr/pls/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pls-fr-138-noir-blanc-tempete-plasma-recepteur-aleatoire.webp",
             "allowed_positions" : [1] 
         },
@@ -886,65 +886,60 @@ BOOSTERS = {
         },
         
 ############################################
-        "PGO-004 - Florizarre Radieux": {
-            "drop_rate": 1.15,
-            "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-004-epee-et-bouclier-pokemon-go-florizarre-radieux.webp",
-            "allowed_positions" : [6]
-        },    
-         "PGO-011 - Dracaufeu Radieux": {
-            "drop_rate": 1.15,
-            "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-011-epee-et-bouclier-pokemon-go-dracaufeu-radieux.webp",
+         "PLS-062 - Giratina ": {
+            "drop_rate": 1.30,
+            "image_url": "https://static.pkmcards.fr/cards/fr/pls/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pls-fr-048-noir-blanc-tempete-plasma-giratina.webp",
             "allowed_positions" : [6]
         },
-         "PGO-018 - Tortank Radieux": {
-            "drop_rate": 1.15,
-            "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-018-epee-et-bouclier-pokemon-go-tortank-radieux.webp",
+         "PLS-095 - Kyurem Noir EX ": {
+            "drop_rate": 1.30,
+            "image_url": "https://static.pkmcards.fr/cards/fr/pls/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pls-fr-095-noir-blanc-tempete-plasma-Kyurem-noir-ex.webp",
             "allowed_positions" : [6]
         },
-         "PGO-031 - Mewtwo VStar": {
-            "drop_rate": 1.15,
-            "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-031-epee-et-bouclier-pokemon-go-mewtwo-vstar.webp",
+         "PLS-096 - Kyurem blanc EX ": {
+            "drop_rate": 1.30,
+            "image_url": "https://static.pkmcards.fr/cards/fr/pls/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pls-fr-096-noir-blanc-tempete-plasma-Kyurem-blanc-ex.webp",
             "allowed_positions" : [6]
         },
-         "PGO-048 - Melmetal VMax": {
-            "drop_rate": 1.15,
-            "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-048-epee-et-bouclier-pokemon-go-melmetal-vmax.webp",
+         "PLS-108 - Lugia EX ": {
+            "drop_rate": 1.30,
+            "image_url": "https://static.pkmcards.fr/cards/fr/pls/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pls-fr-108-noir-blanc-tempete-plasma-lugia-ex.webp",
             "allowed_positions" : [6]
         },
-         "PGO-050 - Dracolosse VStar": {
-            "drop_rate": 1.15,
-            "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-050-epee-et-bouclier-pokemon-go-dracolosse-vstar.webp",
+         "PLS-131 - Victini EX ": {
+            "drop_rate": 1.30,
+            "image_url": "https://static.pkmcards.fr/cards/fr/pls/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pls-fr-131-noir-blanc-tempete-plasma-victini-ex.webp",
             "allowed_positions" : [6]
         },
-         "PGO-079 - Mewtwo VStar": {
-            "drop_rate": 1.15,
-            "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-079-epee-et-bouclier-pokemon-go-mewtwo-vstar.webp",
+         "PLS-132 - Artikodin EX ": {
+            "drop_rate": 1.30,
+            "image_url": "https://static.pkmcards.fr/cards/fr/pls/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pls-fr-132-noir-blanc-tempete-plasma-artikodin-ex.webp",
             "allowed_positions" : [6]
         },
-         "PGO-080 - Melmetal VMax ": {
-            "drop_rate": 1.15,
-            "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-080-epee-et-bouclier-pokemon-go-melmetal-vmax.webp",
+         "PLS-133 - Cobaltium EX ": {
+            "drop_rate": 1.30,
+            "image_url": "https://static.pkmcards.fr/cards/fr/pls/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pls-fr-133-noir-blanc-tempete-plasma-cobaltium-ex.webp",
             "allowed_positions" : [6]
         },
-         "PGO-081 - Dracolosse VStar": {
-            "drop_rate": 1.15,
-            "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-081-epee-et-bouclier-pokemon-go-dracolosse-vstar.webp",
+         "PLS-134 - Lugia EX ": {
+            "drop_rate": 1.30,
+            "image_url": "https://static.pkmcards.fr/cards/fr/pls/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pls-fr-134-noir-blanc-tempete-plasma-lugia-ex.webp",
             "allowed_positions" : [6]
-        },   
+        },
 ############################################
-         "PGO-086 - Unique Mewtwo VStar": {
+         "PLS-135 - Nikolaï ": {
             "drop_rate": 0.8833,
-            "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-086-epee-et-bouclier-pokemon-go-mewtwo-vstar.webp",
+            "image_url": "https://static.pkmcards.fr/cards/fr/pls/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pls-fr-135-noir-blanc-tempete-plasma-nikolai.webp",
             "allowed_positions" : [6]
         }, 
-         "PGO-087 - Unique Incubateur d'oeufs": {
+         "PLS-136 - Dracaufeu ": {
             "drop_rate": 0.8833,
-            "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-087-epee-et-bouclier-pokemon-go-incubateur-doeufs.webp",
+            "image_url": "https://static.pkmcards.fr/cards/fr/pls/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pls-fr-136-noir-blanc-tempete-plasma-dracaufeu.webp",
             "allowed_positions" : [6]
         },
-         "PGO-088 - Unique Module leurre": {
+         "PLS-137 - Tortank ": {
             "drop_rate": 0.8833,
-            "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-088-epee-et-bouclier-pokemon-go-module-leurre.webp",
+            "image_url": "https://static.pkmcards.fr/cards/fr/pls/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pls-fr-137-noir-blanc-tempete-plasma-tortank.webp",
             "allowed_positions" : [6]
         },
  ############################################=
