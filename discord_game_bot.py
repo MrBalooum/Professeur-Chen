@@ -533,7 +533,7 @@ BOOSTERS = {
         },
         "PLS-126 - Aréne d'Ondes-Sur-Mer": {
             "drop_rate": 8,
-            "image_url": "https://static.pkmcards.fr/cards/fr/pls/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pls-fr-126-noir-blanc-tempete-plasma-arene-donde-sur-mer.webp",
+            "image_url": "https://static.pkmcards.fr/cards/fr/pls/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pls-fr-126-noir-blanc-tempete-plasma-arene-dondes-sur-mer.webp",
             "allowed_positions" : [1] 
         },
         "PLS-127 - Energie Plasma": {
