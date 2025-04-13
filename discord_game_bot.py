@@ -562,179 +562,179 @@ BOOSTERS = {
             "allowed_positions" : [1] 
         },
 ############################################
-         "PGO-001 - Bulbizarre": {
+         "PLS-001 - Tortipouss": {
             "drop_rate": 2.857,
-            "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-001-epee-et-bouclier-pokemon-go-bulbizarre.webp",
+            "image_url": "https://static.pkmcards.fr/cards/fr/pls/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pls-fr-001-noir-blanc-tempete-plasma-tortipouss.webp",
             "allowed_positions" : [2, 3, 4] 
         },
-         "PGO-002 - Herbizarre": {
+         "PLS-004 - Apitrini": {
             "drop_rate": 2.857,
-            "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-002-epee-et-bouclier-pokemon-go-herbizarre.webp",
+            "image_url": "https://static.pkmcards.fr/cards/fr/pls/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pls-fr-004-noir-blanc-tempete-plasma-apitrini.webp",
             "allowed_positions" : [2, 3, 4] 
         },
-         "PGO-006 - Mimigal": {
+         "PLS-006 - Ceribou": {
             "drop_rate": 2.857,
-            "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-006-epee-et-bouclier-pokemon-go-mimigal.webp",
+            "image_url": "https://static.pkmcards.fr/cards/fr/pls/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pls-fr-006-noir-blanc-tempete-plasma-ceribou.webp",
             "allowed_positions" : [2, 3, 4] 
         },
-         "PGO-007 - Migalos": {
+         "PLS-008 - Larveyette": {
             "drop_rate": 2.857,
-            "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-007-epee-et-bouclier-pokemon-go-migalos.webp",
+            "image_url": "https://static.pkmcards.fr/cards/fr/pls/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pls-fr-008-noir-blanc-tempete-plasma-larveyette.webp",
             "allowed_positions" : [2, 3, 4] 
         },
-         "PGO-008 - Salameche": {
+         "PLS-012 - Trompignon": {
             "drop_rate": 2.857,
-            "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-008-epee-et-bouclier-pokemon-go-salameche.webp",
+            "image_url": "https://static.pkmcards.fr/cards/fr/pls/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pls-fr-012-noir-blanc-tempete-plasma-trompignon.webp",
             "allowed_positions" : [2, 3, 4] 
         },
-         "PGO-009 - Reptincel": {
+         "PLS-015 - Ouisticram": {
             "drop_rate": 2.857,
-            "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-009-epee-et-bouclier-pokemon-go-reptincel.webp",
+            "image_url": "https://static.pkmcards.fr/cards/fr/pls/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pls-fr-015-noir-blanc-tempete-plasma-ouisticram.webp",
             "allowed_positions" : [2, 3, 4] 
         },
-         "PGO-013 - Chamallot": {
+         "PLS-019 - Flamajou": {
             "drop_rate": 2.857,
-            "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-013-epee-et-bouclier-pokemon-go-chamallot.webp",
+            "image_url": "https://static.pkmcards.fr/cards/fr/pls/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pls-fr-019-noir-blanc-tempete-plasma-flamajou.webp",
             "allowed_positions" : [2, 3, 4] 
         },
-         "PGO-014 - Camerupt": {
+         "PLS-021 - Funécire": {
             "drop_rate": 2.857,
-            "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-014-epee-et-bouclier-pokemon-go-camerupt.webp",
+            "image_url": "https://static.pkmcards.fr/cards/fr/pls/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pls-fr-021-noir-blanc-tempete-plasma-funecire.webp",
             "allowed_positions" : [2, 3, 4] 
         },
-         "PGO-015 - Carapuce": {
+         "PLS-024 - Carapuce": {
             "drop_rate": 2.857,
-            "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-015-epee-et-bouclier-pokemon-go-carapuce.webp",
+            "image_url": "https://static.pkmcards.fr/cards/fr/pls/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pls-fr-024-noir-blanc-tempete-plasma-carapuce.webp",
             "allowed_positions" : [2, 3, 4] 
         },
-         "PGO-016 - Carabaffe": {
+         "PLS-026 - Marcacrin": {
             "drop_rate": 2.857,
-            "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-016-epee-et-bouclier-pokemon-go-carabaffe.webp",
+            "image_url": "https://static.pkmcards.fr/cards/fr/pls/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pls-fr-026-noir-blanc-tempete-plasma-marcacrin.webp",
             "allowed_positions" : [2, 3, 4] 
         },
-         "PGO-019 - Ramoloss": {
+         "PLS-029 - Nénupiot": {
             "drop_rate": 2.857,
-            "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-019-epee-et-bouclier-pokemon-go-ramoloss.webp",
+            "image_url": "https://static.pkmcards.fr/cards/fr/pls/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pls-fr-029-noir-blanc-tempete-plasma-nenupiot.webp",
             "allowed_positions" : [2, 3, 4] 
         },
-         "PGO-020 - Flagadoss": {
+         "PLS-032 - Carvanha": {
             "drop_rate": 2.857,
-            "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-020-epee-et-bouclier-pokemon-go-flagadoss.webp",
+            "image_url": "https://static.pkmcards.fr/cards/fr/pls/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pls-fr-032-noir-blanc-tempete-plasma-carvanha.webp",
             "allowed_positions" : [2, 3, 4] 
         },
-         "PGO-021 - Magicarpe": {
+         "PLS-035 - Sorbébé": {
             "drop_rate": 2.857,
-            "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-021-epee-et-bouclier-pokemon-go-magicarpe.webp",
+            "image_url": "https://static.pkmcards.fr/cards/fr/pls/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pls-fr-035-noir-blanc-tempete-plasma-sorbebe.webp",
             "allowed_positions" : [2, 3, 4] 
         },
-         "PGO-025 - Sovkipou": {
+         "PLS-038 - Viskuse": {
             "drop_rate": 2.857,
-            "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-025-epee-et-bouclier-pokemon-go-sovkipou.webp",
+            "image_url": "https://static.pkmcards.fr/cards/fr/pls/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pls-fr-038-noir-blanc-tempete-plasma-viskuse.webp",
             "allowed_positions" : [2, 3, 4] 
         },
-         "PGO-027 - Pikachu": {
+         "PLS-040 - Polarhume": {
             "drop_rate": 2.857,
-            "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-027-epee-et-bouclier-pokemon-go-pikachu.webp",
+            "image_url": "https://static.pkmcards.fr/cards/fr/pls/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pls-fr-040-noir-blanc-tempete-plasma-polarhume.webp",
             "allowed_positions" : [2, 3, 4] 
         }, 
-         "PGO-032 - Natu": {
+         "PLS-042 - Magnéti": {
             "drop_rate": 2.857,
-            "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-032-epee-et-bouclier-pokemon-go-natu.webp",
+            "image_url": "https://static.pkmcards.fr/cards/fr/pls/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pls-fr-042-noir-blanc-tempete-plasma-magneti.webp",
             "allowed_positions" : [2, 3, 4] 
         },
-         "PGO-033 - Xatu": {
+         "PLS-050 - Statitik": {
             "drop_rate": 2.857,
-            "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-033-epee-et-bouclier-pokemon-go-xatu.webp",
+            "image_url": "https://static.pkmcards.fr/cards/fr/pls/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pls-fr-050-noir-blanc-tempete-plasma-statitik.webp",
             "allowed_positions" : [2, 3, 4] 
         },
-         "PGO-034 - Seleroc": {
+         "PLS-052 - Nosferapti": {
             "drop_rate": 2.857,
-            "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-034-epee-et-bouclier-pokemon-go-seleroc.webp",
+            "image_url": "https://static.pkmcards.fr/cards/fr/pls/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pls-fr-052-noir-blanc-tempete-plasma-nosferapti.webp",
             "allowed_positions" : [2, 3, 4] 
         },
-         "PGO-036 - Onix": {
+         "PLS-056 - Smogo": {
             "drop_rate": 2.857,
-            "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-036-epee-et-bouclier-pokemon-go-onix.webp",
+            "image_url": "https://static.pkmcards.fr/cards/fr/pls/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pls-fr-056-noir-blanc-tempete-plasma-smogo.webp",
             "allowed_positions" : [2, 3, 4] 
         },
-         "PGO-037 - Embrylex": {
+         "PLS-059 - Tarsal": {
             "drop_rate": 2.857,
-            "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-037-epee-et-bouclier-pokemon-go-embrylex.webp",
+            "image_url": "https://static.pkmcards.fr/cards/fr/pls/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pls-fr-059-noir-blanc-tempete-plasma-tarsal.webp",
             "allowed_positions" : [2, 3, 4] 
         },
-         "PGO-038 - Ymphect": {
+         "PLS-064 - Miamiasme": {
             "drop_rate": 2.857,
-            "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-038-epee-et-bouclier-pokemon-go-ymphect.webp",
+            "image_url": "https://static.pkmcards.fr/cards/fr/pls/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pls-fr-064-noir-blanc-tempete-plasma-miamiasme.webp",
             "allowed_positions" : [2, 3, 4] 
         },
-         "PGO-039 - Solaroc": {
+         "PLS-068 - Lewsor": {
             "drop_rate": 2.857,
-            "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-039-epee-et-bouclier-pokemon-go-solaroc.webp",
+            "image_url": "https://static.pkmcards.fr/cards/fr/pls/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pls-fr-068-noir-blanc-tempete-plasma-lewsor.webp",
             "allowed_positions" : [2, 3, 4] 
         },
-         "PGO-041 - Rattata d'Alola": {
+         "PLS-071 - Phanpy": {
             "drop_rate": 2.857,
-            "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-041-epee-et-bouclier-pokemon-go-rattata-dalola.webp",
+            "image_url": "https://static.pkmcards.fr/cards/fr/pls/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pls-fr-071-noir-blanc-tempete-plasma-phanpy.webp",
             "allowed_positions" : [2, 3, 4] 
         },
-         "PGO-042 - Rattatac d'Alola": {
+         "PLS-075 - Riolu": {
             "drop_rate": 2.857,
-            "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-042-epee-et-bouclier-pokemon-go-rattatac-dalola.webp",
+            "image_url": "https://static.pkmcards.fr/cards/fr/pls/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pls-fr-075-noir-blanc-tempete-plasma-riolu.webp",
             "allowed_positions" : [2, 3, 4] 
         },
-         "PGO-044 - Steelix": {
+         "PLS-079 - Charpenti": {
             "drop_rate": 2.857,
-            "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-044-epee-et-bouclier-pokemon-go-steelix.webp",
+            "image_url": "https://static.pkmcards.fr/cards/fr/pls/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pls-fr-079-noir-blanc-tempete-plasma-charpenti.webp",
             "allowed_positions" : [2, 3, 4] 
         },
-         "PGO-045 - Meltan": {
+         "PLS-082 - Chacripan": {
             "drop_rate": 2.857,
-            "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-045-epee-et-bouclier-pokemon-go-meltan.webp",
+            "image_url": "https://static.pkmcards.fr/cards/fr/pls/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pls-fr-082-noir-blanc-tempete-plasma-chacripan.webp",
             "allowed_positions" : [2, 3, 4] 
         },
-         "PGO-051 - Leveinard": {
+         "PLS-085 - Baggiguane": {
             "drop_rate": 2.857,
-            "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-051-epee-et-bouclier-pokemon-go-leveinard.webp",
+            "image_url": "https://static.pkmcards.fr/cards/fr/pls/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pls-fr-085-noir-blanc-tempete-plasma-baggiguane.webp",
             "allowed_positions" : [2, 3, 4] 
         },
-         "PGO-054 - Evoli": {
+         "PLS-088 - Tic": {
             "drop_rate": 2.857,
-            "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-054-epee-et-bouclier-pokemon-go-evoli.webp",
+            "image_url": "https://static.pkmcards.fr/cards/fr/pls/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pls-fr-088-noir-blanc-tempete-plasma-tic.webp",
             "allowed_positions" : [2, 3, 4] 
         },
-         "PGO-056 - Capumain": {
+         "PLS-097 - Mélofée": {
             "drop_rate": 2.857,
-            "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-056-epee-et-bouclier-pokemon-go-capumain.webp",
+            "image_url": "https://static.pkmcards.fr/cards/fr/pls/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pls-fr-097-noir-blanc-tempete-plasma-melofee.webp",
             "allowed_positions" : [2, 3, 4] 
         },
-         "PGO-057 - Capidextre": {
+         "PLS-099 - Doduo": {
             "drop_rate": 2.857,
-            "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-057-epee-et-bouclier-pokemon-go-capidextre.webp",
+            "image_url": "https://static.pkmcards.fr/cards/fr/pls/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pls-fr-099-noir-blanc-tempete-plasma-doduo.webp",
             "allowed_positions" : [2, 3, 4] 
         },
-         "PGO-059 - Keunotor": {
+         "PLS-102 - Togepi": {
             "drop_rate": 2.857,
-            "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-059-epee-et-bouclier-pokemon-go-keunotor.webp",
+            "image_url": "https://static.pkmcards.fr/cards/fr/pls/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pls-fr-102-noir-blanc-tempete-plasma-togepi.webp",
             "allowed_positions" : [2, 3, 4] 
         },
-         "PGO-060 - Castorno": {
+         "PLS-105 - Chuchmur": {
             "drop_rate": 2.857,
-            "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-060-epee-et-bouclier-pokemon-go-castorno.webp",
+            "image_url": "https://static.pkmcards.fr/cards/fr/pls/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pls-fr-105-noir-blanc-tempete-plasma-chuchmur.webp",
             "allowed_positions" : [2, 3, 4] 
         },
-         "PGO-061 - Poichigeon": {
+         "PLS-109 - Skitty": {
             "drop_rate": 2.857,
-            "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-061-epee-et-bouclier-pokemon-go-poichigeon.webp",
+            "image_url": "https://static.pkmcards.fr/cards/fr/pls/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pls-fr-109-noir-blanc-tempete-plasma-skitty.webp",
             "allowed_positions" : [2, 3, 4] 
         },
-         "PGO-062 - Colombeau": {
+         "PLS-111 - Ratentif": {
             "drop_rate": 2.857,
-            "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-062-epee-et-bouclier-pokemon-go-colombeau.webp",
+            "image_url": "https://static.pkmcards.fr/cards/fr/pls/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pls-fr-111-noir-blanc-tempete-plasma-ratentif.webp",
             "allowed_positions" : [2, 3, 4] 
         },
-         "PGO-063 - Deflaisan": {
+         "PLS-115 - Furaiglon": {
             "drop_rate": 2.857,
-            "image_url": "https://static.pkmcards.fr/cards/fr/pgo/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pgo-fr-063-epee-et-bouclier-pokemon-go-deflaisan.webp",
+            "image_url": "https://static.pkmcards.fr/cards/fr/pls/image-cartes-a-collectionner-pokemon-card-game-tcg-pkmcards-pls-fr-115-noir-blanc-tempete-plasma-furaiglon.webp",
             "allowed_positions" : [2, 3, 4] 
         },
 ############################################
